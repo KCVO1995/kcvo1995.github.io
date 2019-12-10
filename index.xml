@@ -6,7 +6,7 @@
     <description>Recent content on 辉辉的小窝</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 09 Dec 2019 16:37:57 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 10 Dec 2019 15:24:33 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
@@ -27,6 +27,64 @@
 &lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cast&#34;&gt;Cast&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>如何使用Hugo搭建个人博客</title>
+      <link>http://localhost:1313/post/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Tue, 10 Dec 2019 15:24:33 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      
+        <description>&lt;h1 id=&#34;hugo&#34;&gt;Hugo是什么？&lt;/h1&gt;
+&lt;p&gt;Hugo是一个用Go语言编写的静态网站生成器，Hugo一般只需要几秒钟就能生成一个网站（每页少于1毫秒），被称为”世界上最快的网站构建框架“，是最热门的静态网站生成器之一，被广泛采用。&lt;/p&gt;
+&lt;h1 id=&#34;hugo1&#34;&gt;如何使用Hugo搭建个人博客&lt;/h1&gt;
+&lt;h2 id=&#34;step1hugo&#34;&gt;Step1：安装Hugo&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;下载&lt;a href=&#34;https://github.com/gohugoio/hugo/releases&#34;&gt;Hugo安装包&lt;/a&gt;
+&lt;img src=&#34;http://localhost:1313/images/hugo%E5%AE%89%E8%A3%85%E5%8C%85.png&#34; alt=&#34;下在windos版本的安装包&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下载到安装包，解压后把hugo.exe.放到x:\xxx\hugo&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加环境变量：点击计算机图标-右键-属性-高级系统设置-系统变量-path&lt;img src=&#34;http://localhost:1313/images/hugo-path.png&#34; alt=&#34;环境变量&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;4.重启终端，运行hugo &amp;ndash;version。安装成功就能查看到版本号
+&lt;img src=&#34;http://localhost:1313/images/hugo_version.png&#34; alt=&#34;hugo_version&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;step2-hugo&#34;&gt;Step2: 创建一个新的Hugo网页&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;进入&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo官网&lt;/a&gt;，点击Quick Start。&lt;/li&gt;
+&lt;li&gt;Step1操作前面已完成，直接操作Step2&lt;/li&gt;
+&lt;li&gt;复制Step2的代码，在cmder上运行。注意这里要把”quickstart“改成“github用户名.github.io-creater!”，这样操作的好处是，上传到GitHub上后方便标识。
+&lt;img src=&#34;http://localhost:1313/images/hugo-step2.png&#34; alt=&#34;hugo-step2&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;step3-&#34;&gt;Step3: 下载一个主题&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;依次复制Step3的代码在cmder上运行
+&lt;img src=&#34;http://localhost:1313/images/hugo-step3.png&#34; alt=&#34;hugo-step3&#34;&gt;&lt;/li&gt;
+&lt;li&gt;由于主题是国外资源，国内下载很慢，建议挂VPN下载&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;step4-&#34;&gt;Step4: 新建一篇文章&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;复制Step4的代码在cmder上运行
+&lt;img src=&#34;http://localhost:1313/images/hugo-step4.png&#34; alt=&#34;hugo-step4&#34;&gt;&lt;/li&gt;
+&lt;li&gt;打开新建的markdown文件&lt;/li&gt;
+&lt;li&gt;将draft: true 改为false(draft为草稿意思，改为false后才会显示在blog上)
+&lt;img src=&#34;http://localhost:1313/images/hugo-step4-2.png&#34; alt=&#34;hugo-step4-2&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;step5-hugo&#34;&gt;Step5: 开启Hugo服务器&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;复制Step5的代码在cmder上运行
+&lt;img src=&#34;http://localhost:1313/images/hugo-step5.png&#34; alt=&#34;hugo-step4&#34;&gt;&lt;/li&gt;
+&lt;li&gt;运行后不要关闭服务器(关闭后本地访问会失败)&lt;/li&gt;
+&lt;li&gt;在浏览器中访问http://localhost:1313/或者127.0.0.1:1313&lt;/li&gt;
+&lt;li&gt;此时将会看到你新建的blog&lt;/li&gt;
+&lt;/ol&gt;
 </description>
       
     </item>
