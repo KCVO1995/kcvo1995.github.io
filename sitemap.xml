@@ -9,6 +9,13 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/post/for-candy/</loc>
+    <lastmod>2019-12-10T15:24:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/post/</loc>
     <lastmod>2019-12-10T15:24:33+08:00</lastmod>
     <changefreq>weekly</changefreq>

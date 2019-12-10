@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>For Candy</title>
+      <link>http://localhost:1313/post/for-candy/</link>
+      <pubDate>Tue, 10 Dec 2019 15:24:33 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/for-candy/</guid>
+      <description>我想要夸你好看，却不知道怎么告诉你，总觉得怎么说都显得庸俗，配不上你的美。</description>
+    </item>
+    
+    <item>
       <title>如何使用Hugo搭建个人博客</title>
       <link>http://localhost:1313/post/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Tue, 10 Dec 2019 15:24:33 +0800</pubDate>
