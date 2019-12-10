@@ -114,19 +114,6 @@
     </item>
     
     <item>
-      <title>我的第一篇文章</title>
-      <link>http://localhost:1313/post/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</link>
-      <pubDate>Mon, 09 Dec 2019 16:37:57 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</guid>
-      
-        <description>&lt;h1 id=&#34;heading&#34;&gt;这是我的第一篇文章&lt;/h1&gt;
-&lt;p&gt;well well well&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
       <title>开博大吉</title>
       <link>http://localhost:1313/post/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</link>
       <pubDate>Mon, 09 Dec 2019 15:29:33 +0800</pubDate>
