@@ -54,13 +54,13 @@
 &lt;p&gt;添加环境变量：点击计算机图标-右键-属性-高级系统设置-系统变量-path&lt;img src=&#34;http://localhost:1313/images/hugo-path.png&#34; alt=&#34;环境变量&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;4.重启终端，运行hugo &amp;ndash;version。安装成功就能查看到版本号
+&lt;p&gt;4.重启终端，运行hugo version。安装成功就能查看到版本号
 &lt;img src=&#34;http://localhost:1313/images/hugo_version.png&#34; alt=&#34;hugo_version&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;step2-hugo&#34;&gt;Step2: 创建一个新的Hugo网页&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;进入&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo官网&lt;/a&gt;，点击Quick Start。&lt;/li&gt;
 &lt;li&gt;Step1操作前面已完成，直接操作Step2&lt;/li&gt;
-&lt;li&gt;复制Step2的代码，在cmder上运行。注意这里要把”quickstart“改成“github用户名.github.io-creater!”，这样操作的好处是，上传到GitHub上后方便标识。
+&lt;li&gt;复制Step2的代码，在cmder上运行。注意这里要把”quickstart“改成“github用户名.github.io-creater!”(这样操作的好处是，上传到GitHub上后方便标识。)
 &lt;img src=&#34;http://localhost:1313/images/hugo-step2.png&#34; alt=&#34;hugo-step2&#34;&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;step3-&#34;&gt;Step3: 下载一个主题&lt;/h2&gt;
@@ -74,16 +74,40 @@
 &lt;li&gt;复制Step4的代码在cmder上运行
 &lt;img src=&#34;http://localhost:1313/images/hugo-step4.png&#34; alt=&#34;hugo-step4&#34;&gt;&lt;/li&gt;
 &lt;li&gt;打开新建的markdown文件&lt;/li&gt;
-&lt;li&gt;将draft: true 改为false(draft为草稿意思，改为false后才会显示在blog上)
+&lt;li&gt;将draft: true 改为false(draft为草稿意思，改为false后文章才会显示在blog上)
 &lt;img src=&#34;http://localhost:1313/images/hugo-step4-2.png&#34; alt=&#34;hugo-step4-2&#34;&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;step5-hugo&#34;&gt;Step5: 开启Hugo服务器&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;复制Step5的代码在cmder上运行
-&lt;img src=&#34;http://localhost:1313/images/hugo-step5.png&#34; alt=&#34;hugo-step4&#34;&gt;&lt;/li&gt;
+&lt;img src=&#34;http://localhost:1313/images/hugo-step5.png&#34; alt=&#34;hugo-step5&#34;&gt;&lt;/li&gt;
 &lt;li&gt;运行后不要关闭服务器(关闭后本地访问会失败)&lt;/li&gt;
 &lt;li&gt;在浏览器中访问http://localhost:1313/或者127.0.0.1:1313&lt;/li&gt;
 &lt;li&gt;此时将会看到你新建的blog&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;step6-&#34;&gt;Step6 自定义主题&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;打开hugo网站根目录的config.toml&lt;/li&gt;
+&lt;li&gt;可自定义一下代码，包括：语言、博客名
+&lt;img src=&#34;http://localhost:1313/images/hugo-step6.png&#34; alt=&#34;hugo-step6&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;step7-&#34;&gt;Step7 简历静态网站&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;复制Step7的代码在cmder上运行
+&lt;img src=&#34;http://localhost:1313/images/hugo-step7.png&#34; alt=&#34;hugo-step7&#34;&gt;&lt;/li&gt;
+&lt;li&gt;运行后将会得到一个public的目录&lt;/li&gt;
+&lt;li&gt;在hugo的更目录中创建名为“.gitignore”的文件&lt;/li&gt;
+&lt;li&gt;编辑“.gitignore”,写入/public/(由于hugo根目录和public需要分别上传到GitHub，此操作可以防止子仓库的问题出现)&lt;/li&gt;
+&lt;li&gt;在GitHub上新建一个仓库，命名为github用户名.github.io&lt;/li&gt;
+&lt;li&gt;把public目录上传到新建的仓库中&lt;/li&gt;
+&lt;li&gt;在你的git仓库里面Settings的GitHub Pages下你可以看到http://你的用户名.http://github.io的链接。&lt;/li&gt;
+&lt;li&gt;打开此链接，就能看到你的Hugo已经被挂到网上了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;heading&#34;&gt;大功告成&lt;/h1&gt;
+&lt;h2 id=&#34;heading1&#34;&gt;最后你还可这样做&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;在你的GitHub上新建一个仓库，命名为github用户名.github.io-creator&lt;/li&gt;
+&lt;li&gt;将Hugo根目录的文件上传到此仓库(注意：Hugo根目录上存储着原代码，Hugo根目录丢失，就无法写博客了)&lt;/li&gt;
 &lt;/ol&gt;
 </description>
       

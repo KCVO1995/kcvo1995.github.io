@@ -45,3 +45,10 @@ draft: false
 4. 在浏览器中访问http://localhost:1313/或者127.0.0.1:1313
 5. 此时将会看到你新建的blog
 
+## Step6 自定义主题
+1. 打开hugo网站根目录的config.toml
+2. 可自定义一下代码，包括：语言、title
+   ![hugo-step4](/images/hugo-step6.png)
+
+##
+
