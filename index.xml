@@ -38,8 +38,7 @@
       
       <guid>http://localhost:1313/post/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</guid>
       
-        <description>&lt;p&gt;Ⅰ、Ⅱ、Ⅲ、Ⅳ、Ⅴ、Ⅵ、Ⅶ、Ⅷ、Ⅸ、Ⅹ&lt;/p&gt;
-&lt;h1 id=&#34;html-&#34;&gt;Ⅰ.HTML 是谁发明的？&lt;/h1&gt;
+        <description>&lt;h1 id=&#34;html-&#34;&gt;Ⅰ.HTML 是谁发明的？&lt;/h1&gt;
 &lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Sir_Tim_Berners-Lee.jpg&#34; alt=&#34;李爵士&#34;&gt;&lt;/p&gt;
 &lt;p&gt;HTML 诞生于蒂姆·伯纳斯-李爵士的一篇文章&lt;a href=&#34;https://html.com/tags/&#34;&gt;HTML Tags&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;html&#34;&gt;Ⅱ.什么是HTML？&lt;/h1&gt;
