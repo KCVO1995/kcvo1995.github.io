@@ -6,7 +6,7 @@
     <description>Recent content on 辉辉的小窝</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 11 Dec 2019 16:23:26 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 12 Dec 2019 16:23:26 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
@@ -27,6 +27,218 @@
 &lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cast&#34;&gt;Cast&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>HTML常用标签</title>
+      <link>http://localhost:1313/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Thu, 12 Dec 2019 16:23:26 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
+      
+        <description>&lt;h2 id=&#34;a-&#34;&gt;a 标签的用法&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h3 id=&#34;a-href&#34;&gt;a 的href取值&lt;/h3&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;heading&#34;&gt;网址&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;https  &lt;code&gt;&amp;lt;a href=&amp;quot;https//google.com&amp;quot;&amp;gt;谷歌&amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;http  &lt;code&gt;&amp;lt;a href=&amp;quot;http//google.com&amp;quot;&amp;gt;谷歌&amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;//  &lt;code&gt;&amp;lt;a href=&amp;quot;//google.com&amp;quot;&amp;gt;谷歌&amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;以上三种形式均可&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;heading1&#34;&gt;路径&lt;/h4&gt;
+&lt;p&gt;相对路径和绝对路径都可以.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;heading2&#34;&gt;伪协议&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;javascript,可以引入JS代码&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;javascript:alert(1);&amp;quot;&amp;gt;javascript&amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;mailto,点击后跳转到发邮件页面&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;mailto:943514589@qq.com&amp;quot;&amp;gt;send mail to&amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;以下是mailto的详细用法&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/mailto.png&#34; alt=&#34;mailto&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;tel,手机点击后跳转到呼叫页面&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;tel:13311113322&amp;quot;&amp;gt;phone call&amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;id&#34;&gt;id&lt;/h4&gt;
+&lt;p&gt;id,可以跳转到页面内id所标记的元素位置&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;#xxx&amp;quot;&amp;gt;查看ID为xxx的项目&amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h3 id=&#34;target&#34;&gt;target的取值&lt;/h3&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;heading3&#34;&gt;内置命名&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;取值为_blank,a标签的链接在新窗口打开&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;取值为_top,a标签的链接在最顶层的窗口打开&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;取值为_parent,a标签的链接在其上一层的窗口打开&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;取值为_self,a标签的链接在当前窗口打开&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;heading4&#34;&gt;程序员命名&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;取值为window的name,a标签的链接会在对应名称的窗口打开&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;取值为iframe的name,a标签的链接会在对应名称的内嵌窗口打开&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;download&#34;&gt;download&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;下载a标签的目标链接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;img-&#34;&gt;img 标签的用法&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h3 id=&#34;heading5&#34;&gt;作用&lt;/h3&gt;
+&lt;p&gt;img的作用是发出get请求,展示一张照片&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h3 id=&#34;heading6&#34;&gt;属性&lt;/h3&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;alt 当图片请求失败是,显示alt内容&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;height 设定图片高度,单位默认px&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;width 设定图片宽度,单位默认px&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;src 填写资源地址&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h3 id=&#34;heading7&#34;&gt;事件&lt;/h3&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;onload,图片加载成功时触发事件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;onerror,图片加载失败时触发事件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h3 id=&#34;heading8&#34;&gt;响应式&lt;/h3&gt;
+&lt;p&gt;响应式页面,可以适合不同屏幕及手机端查看,需要加上max-width: 100%&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h3 id=&#34;heading9&#34;&gt;可替换元素&lt;/h3&gt;
+&lt;p&gt;可替换元素（replaced element）的展现效果不是由 CSS 来控制的。这些元素是一种外部对象，它们外观的渲染，是独立于 CSS 的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;table-&#34;&gt;table 标签的用法&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h3 id=&#34;table&#34;&gt;table的基本结构&lt;/h3&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;table&amp;gt;
+    &amp;lt;thead&amp;gt;
+        &amp;lt;tr&amp;gt;
+            &amp;lt;th&amp;gt;英语&amp;lt;/th&amp;gt;
+            &amp;lt;th&amp;gt;翻译&amp;lt;/th&amp;gt;
+        &amp;lt;/tr&amp;gt;
+    &amp;lt;/thead&amp;gt;
+    &amp;lt;tbody&amp;gt;
+        &amp;lt;tr&amp;gt;
+            &amp;lt;td&amp;gt;hyper&amp;lt;/td&amp;gt;
+            &amp;lt;td&amp;gt;超级&amp;lt;/td&amp;gt;
+        &amp;lt;/tr&amp;gt;
+    &amp;lt;/tbody&amp;gt;
+    &amp;lt;tfoot&amp;gt;
+        &amp;lt;tr&amp;gt;
+            &amp;lt;td&amp;gt;nothing&amp;lt;/td&amp;gt;
+            &amp;lt;td&amp;gt;nothing&amp;lt;/td&amp;gt;
+        &amp;lt;/tr&amp;gt;
+    &amp;lt;/tfoot&amp;gt;
+&amp;lt;/table&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;thead 表头 ；tbody 表身 ；tfoot 表尾；
+包含在以上三个属性中的有tr 一行、th会加粗、td不会加粗。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h3 id=&#34;table1&#34;&gt;table的相关样式&lt;/h3&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;tablelayout&#34;&gt;table-layout&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;table-layout取值为fixed时,每列宽度等宽&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;table-layout取值为auto时,每列宽度根据其内容宽度设定&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;bordercollapse&#34;&gt;border-collapse,此属性可以消除表格边界之间的距离&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;borderspacing&#34;&gt;border-spacing,此属性可以修改表格边界之间的距离&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;heading10&#34;&gt;最后写一点想法&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h3 id=&#34;html&#34;&gt;html标签十分之多,但并不是所用标签都能经常用到,所以不需要每个标签逐个学习,只需要先把常用的学习了,剩下的在工作中遇到再学习&lt;/h3&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h3 id=&#34;htmlhtml&#34;&gt;html标签的默认样式,大部分已经过时(不符合现在的审美),建议在编写网站时先把html标签的默认样式取消掉&lt;/h3&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
       
     </item>

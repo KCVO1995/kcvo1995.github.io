@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 辉辉的小窝</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 11 Dec 2019 16:23:26 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 12 Dec 2019 16:23:26 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HTML常用标签</title>
+      <link>http://localhost:1313/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Thu, 12 Dec 2019 16:23:26 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
+      <description>a 标签的用法 a 的href取值 网址 https &amp;lt;a href=&amp;quot;https//google.com&amp;quot;&amp;gt;谷歌&amp;lt;/a&amp;gt; http &amp;lt;a</description>
+    </item>
     
     <item>
       <title>HTML入门笔记1</title>
