@@ -30,6 +30,15 @@
     </item>
     
     <item>
+      <title>负margin的理解</title>
+      <link>http://localhost:1313/post/%E8%B4%9Fmargin%E7%9A%84%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Sun, 15 Dec 2019 15:23:26 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/%E8%B4%9Fmargin%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
+      <description>margin的概述 margin属性为给定元素设置所有四个（上下左右）方向的外边距属性。这是四个外边距属性设置的简写。四个外边距属性设置分别是</description>
+    </item>
+    
+    <item>
       <title>HTML常用标签</title>
       <link>http://localhost:1313/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
       <pubDate>Thu, 12 Dec 2019 16:23:26 +0800</pubDate>

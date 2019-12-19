@@ -136,6 +136,124 @@
     </item>
     
     <item>
+      <title>负margin的理解</title>
+      <link>http://localhost:1313/post/%E8%B4%9Fmargin%E7%9A%84%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Sun, 15 Dec 2019 15:23:26 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/%E8%B4%9Fmargin%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
+      
+        <description>&lt;h2 id=&#34;margin&#34;&gt;margin的概述&lt;/h2&gt;
+&lt;p&gt;margin属性为给定元素设置所有四个（上下左右）方向的外边距属性。这是四个外边距属性设置的简写。四个外边距属性设置分别是： margin-top， margin-right， margin-bottom 和 margin-left 。指定的外边距允许为负数。&lt;/p&gt;
+&lt;h2 id=&#34;httpjsjirengucomligex1edithtmlcssoutput&#34;&gt;先上&lt;a href=&#34;http://js.jirengu.com/ligex/1/edit?html,css,output&#34;&gt;栗子&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;此次测试的方法是,通过设定margin-left的值从正值变为负值,来观察其对div大小和移动方向的改变&lt;/p&gt;
+&lt;p&gt;测试代码:&lt;/p&gt;
+&lt;h3 id=&#34;html&#34;&gt;HTML代码&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+  &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+  &amp;lt;title&amp;gt;负margin测试&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+  &amp;lt;div class=&amp;quot;container&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;test&amp;quot;&amp;gt;test-test-test&amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;css&#34;&gt;CSS代码&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  margin: 50px;
+  border: 1px solid blue;
+  
+}
+.test{
+  margin: 20px;
+  margin-left: 0px;
+  border: 1px solid green;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;测试代码很简单,由简单入手，正所谓删繁就简三秋树，领异标新二月花&lt;/p&gt;
+&lt;h3 id=&#34;-marginleft-0&#34;&gt;第一步 设定margin-left: 0;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/margin0.png&#34; alt=&#34;margin0&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如图所示,margin-left赋值为0px,覆盖了它的初始值10px。图中蓝色是container的border,绿色是content的border,可以看出content此时宽度为554px&lt;/p&gt;
+&lt;h3 id=&#34;-marginleft-30px&#34;&gt;第二步 设定margin-left: 30px;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/margin30.png&#34; alt=&#34;margin30&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如图所示,可以看出content此时宽度为524px,对比上一步减少了30px,左边缘向右移动&lt;/p&gt;
+&lt;h2 id=&#34;-marginleft-50px&#34;&gt;第三步 设定margin-left: 50px;&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/margin50.png&#34; alt=&#34;marign50&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如图所示,可以看出content此时宽度为504px,对比上一步减少了20px,左边缘向右移动&lt;/p&gt;
+&lt;p&gt;此时不难看出,margin-left值增大时,test被向右挤压,宽度逐渐缩小&lt;/p&gt;
+&lt;h2 id=&#34;-marginleft-20px&#34;&gt;第四步 设定margin-left: 20px;&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/margin20.png&#34; alt=&#34;marign20&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如图所示,可以看出content此时宽度为534px,对比上一步增加了30px,左边缘向右移动&lt;/p&gt;
+&lt;p&gt;可以看出,当margin-left值减少时,test向左扩展,宽度逐渐增大&lt;/p&gt;
+&lt;h3 id=&#34;-marginleft-20px1&#34;&gt;第五步 设定margin-left: -20px;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/margin-20.png&#34; alt=&#34;marign-20&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如图所示,可以看出content此时宽度为574px,对比上一步增加了40px,左边缘向右移动&lt;/p&gt;
+&lt;p&gt;此时test的border已经突破了父元素的border&lt;/p&gt;
+&lt;h3 id=&#34;-marginleft-50px1&#34;&gt;第六步 设定margin-left: -50px;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/margin-50.png&#34; alt=&#34;marign-50&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如图所示,可以看出content此时宽度为574px,对比上一步增加了40px,左边缘向右移动&lt;/p&gt;
+&lt;h3 id=&#34;marginleftcontentmarginleftcontent&#34;&gt;由此我们可以得出一个结论:margin-left变大，content的宽度变小，理解为挤扁了，margin-left变小，content的宽度变大，理解为外扩了&lt;/h3&gt;
+&lt;h2 id=&#34;margin1&#34;&gt;负margin在布局中的应用&lt;/h2&gt;
+&lt;h3 id=&#34;httpjsjirengucomnijuf1edithtmlcssoutput&#34;&gt;不变的法则,举个&lt;a href=&#34;http://js.jirengu.com/nijuf/1/edit?html,css,output&#34;&gt;栗子&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;以下是代码:&lt;/p&gt;
+&lt;h3 id=&#34;html1&#34;&gt;HTML代码&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+  &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+  &amp;lt;title&amp;gt;负margin的应用&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+  &amp;lt;div class=&amp;quot;container&amp;quot;&amp;gt;
+    &amp;lt;div&amp;gt;1&amp;lt;/div&amp;gt;
+    &amp;lt;div&amp;gt;2&amp;lt;/div&amp;gt;
+    &amp;lt;div&amp;gt;3&amp;lt;/div&amp;gt;
+    &amp;lt;div&amp;gt;4&amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;css1&#34;&gt;CSS代码&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  margin: 50px;
+  width: 600px;
+  outline: 2px solid green;
+  display: flex;
+}
+.container&amp;gt;div{
+  width: 120px;
+  height: 120px;
+  margin-right: 40px;
+  border: 2px solid grey;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;效果如下:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/flex-demo.png&#34; alt=&#34;flex-demo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;这是在四栏布局中经常遇到的问题,设置margin-right时,最右侧会有间隙&lt;/p&gt;
+&lt;p&gt;此时就需要使用负margin解决,把代码改成如下:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/flex-code.png&#34; alt=&#34;flex-code&#34;&gt;&lt;/p&gt;
+&lt;p&gt;此是上面问题已完美解决,四栏布局完成,那增加的负margin究竟起了什么作用呢?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/margin%E4%BD%9C%E7%94%A8div.png&#34; alt=&#34;margin作用div&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如图所示,content的边框已经超出了container的边框&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/margin%E4%BD%9C%E7%94%A8.x.png&#34; alt=&#34;margin作用.x&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如图所示,.x的宽度原本应该和container一样为600px,受负margin的影响,由上文可知margin-left变小，content的宽度变大.所以宽度变为640px&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/margin%E4%BD%9C%E7%94%A8.con.png&#34; alt=&#34;margin作用.con&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如图所示,container的宽度依然为600px,此时由于display的默认样式hidden,所有.x突出的部分自然被隐藏了,四栏布局就实现了&lt;/p&gt;
+&lt;p&gt;这就是负margin在四栏布局中的作用&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
       <title>HTML常用标签</title>
       <link>http://localhost:1313/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
       <pubDate>Thu, 12 Dec 2019 16:23:26 +0800</pubDate>
