@@ -6,7 +6,7 @@
     <description>Recent content on 辉辉的小窝</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 12 Dec 2019 16:23:26 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 19 Dec 2019 15:23:26 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
@@ -27,6 +27,110 @@
 &lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cast&#34;&gt;Cast&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>CSS动画优化</title>
+      <link>http://localhost:1313/post/css%E5%8A%A8%E7%94%BB%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Thu, 19 Dec 2019 15:23:26 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/css%E5%8A%A8%E7%94%BB%E4%BC%98%E5%8C%96/</guid>
+      
+        <description>&lt;h1 id=&#34;heading&#34;&gt;浏览器渲染原理&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/randertree.png&#34; alt=&#34;渲染树&#34;&gt;
+浏览器渲染经过以下步骤:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;根据HTML构建HTML树。(DOM)&lt;/li&gt;
+&lt;li&gt;根据CSS构建CSS树。(CSSOM)&lt;/li&gt;
+&lt;li&gt;将两棵树合并成一颗渲染树。(rander tree)&lt;/li&gt;
+&lt;li&gt;Layout布局(文档流、盒模型、计算大小和位置)。&lt;/li&gt;
+&lt;li&gt;Paint绘制(把边框颜色、文字颜色、阴影等画出来)。&lt;/li&gt;
+&lt;li&gt;Compose合成(根据层叠关系展示画面).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;css&#34;&gt;如何优化CSS动画&lt;/h1&gt;
+&lt;h3 id=&#34;heading1&#34;&gt;答案是:减少浏览器的渲染次数&lt;/h3&gt;
+&lt;p&gt;三种的更新方式:
+&lt;img src=&#34;http://localhost:1313/images/3ways.png&#34; alt=&#34;三种更新方式&#34;&gt;&lt;/p&gt;
+&lt;p&gt;可见三种更新方式中,第一种更新方法需要重新渲染3次(包括layout,paint,compose),第二种需重新渲染2次,而第三种只需要重新渲染1次.&lt;/p&gt;
+&lt;p&gt;不同的CSS属性有不同的更新方式,大家可以参考csstriggers.com(不需硬记),这个网站已经把所有属性都试过了.&lt;/p&gt;
+&lt;p&gt;Tips: 参考网站中的Blink为谷歌浏览器内核,Gecko为火狐浏览器内核,WebKit为Safari浏览器内核,EdgeHTML为IE浏览器内核&lt;/p&gt;
+&lt;p&gt;所以优化CSS动画性能的方法是尽量使用渲染次数少的CSS属性&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CSS优化:使用will-change或translate&lt;/li&gt;
+&lt;li&gt;JS优化:使用requestAnimaitonFrame代替setTimeout或setlnterval&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>CSS动画制作的两种做法</title>
+      <link>http://localhost:1313/post/css%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%81%9A%E6%B3%95/</link>
+      <pubDate>Wed, 18 Dec 2019 15:23:26 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/css%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%81%9A%E6%B3%95/</guid>
+      
+        <description>&lt;h1 id=&#34;heading&#34;&gt;我们来做一颗跳动的心吧&lt;/h1&gt;
+&lt;h2 id=&#34;heading1&#34;&gt;首先我们需要一颗心&lt;/h2&gt;
+&lt;p&gt;百度搜索&amp;quot;心&amp;rdquo;&lt;img src=&#34;http://localhost:1313/images/heart.png&#34; alt=&#34;heart&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;hellip;&amp;hellip;这个也太可怕了吧,不适合儿童观众,我们还是自己用CSS画一个吧.&lt;/p&gt;
+&lt;p&gt;心怎么画?我们学的块级元素都是方形的,算加上border-radius也顶多只能画个 球&lt;/p&gt;
+&lt;p&gt;好吧!发挥我们的想象力,我们可以把它分解成两圆一方
+&lt;img src=&#34;http://localhost:1313/images/ugly.png&#34; alt=&#34;丑&#34;&gt;&lt;/p&gt;
+&lt;p&gt;代码如下:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/code.png&#34; alt=&#34;code&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;transform&#34;&gt;用transform方法制作动画&lt;/h2&gt;
+&lt;p&gt;我们需要做的动画让心放大-缩小-放大-缩小,以达到跳动的效果&lt;/p&gt;
+&lt;p&gt;在原有代码中增加tranform的transition(动画过渡)和scale(缩放),代码如下:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/code1.png&#34; alt=&#34;code&#34;&gt;&lt;/p&gt;
+&lt;p&gt;transform属性中&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;transition: all 1s;&lt;/code&gt;动画播放时间1s&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;transform: scale(1.5);&lt;/code&gt;元素放大1.5倍&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;动画效果:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/demo.gif&#34; alt=&#34;demo&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;animation&#34;&gt;用animation方法制作动画&lt;/h2&gt;
+&lt;p&gt;在原有代码中增加animation和@keyframes heart(窗口名称),代码如下:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/code2.png&#34; alt=&#34;code&#34;&gt;&lt;/p&gt;
+&lt;p&gt;animation属性中:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;animation:.5s heart infinite alternate-reverse;&lt;/code&gt;动画播放时间0.5s,目标窗口名称heart,infinite为无限播放,alternate-reverse为反向开始循环播放&lt;/li&gt;
+&lt;li&gt;
+&lt;pre&gt;&lt;code&gt;@keyframes heart {
+  0%{transform: scale(1);}
+  100%{transform: scale(1.5);}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在0%时刻缩放比为1,在100%时刻缩放比1.5&lt;/p&gt;
+&lt;p&gt;动画效果:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/demo1.gif&#34; alt=&#34;demo1&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;animation1&#34;&gt;用animation方法制作多个时间点动画&lt;/h2&gt;
+&lt;p&gt;多个时间点动画表示,在多个时刻进行不同的变化;&lt;/p&gt;
+&lt;p&gt;在上一步的代码中修改@keyframes heart,代码如下:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@keyframes heart {
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(.5);
+  }
+  100%{
+    transform: scale(1.5);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在0%时刻缩放比为1,在50%时刻缩放比0.5,在100%时刻缩放比1.5&lt;/p&gt;
+&lt;p&gt;动画效果:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/demo2.gif&#34; alt=&#34;demo1&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;heading2&#34;&gt;总结:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;transform和animation都可以用于制作CSS动画,animation在制作多个时间点动画会更加方便.&lt;/li&gt;
+&lt;li&gt;transform和animation还有很多用法,请在MDN中进行学习.&lt;/li&gt;
+&lt;li&gt;虽CSS属性虽然简单,但是要用好靠的是想象力&lt;/li&gt;
+&lt;/ul&gt;
 </description>
       
     </item>
