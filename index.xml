@@ -136,6 +136,59 @@
     </item>
     
     <item>
+      <title>浅析 URL</title>
+      <link>http://localhost:1313/post/%E6%B5%85%E6%9E%90-url/</link>
+      <pubDate>Sun, 15 Dec 2019 15:23:26 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%B5%85%E6%9E%90-url/</guid>
+      
+        <description>&lt;h2 id=&#34;url&#34;&gt;URL组成&lt;/h2&gt;
+&lt;p&gt;URL，统一资源定位符，用于定位互联网上资源，俗称网址。&lt;/p&gt;
+&lt;h3 id=&#34;url1&#34;&gt;URL的组成:&lt;/h3&gt;
+&lt;h4 id=&#34;urlip&#34;&gt;URL=协议+域名或IP+端口号+路径+查询字符串+锚点&lt;/h4&gt;
+&lt;h3 id=&#34;url2&#34;&gt;URL的写法:&lt;/h3&gt;
+&lt;h4 id=&#34;schemehostdomainportpathfilename&#34;&gt;scheme://host.domain:port/path/filename&lt;/h4&gt;
+&lt;h3 id=&#34;httpswwwzhihucomexplore&#34;&gt;举个&lt;a href=&#34;https://www.zhihu.com/explore&#34;&gt;栗子&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&#34;httpswwwzhihucomexplore1&#34;&gt;&lt;a href=&#34;https://www.zhihu.com/explore&#34;&gt;https://www.zhihu.com/explore&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;在上面的网站中&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;scheme - 定义因特网服务的类型。常见的协议有 http、https、ftp、file，其中最常见的类型是http，而 https 则是进行加密的网络传输。例子中使用的是https&lt;/li&gt;
+&lt;li&gt;host - 定义域主机（http 的默认主机是 www）&lt;/li&gt;
+&lt;li&gt;domain - 定义因特网域名，例子中就是zhihu.com&lt;/li&gt;
+&lt;li&gt;port - 定义主机上的端口号（http的默认端口号是 80,https 默认是 443，FTP 默 21 端口）,&lt;/li&gt;
+&lt;li&gt;例子中https的默认端口是443(已被省略)&lt;/li&gt;
+&lt;li&gt;path - 定义服务器上的路径（如果省略，则文档必须位于网站的根目录中）,例子中的路径就是/explore&lt;/li&gt;
+&lt;li&gt;filename - 定义文档/资源的名称&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ip&#34;&gt;IP&lt;/h2&gt;
+&lt;p&gt;IP的全称为Internet Protocol(互联网协议),是设备的数字便签,用于互联网定位.常见的IP可分为IPv4。常见的IP地址可分为IPv4和IPv6两类,其中使用最广泛的是IPv4。&lt;/p&gt;
+&lt;p&gt;IP可以分为内网IP和外网IP&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;外网IP由通讯公司提供,如国内的电信、移动等。外网用于外网之间的通信和定位&lt;/li&gt;
+&lt;li&gt;内网IP由路由器分配,用于区分内网连接设备&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;heading&#34;&gt;域名&lt;/h2&gt;
+&lt;p&gt;域名实际上是IP地址的代称,目的是为了方便记忆。例如39.156.69.79这个百度的IP地址,在浏览器输入就可以访问百度,但我相信没人会这样做,因为这样实在太难记了。但baidu.com就十分方便好记,www.baidu.com通过DNS就会返回39.156.69.79这个IP,浏览器就可以访问了。&lt;/p&gt;
+&lt;p&gt;域名可以分为:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;顶级域名,例如&amp;rdquo;.com&amp;rdquo;、&amp;quot;.net&amp;rdquo;、&amp;quot;.org&amp;rdquo;、&amp;quot;.edu&amp;rdquo;、&amp;quot;.info&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;二级域名,例如&amp;quot;xiedaima.com&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;父域名&lt;/li&gt;
+&lt;li&gt;子域名&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一图流总结:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/domain.png&#34; alt=&#34;domain&#34;&gt;&lt;/p&gt;
+&lt;p&gt;推荐一个可以查询自己域名的网站:IP138.com&lt;/p&gt;
+&lt;h2 id=&#34;dns&#34;&gt;DNS&lt;/h2&gt;
+&lt;p&gt;DNS，全称 Domain Name System(service)，是一个域名系统。它作为将域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。&lt;/p&gt;
+&lt;p&gt;在bash,输入ping命令即可查询到域名对应的IP地址。&lt;/p&gt;
+&lt;p&gt;例如:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/ip.png&#34; alt=&#34;IP&#34;&gt;&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
       <title>负margin的理解</title>
       <link>http://localhost:1313/post/%E8%B4%9Fmargin%E7%9A%84%E7%90%86%E8%A7%A3/</link>
       <pubDate>Sun, 15 Dec 2019 15:23:26 +0800</pubDate>
