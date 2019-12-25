@@ -94,6 +94,7 @@ alert(year2); // 100
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果用这个函数生成年份，某些网页可能出现&amp;quot;19100&amp;quot;这样的结果。这个问题完全来源于Java，因为Javascript的日期类直接采用了java.util.Date函数库。Brendan Eich显然很不满意这个结果，这导致后来不得不添加了一个返回四位数年份的Date.getFullYear()函数。&lt;/p&gt;
 &lt;p&gt;如果不是公司的决策，Brendan Eich绝不可能把Java作为Javascript设计的原型。作为设计者，他一点也不喜欢自己的这个作品：&lt;/p&gt;
 &lt;h3 id=&#34;javascriptcselfthe-part-that-is-good-is-not-original-and-the-part-that-is-original-is-not-good&#34;&gt;&amp;ldquo;与其说我爱Javascript，不如说我恨它。它是C语言和Self语言一夜情的产物。十八世纪英国文学家约翰逊博士说得好：&amp;lsquo;它的优秀之处并非原创，它的原创之处并不优秀。&#39;（the part that is good is not original, and the part that is original is not good.）&amp;rdquo;&lt;/h3&gt;
+&lt;p&gt;整理自阮一峰的网络日志&lt;/p&gt;
 </description>
       
     </item>
