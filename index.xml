@@ -6,7 +6,7 @@
     <description>Recent content on 辉辉的小窝</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 25 Dec 2019 15:23:26 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 29 Dec 2019 15:23:26 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
@@ -27,6 +27,155 @@
 &lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cast&#34;&gt;Cast&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>JavaScript基本语法</title>
+      <link>http://localhost:1313/post/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Sun, 29 Dec 2019 15:23:26 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      
+        <description>&lt;h2 id=&#34;heading&#34;&gt;什么是表达式和语句？&lt;/h2&gt;
+&lt;h3 id=&#34;heading1&#34;&gt;语句&lt;/h3&gt;
+&lt;p&gt;JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。&lt;/p&gt;
+&lt;p&gt;语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;var a = 1 + 3&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;这条语句先用var命令，声明了变量a，然后将1 + 3的运算结果赋值给变量a。&lt;/p&gt;
+&lt;h3 id=&#34;heading2&#34;&gt;表达式&lt;/h3&gt;
+&lt;p&gt;1 + 3叫做表达式（expression），指一个为了得到返回值的计算式。&lt;/p&gt;
+&lt;p&gt;add(1,2)表达式的值为函数的返回值&lt;/p&gt;
+&lt;p&gt;console.log表达式的值为函数本身&lt;/p&gt;
+&lt;p&gt;console.log(3)表达式的值为函数的返回值，也就是undefined&lt;/p&gt;
+&lt;h3 id=&#34;heading3&#34;&gt;两者的区别&lt;/h3&gt;
+&lt;p&gt;语句和表达式的区别在于，语句是为了进行某种操作，一般情况下不需要返回值，而表达式都是为了得到返回值，一定会返回一个值。凡是 JavaScript 语言中预期为值的地方，都可以使用表达式。比如，赋值语句的等号右边，预期是一个值，因此可以放置各种表达式。&lt;/p&gt;
+&lt;h3 id=&#34;heading4&#34;&gt;简单的判断方法&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;利用if语句判断&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;if(xxx){},如果没有报错就说明xxx是表达式，因为if括号里面需要的是布尔值，只要是有这个值就是表达式&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/if%E5%88%A4%E6%96%AD.png&#34; alt=&#34;if&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;利用赋值变量来判断&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因为表达式得到的是一个值，所以表达式可以赋值给一个变量，而如果是语句的话就会报错。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/%E5%8F%98%E9%87%8F%E8%B5%8B%E5%80%BC%E5%88%A4%E6%96%AD.png&#34; alt=&#34;变量&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;heading5&#34;&gt;标识符的规则&lt;/h2&gt;
+&lt;p&gt;标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名，以及后面要提到的函数名。JavaScript 语言的标识符对大小写敏感，所以a和A是两个不同的标识符。&lt;/p&gt;
+&lt;p&gt;简单说，标识符命名规则如下。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第一个字符，可以是任意 Unicode 字母（包括英文字母和其他语言的字母），以及美元符号（$）和下划线（_）。注意不能使用数字&lt;/li&gt;
+&lt;li&gt;第二个字符及后面的字符，除了 Unicode 字母、美元符号和下划线，还可以用数字 0-9。&lt;/li&gt;
+&lt;li&gt;中文也是合法的标识符&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;if-else-&#34;&gt;if else 语句&lt;/h2&gt;
+&lt;h3 id=&#34;heading6&#34;&gt;语法&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;if(布尔值){语句1} else{语句2}&lt;/li&gt;
+&lt;li&gt;{}在语句只有一句的时候可以省略，不建议这样做&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;heading7&#34;&gt;举个栗子&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;if (m === 3) {
+    console.log(&amp;quot;m等于3&amp;quot;)
+    // 满足条件时，执行的语句
+} 
+else {
+    console.log(&#39;m不等于3&#39;)
+    // 不满足条件时，执行的语句
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面代码判断变量m是否等于3，如果等于就执行if代码块，否则执行else代码块。&lt;/p&gt;
+&lt;h2 id=&#34;while-&#34;&gt;while 语句&lt;/h2&gt;
+&lt;h3 id=&#34;heading8&#34;&gt;语法&lt;/h3&gt;
+&lt;p&gt;while(表达式){循环体}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;判断表达式真假&lt;/li&gt;
+&lt;li&gt;当表达式为真时，执行语句，在判断表达式真假&lt;/li&gt;
+&lt;li&gt;当表达式为假时，执行后面的语句&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;heading9&#34;&gt;举个栗子&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;var i = 0;
+
+while (i &amp;lt; 10) {
+  console.log(&#39;i 当前为：&#39; + i);
+  i = i + 1;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面的代码将循环10次，直到i等于10为止。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;while (true) {
+  console.log(&#39;Hello, world&#39;);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面的例子是一个无限循环，因为循环条件总是为真。&lt;/p&gt;
+&lt;h2 id=&#34;for-&#34;&gt;for 语句&lt;/h2&gt;
+&lt;h3 id=&#34;heading10&#34;&gt;语法&lt;/h3&gt;
+&lt;p&gt;for (语句1，表达式2，语句3){循环体}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先执行语句1&lt;/li&gt;
+&lt;li&gt;然后判断语句2&lt;/li&gt;
+&lt;li&gt;如果为真，执行循环体，然后执行语句3&lt;/li&gt;
+&lt;li&gt;如果为假，跳出循环，执行后面的语句&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;for 是 while 的方便写法&lt;/p&gt;
+&lt;h3 id=&#34;heading11&#34;&gt;举个栗子&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;if (let i = 1; i &amp;lt; 10; i++) {
+    console.log(&#39;i 当前为：&#39; + i);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面的代码将循环10次，直到i等于10为止。&lt;/p&gt;
+&lt;h2 id=&#34;break&#34;&gt;break&lt;/h2&gt;
+&lt;h3 id=&#34;break1&#34;&gt;break语句用于跳出代码块或循环。&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;for (let i = 0; i &amp;lt; 5; i++) {
+  console.log(i);
+  if (i === 3)
+    break;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面代码执行到i等于3，就会跳出循环。&lt;/p&gt;
+&lt;h2 id=&#34;continue&#34;&gt;continue&lt;/h2&gt;
+&lt;h3 id=&#34;continue1&#34;&gt;continue语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;for (let i = 0; i &amp;lt; 100; i++) {
+    if (i % 2 === 0) {continue} ;
+    console.log(&#39;i 当前为：&#39; + i);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面代码只有在i为奇数时，才会输出i的值。如果i为偶数，则直接进入下一轮循环。&lt;/p&gt;
+&lt;h3 id=&#34;breakcontinue&#34;&gt;如果存在多重循环，不带参数的break语句和continue语句都只针对最内层循环。&lt;/h3&gt;
+&lt;h2 id=&#34;label&#34;&gt;label&lt;/h2&gt;
+&lt;p&gt;JavaScript 语言允许，语句的前面有标签（label），相当于定位符，用于跳转到程序的任意位置，标签的格式如下。&lt;/p&gt;
+&lt;h3 id=&#34;heading12&#34;&gt;举些栗子&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;top:
+  for (var i = 0; i &amp;lt; 3; i++){
+    for (var j = 0; j &amp;lt; 3; j++){
+      if (i === 1 &amp;amp;&amp;amp; j === 1) break top;
+      console.log(&#39;i=&#39; + i + &#39;, j=&#39; + j);
+    }
+  }
+// i=0, j=0
+// i=0, j=1
+// i=0, j=2
+// i=1, j=0
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面代码为一个双重循环区块，break命令后面加上了top标签（注意，top不用加引号），满足条件时，直接跳出双层循环。如果break语句后面不使用标签，则只能跳出内层循环，进入下一次的外层循环。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;foo: {
+  console.log(1);
+  break foo;
+  console.log(&#39;本行不会输出&#39;);
+}
+console.log(2);
+// 1
+// 2
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面代码执行到break foo，就会跳出区块。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;top:
+  for (var i = 0; i &amp;lt; 3; i++){
+    for (var j = 0; j &amp;lt; 3; j++){
+      if (i === 1 &amp;amp;&amp;amp; j === 1) continue top;
+      console.log(&#39;i=&#39; + i + &#39;, j=&#39; + j);
+    }
+  }
+// i=0, j=0
+// i=0, j=1
+// i=0, j=2
+// i=1, j=0
+// i=2, j=0
+// i=2, j=1
+// i=2, j=2
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面代码中，continue命令后面有一个标签名，满足条件时，会跳过当前循环，直接进入下一轮外层循环。如果continue语句后面不使用标签，则只能进入下一轮的内层循环。&lt;/p&gt;
 </description>
       
     </item>
