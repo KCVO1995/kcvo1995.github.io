@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>JavaScript数据类型</title>
+      <link>http://localhost:1313/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Sun, 29 Dec 2019 15:23:26 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
+      <description>JavaScript 数据类型 number 数字 string 字符串 symbol 符号 bool 布尔值 null 空 undefined 空 object 对象 口诀: 四基两空一对象 number JS的数字采用64位浮点数储存，又称双精度浮点数 浮点就是可浮动的点</description>
+    </item>
+    
+    <item>
       <title>从Brendan Eich的自述看JavaScript的诞生</title>
       <link>http://localhost:1313/post/%E4%BB%8Ebrendan-eich%E7%9A%84%E8%87%AA%E8%BF%B0%E7%9C%8Bjavascript%E7%9A%84%E8%AF%9E%E7%94%9F/</link>
       <pubDate>Wed, 25 Dec 2019 15:23:26 +0800</pubDate>

@@ -181,6 +181,132 @@ console.log(2);
     </item>
     
     <item>
+      <title>JavaScript数据类型</title>
+      <link>http://localhost:1313/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Sun, 29 Dec 2019 15:23:26 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
+      
+        <description>&lt;h3 id=&#34;javascript-&#34;&gt;JavaScript 数据类型&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;number-&#34;&gt;number 数字&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;string-&#34;&gt;string 字符串&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;symbol-&#34;&gt;symbol 符号&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;bool-&#34;&gt;bool 布尔值&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;null-&#34;&gt;null 空&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;undefined-&#34;&gt;undefined 空&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;object-&#34;&gt;object 对象&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;口诀: 四基两空一对象&lt;/p&gt;
+&lt;h3 id=&#34;number&#34;&gt;number&lt;/h3&gt;
+&lt;p&gt;JS的数字采用64位浮点数储存，又称双精度浮点数&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;浮点就是可浮动的点，意思是小数点位置可以改动&lt;/li&gt;
+&lt;li&gt;例如 123.456 可以表示位 1.23456e10^2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;64位浮点数的数据结构：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/%E6%B5%AE%E7%82%B9%E6%95%B0.png&#34; alt=&#34;浮点数&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;符号位S：第 1 位是正负数符号位（sign），0代表正数，1代表负数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;指数位E：中间的 11 位存储指数（exponent），用来表示次方数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;尾数位M：最后的 52 位是尾数（mantissa），超出的部分自动进一舍零&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;特殊值:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;正零和负零要区分，正零和负零值都为零&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;正无穷大和负无穷大要区分&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;NaN (Not a Number) 也是数字类型，是一个未知数&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;string&#34;&gt;String&lt;/h3&gt;
+&lt;p&gt;JS的字符串采用阉割版的UTF-8，每个字符占两个字节&lt;/p&gt;
+&lt;p&gt;写法可以是:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;双引号 &amp;ldquo;Hello&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;单引号 &amp;lsquo;Hello&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;反引号 `Hello`&lt;/li&gt;
+&lt;li&gt;注意引号不属于字符串的一部分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;有时我们需要用到转义&lt;/p&gt;
+&lt;p&gt;例如输入 &amp;lsquo;It&#39;s ok&amp;rsquo;，此时就会出现错误，JS引擎会认为&#39;it&#39;就结束了&lt;/p&gt;
+&lt;p&gt;可以写成:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;lsquo;It&#39;s ok&amp;rsquo;  使用了转义&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;It&#39;s ok&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;`It&#39;s ok`&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;更多的转义写法&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;quot; 表示 &amp;quot;&lt;/li&gt;
+&lt;li&gt;&#39; 表示 &#39;&lt;/li&gt;
+&lt;li&gt;\n 表示 换行&lt;/li&gt;
+&lt;li&gt;\r 表示 回车&lt;/li&gt;
+&lt;li&gt;\t 表示 Tab制表符&lt;/li&gt;
+&lt;li&gt;\ 表示 \&lt;/li&gt;
+&lt;li&gt;\uFFFF 表示对应的Unicode字符&lt;/li&gt;
+&lt;li&gt;\xFF 表示前256个Unicode字符&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;symbol&#34;&gt;symbol&lt;/h3&gt;
+&lt;p&gt;symbol使用情况很少，暂且不讲，以后用到再补充&lt;/p&gt;
+&lt;h3 id=&#34;bool&#34;&gt;bool&lt;/h3&gt;
+&lt;p&gt;布尔值代表“真”和“假”两个状态。“真”用关键字true表示，“假”用关键字false表示。布尔值只有这两个值。&lt;/p&gt;
+&lt;p&gt;下列运算符会返回布尔值：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;前置逻辑运算符： ! (Not)&lt;/li&gt;
+&lt;li&gt;相等运算符：===，!==，==，!=&lt;/li&gt;
+&lt;li&gt;比较运算符：&amp;gt;，&amp;gt;=，&amp;lt;，&amp;lt;=&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;那问题来了如果表达式不返回布尔值，怎么判断真假呢？&lt;/p&gt;
+&lt;p&gt;答:记住五个falsy值，falsy就是相当于false，但又不是false的值&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;undefined&lt;/li&gt;
+&lt;li&gt;null&lt;/li&gt;
+&lt;li&gt;false&lt;/li&gt;
+&lt;li&gt;0&lt;/li&gt;
+&lt;li&gt;NaN&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;&amp;ldquo;或&amp;rsquo;&#39;（空字符串）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其余不返回布尔值的表达式都为真&lt;/p&gt;
+&lt;h3 id=&#34;null--undefined&#34;&gt;null 和 undefined&lt;/h3&gt;
+&lt;p&gt;null与undefined都可以表示“没有”，含义非常相似。本质上没有区别。&lt;/p&gt;
+&lt;p&gt;不过要注意以下几个细节&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果一个变量声明了，但没有赋值，那么默认值就是undefined，而不是null&lt;/li&gt;
+&lt;li&gt;如果一个函数，没有写return，那么默认return undefined，而不是null&lt;/li&gt;
+&lt;li&gt;前端程序员习惯上，把非对象的空值写为undefined，把对象的空值写为null，但只是习惯而已&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;object&#34;&gt;object&lt;/h3&gt;
+&lt;p&gt;object的内容较多，会在下一个blog补充，欢迎查看。&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
       <title>从Brendan Eich的自述看JavaScript的诞生</title>
       <link>http://localhost:1313/post/%E4%BB%8Ebrendan-eich%E7%9A%84%E8%87%AA%E8%BF%B0%E7%9C%8Bjavascript%E7%9A%84%E8%AF%9E%E7%94%9F/</link>
       <pubDate>Wed, 25 Dec 2019 15:23:26 +0800</pubDate>
