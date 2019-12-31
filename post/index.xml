@@ -6,10 +6,28 @@
     <description>Recent content in Posts on 辉辉的小窝</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 29 Dec 2019 15:23:26 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 31 Dec 2019 15:15:26 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JavaScript对象基本用法</title>
+      <link>http://localhost:1313/post/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Tue, 31 Dec 2019 15:15:26 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
+      <description>对象是什么？ 对象（object）是 JavaScript 语言的核心概念，也是最重要的数据类型。 什么是对象？简单说，对象就是一组“键值对”（key-value）的</description>
+    </item>
+    
+    <item>
+      <title>JavaScript数据类型</title>
+      <link>http://localhost:1313/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Mon, 30 Dec 2019 15:23:26 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
+      <description>JavaScript 数据类型 number 数字 string 字符串 symbol 符号 bool 布尔值 null 空 undefined 空 object 对象 口诀: 四基两空一对象 number JS的数字采用64位浮点数储存，又称双精度浮点数 浮点就是可浮动的点</description>
+    </item>
     
     <item>
       <title>JavaScript基本语法</title>
@@ -18,15 +36,6 @@
       
       <guid>http://localhost:1313/post/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
       <description>什么是表达式和语句？ 语句 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。 语句（statement）是</description>
-    </item>
-    
-    <item>
-      <title>JavaScript数据类型</title>
-      <link>http://localhost:1313/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
-      <pubDate>Sun, 29 Dec 2019 15:23:26 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
-      <description>JavaScript 数据类型 number 数字 string 字符串 symbol 符号 bool 布尔值 null 空 undefined 空 object 对象 口诀: 四基两空一对象 number JS的数字采用64位浮点数储存，又称双精度浮点数 浮点就是可浮动的点</description>
     </item>
     
     <item>

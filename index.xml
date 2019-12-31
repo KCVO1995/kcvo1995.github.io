@@ -6,7 +6,7 @@
     <description>Recent content on 辉辉的小窝</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 29 Dec 2019 15:23:26 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 31 Dec 2019 15:15:26 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
@@ -27,6 +27,219 @@
 &lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cast&#34;&gt;Cast&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>JavaScript对象基本用法</title>
+      <link>http://localhost:1313/post/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Tue, 31 Dec 2019 15:15:26 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
+      
+        <description>&lt;h2 id=&#34;heading&#34;&gt;对象是什么？&lt;/h2&gt;
+&lt;p&gt;对象（object）是 JavaScript 语言的核心概念，也是最重要的数据类型。&lt;/p&gt;
+&lt;p&gt;什么是对象？简单说，对象就是一组“键值对”（key-value）的集合，是一种无序的复合数据集合。&lt;/p&gt;
+&lt;h2 id=&#34;heading1&#34;&gt;声明对象的两种语法&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;let obj = { &amp;lsquo;name&amp;rsquo; : &amp;lsquo;Jacky&amp;rsquo;, &amp;lsquo;age&amp;rsquo; : 18 }&lt;/li&gt;
+&lt;li&gt;let obj = new Object{ &amp;lsquo;name&amp;rsquo; : &amp;lsquo;Jacky&amp;rsquo;, &amp;lsquo;age&amp;rsquo; : 18 }&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以上两种方法都可以声明对象，第二种写法更规范，第一种是简化写法。&lt;/p&gt;
+&lt;p&gt;细节：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;键名是字符串，可以包含任何字符&lt;/li&gt;
+&lt;li&gt;键名引号可以省略，但省略以后只能写标识符&lt;/li&gt;
+&lt;li&gt;就算引号省略了，键名还是会转成字符串保存&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;heading2&#34;&gt;如何用变量做属性名&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;let a = &#39;name&#39;
+let obj = { [a] : &#39;Jacky&#39; }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;使用中括号可以用变量做键名，如果是{ a : &amp;lsquo;jacky&amp;rsquo;},这样键名将会是&#39;a&amp;rsquo;。&lt;/p&gt;
+&lt;h2 id=&#34;heading3&#34;&gt;如何删除对象的属性&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;delete.obj.xxx 或者 delete.obj[&amp;lsquo;xxx&amp;rsquo;]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;delete命令删除对象的属性。删除成功后，就会返回true。&lt;/p&gt;
+&lt;p&gt;要注意如果删除一个不存在的属性，也会返回true，只有在删除不能删除的属性时才会返回false。&lt;/p&gt;
+&lt;h4 id=&#34;heading4&#34;&gt;如何查看删除是否成功&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;lsquo;xxx&amp;rsquo; in obj === false&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;lsquo;xxx&#39;不是obj的属性&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;lsquo;xxx&amp;rsquo; in obj &amp;amp;&amp;amp; obj.xxx === undefined&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;lsquo;xxx&#39;是obj的属性，值为undefined&lt;/p&gt;
+&lt;h2 id=&#34;heading5&#34;&gt;如何查看对象的属性&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Object.keys(obj)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;查看自身的所有属性&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;console.dir(obj)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;查看自身属性和共有属性&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;obj.hasOwnProperty(&amp;lsquo;toString&amp;rsquo;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;判断一个属性是自身的还是共有的&lt;/p&gt;
+&lt;h2 id=&#34;heading6&#34;&gt;如何修改或增加对象的属性&lt;/h2&gt;
+&lt;h4 id=&#34;heading7&#34;&gt;修改对象属性&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;obj[&amp;lsquo;name&amp;rsquo;] = &amp;lsquo;jacky&amp;rsquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;修改自身属性&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;obj.name = &amp;lsquo;jacky&amp;rsquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;修改自身属性&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Object.assign(obj, {&amp;lsquo;age&amp;rsquo; : 18 &amp;hellip;})&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;批量修改自身属性&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Object.prototype[&amp;lsquo;toString&amp;rsquo;] = &amp;lsquo;xxx&amp;rsquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;修改共有属性，但不建议这样做&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;let obj = Object.create(common)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;把obj的共有属性修改为common&lt;/p&gt;
+&lt;h4 id=&#34;heading8&#34;&gt;增加对象属性&lt;/h4&gt;
+&lt;p&gt;增加对象属性的方法同上，已有属性则改，没有属性则增&lt;/p&gt;
+&lt;h2 id=&#34;objnameobjnameobjname&#34;&gt;区分obj[name]和obj[&amp;lsquo;name&amp;rsquo;]和obj.name&lt;/h2&gt;
+&lt;p&gt;这三个表达式看起来都一样，让人傻傻分不清&lt;/p&gt;
+&lt;p&gt;但实际上，obj[&amp;lsquo;name&amp;rsquo;] === obj.name ，name都是字符串&lt;/p&gt;
+&lt;p&gt;obj[name],name则是变量&lt;/p&gt;
+&lt;p&gt;不服请看下图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/%E5%AF%B9%E8%B1%A1-%E5%8C%BA%E5%88%86.png&#34; alt=&#34;区分&#34;&gt;&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>JavaScript数据类型</title>
+      <link>http://localhost:1313/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Mon, 30 Dec 2019 15:23:26 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
+      
+        <description>&lt;h3 id=&#34;javascript-&#34;&gt;JavaScript 数据类型&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;number-&#34;&gt;number 数字&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;string-&#34;&gt;string 字符串&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;symbol-&#34;&gt;symbol 符号&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;bool-&#34;&gt;bool 布尔值&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;null-&#34;&gt;null 空&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;undefined-&#34;&gt;undefined 空&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;object-&#34;&gt;object 对象&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;口诀: 四基两空一对象&lt;/p&gt;
+&lt;h3 id=&#34;number&#34;&gt;number&lt;/h3&gt;
+&lt;p&gt;JS的数字采用64位浮点数储存，又称双精度浮点数&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;浮点就是可浮动的点，意思是小数点位置可以改动&lt;/li&gt;
+&lt;li&gt;例如 123.456 可以表示位 1.23456e10^2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;64位浮点数的数据结构：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/%E6%B5%AE%E7%82%B9%E6%95%B0.png&#34; alt=&#34;浮点数&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;符号位S：第 1 位是正负数符号位（sign），0代表正数，1代表负数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;指数位E：中间的 11 位存储指数（exponent），用来表示次方数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;尾数位M：最后的 52 位是尾数（mantissa），超出的部分自动进一舍零&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;特殊值:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;正零和负零要区分，正零和负零值都为零&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;正无穷大和负无穷大要区分&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;NaN (Not a Number) 也是数字类型，是一个未知数&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;string&#34;&gt;String&lt;/h3&gt;
+&lt;p&gt;JS的字符串采用阉割版的UTF-8，每个字符占两个字节&lt;/p&gt;
+&lt;p&gt;写法可以是:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;双引号 &amp;ldquo;Hello&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;单引号 &amp;lsquo;Hello&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;反引号 `Hello`&lt;/li&gt;
+&lt;li&gt;注意引号不属于字符串的一部分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;有时我们需要用到转义&lt;/p&gt;
+&lt;p&gt;例如输入 &amp;lsquo;It&#39;s ok&amp;rsquo;，此时就会出现错误，JS引擎会认为&#39;it&#39;就结束了&lt;/p&gt;
+&lt;p&gt;可以写成:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;lsquo;It&#39;s ok&amp;rsquo;  使用了转义&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;It&#39;s ok&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;`It&#39;s ok`&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;更多的转义写法&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;quot; 表示 &amp;quot;&lt;/li&gt;
+&lt;li&gt;&#39; 表示 &#39;&lt;/li&gt;
+&lt;li&gt;\n 表示 换行&lt;/li&gt;
+&lt;li&gt;\r 表示 回车&lt;/li&gt;
+&lt;li&gt;\t 表示 Tab制表符&lt;/li&gt;
+&lt;li&gt;\ 表示 \&lt;/li&gt;
+&lt;li&gt;\uFFFF 表示对应的Unicode字符&lt;/li&gt;
+&lt;li&gt;\xFF 表示前256个Unicode字符&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;symbol&#34;&gt;symbol&lt;/h3&gt;
+&lt;p&gt;symbol使用情况很少，暂且不讲，以后用到再补充&lt;/p&gt;
+&lt;h3 id=&#34;bool&#34;&gt;bool&lt;/h3&gt;
+&lt;p&gt;布尔值代表“真”和“假”两个状态。“真”用关键字true表示，“假”用关键字false表示。布尔值只有这两个值。&lt;/p&gt;
+&lt;p&gt;下列运算符会返回布尔值：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;前置逻辑运算符： ! (Not)&lt;/li&gt;
+&lt;li&gt;相等运算符：===，!==，==，!=&lt;/li&gt;
+&lt;li&gt;比较运算符：&amp;gt;，&amp;gt;=，&amp;lt;，&amp;lt;=&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;那问题来了如果表达式不返回布尔值，怎么判断真假呢？&lt;/p&gt;
+&lt;p&gt;答:记住五个falsy值，falsy就是相当于false，但又不是false的值&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;undefined&lt;/li&gt;
+&lt;li&gt;null&lt;/li&gt;
+&lt;li&gt;0&lt;/li&gt;
+&lt;li&gt;NaN&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;&amp;ldquo;或&amp;rsquo;&#39;（空字符串）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其余不返回布尔值的表达式都为真&lt;/p&gt;
+&lt;h3 id=&#34;null--undefined&#34;&gt;null 和 undefined&lt;/h3&gt;
+&lt;p&gt;null与undefined都可以表示“没有”，含义非常相似。本质上没有区别。&lt;/p&gt;
+&lt;p&gt;不过要注意以下几个细节&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果一个变量声明了，但没有赋值，那么默认值就是undefined，而不是null&lt;/li&gt;
+&lt;li&gt;如果一个函数，没有写return，那么默认return undefined，而不是null&lt;/li&gt;
+&lt;li&gt;前端程序员习惯上，把非对象的空值写为undefined，把对象的空值写为null，但只是习惯而已&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;object&#34;&gt;object&lt;/h3&gt;
+&lt;p&gt;object的内容较多，会在下一个blog补充，欢迎查看。&lt;/p&gt;
 </description>
       
     </item>
@@ -176,132 +389,6 @@ console.log(2);
 // i=2, j=1
 // i=2, j=2
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面代码中，continue命令后面有一个标签名，满足条件时，会跳过当前循环，直接进入下一轮外层循环。如果continue语句后面不使用标签，则只能进入下一轮的内层循环。&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>JavaScript数据类型</title>
-      <link>http://localhost:1313/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
-      <pubDate>Sun, 29 Dec 2019 15:23:26 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
-      
-        <description>&lt;h3 id=&#34;javascript-&#34;&gt;JavaScript 数据类型&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;h4 id=&#34;number-&#34;&gt;number 数字&lt;/h4&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;h4 id=&#34;string-&#34;&gt;string 字符串&lt;/h4&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;h4 id=&#34;symbol-&#34;&gt;symbol 符号&lt;/h4&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;h4 id=&#34;bool-&#34;&gt;bool 布尔值&lt;/h4&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;h4 id=&#34;null-&#34;&gt;null 空&lt;/h4&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;h4 id=&#34;undefined-&#34;&gt;undefined 空&lt;/h4&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;h4 id=&#34;object-&#34;&gt;object 对象&lt;/h4&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;口诀: 四基两空一对象&lt;/p&gt;
-&lt;h3 id=&#34;number&#34;&gt;number&lt;/h3&gt;
-&lt;p&gt;JS的数字采用64位浮点数储存，又称双精度浮点数&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;浮点就是可浮动的点，意思是小数点位置可以改动&lt;/li&gt;
-&lt;li&gt;例如 123.456 可以表示位 1.23456e10^2&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;64位浮点数的数据结构：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/%E6%B5%AE%E7%82%B9%E6%95%B0.png&#34; alt=&#34;浮点数&#34;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;符号位S：第 1 位是正负数符号位（sign），0代表正数，1代表负数&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;指数位E：中间的 11 位存储指数（exponent），用来表示次方数&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;尾数位M：最后的 52 位是尾数（mantissa），超出的部分自动进一舍零&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;特殊值:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;正零和负零要区分，正零和负零值都为零&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;正无穷大和负无穷大要区分&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;NaN (Not a Number) 也是数字类型，是一个未知数&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;string&#34;&gt;String&lt;/h3&gt;
-&lt;p&gt;JS的字符串采用阉割版的UTF-8，每个字符占两个字节&lt;/p&gt;
-&lt;p&gt;写法可以是:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;双引号 &amp;ldquo;Hello&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;单引号 &amp;lsquo;Hello&amp;rsquo;&lt;/li&gt;
-&lt;li&gt;反引号 `Hello`&lt;/li&gt;
-&lt;li&gt;注意引号不属于字符串的一部分&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;有时我们需要用到转义&lt;/p&gt;
-&lt;p&gt;例如输入 &amp;lsquo;It&#39;s ok&amp;rsquo;，此时就会出现错误，JS引擎会认为&#39;it&#39;就结束了&lt;/p&gt;
-&lt;p&gt;可以写成:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;lsquo;It&#39;s ok&amp;rsquo;  使用了转义&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;It&#39;s ok&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;`It&#39;s ok`&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;更多的转义写法&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;quot; 表示 &amp;quot;&lt;/li&gt;
-&lt;li&gt;&#39; 表示 &#39;&lt;/li&gt;
-&lt;li&gt;\n 表示 换行&lt;/li&gt;
-&lt;li&gt;\r 表示 回车&lt;/li&gt;
-&lt;li&gt;\t 表示 Tab制表符&lt;/li&gt;
-&lt;li&gt;\ 表示 \&lt;/li&gt;
-&lt;li&gt;\uFFFF 表示对应的Unicode字符&lt;/li&gt;
-&lt;li&gt;\xFF 表示前256个Unicode字符&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;symbol&#34;&gt;symbol&lt;/h3&gt;
-&lt;p&gt;symbol使用情况很少，暂且不讲，以后用到再补充&lt;/p&gt;
-&lt;h3 id=&#34;bool&#34;&gt;bool&lt;/h3&gt;
-&lt;p&gt;布尔值代表“真”和“假”两个状态。“真”用关键字true表示，“假”用关键字false表示。布尔值只有这两个值。&lt;/p&gt;
-&lt;p&gt;下列运算符会返回布尔值：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;前置逻辑运算符： ! (Not)&lt;/li&gt;
-&lt;li&gt;相等运算符：===，!==，==，!=&lt;/li&gt;
-&lt;li&gt;比较运算符：&amp;gt;，&amp;gt;=，&amp;lt;，&amp;lt;=&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;那问题来了如果表达式不返回布尔值，怎么判断真假呢？&lt;/p&gt;
-&lt;p&gt;答:记住五个falsy值，falsy就是相当于false，但又不是false的值&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;undefined&lt;/li&gt;
-&lt;li&gt;null&lt;/li&gt;
-&lt;li&gt;false&lt;/li&gt;
-&lt;li&gt;0&lt;/li&gt;
-&lt;li&gt;NaN&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;&amp;ldquo;或&amp;rsquo;&#39;（空字符串）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;其余不返回布尔值的表达式都为真&lt;/p&gt;
-&lt;h3 id=&#34;null--undefined&#34;&gt;null 和 undefined&lt;/h3&gt;
-&lt;p&gt;null与undefined都可以表示“没有”，含义非常相似。本质上没有区别。&lt;/p&gt;
-&lt;p&gt;不过要注意以下几个细节&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;如果一个变量声明了，但没有赋值，那么默认值就是undefined，而不是null&lt;/li&gt;
-&lt;li&gt;如果一个函数，没有写return，那么默认return undefined，而不是null&lt;/li&gt;
-&lt;li&gt;前端程序员习惯上，把非对象的空值写为undefined，把对象的空值写为null，但只是习惯而已&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;object&#34;&gt;object&lt;/h3&gt;
-&lt;p&gt;object的内容较多，会在下一个blog补充，欢迎查看。&lt;/p&gt;
 </description>
       
     </item>

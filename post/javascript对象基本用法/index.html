@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>辉辉的小窝</title>
+  <title>JavaScript对象基本用法 - 辉辉的小窝</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Mr Lee" />
-  <meta name="description" content="Hugo theme jane example site." />
+  <meta name="description" content="对象是什么？ 对象（object）是 JavaScript 语言的核心概念，也是最重要的数据类型。 什么是对象？简单说，对象就是一组“键值对”（key-value）的" />
+
   <meta name="keywords" content="Hugo, theme, jane" />
 
 
@@ -34,8 +35,8 @@
 <meta name="generator" content="Hugo 0.60.1" />
 
 
-<link rel="canonical" href="http://localhost:1313/" />
-<link href="/index.xml" rel="alternate" type="application/rss+xml" title="辉辉的小窝" />
+<link rel="canonical" href="http://localhost:1313/post/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" />
+
 
 
 
@@ -58,15 +59,23 @@
 
 
 
-<meta property="og:title" content="辉辉的小窝" />
-<meta property="og:description" content="Hugo theme jane example site." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/" />
-<meta property="og:updated_time" content="2019-12-31T15:15:26+08:00" />
-<meta itemprop="name" content="辉辉的小窝">
-<meta itemprop="description" content="Hugo theme jane example site."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="辉辉的小窝"/>
-<meta name="twitter:description" content="Hugo theme jane example site."/>
+<meta property="og:title" content="JavaScript对象基本用法" />
+<meta property="og:description" content="对象是什么？ 对象（object）是 JavaScript 语言的核心概念，也是最重要的数据类型。 什么是对象？简单说，对象就是一组“键值对”（key-value）的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" />
+<meta property="article:published_time" content="2019-12-31T15:15:26+08:00" />
+<meta property="article:modified_time" content="2019-12-31T15:15:26+08:00" />
+<meta itemprop="name" content="JavaScript对象基本用法">
+<meta itemprop="description" content="对象是什么？ 对象（object）是 JavaScript 语言的核心概念，也是最重要的数据类型。 什么是对象？简单说，对象就是一组“键值对”（key-value）的">
+<meta itemprop="datePublished" content="2019-12-31T15:15:26&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-31T15:15:26&#43;08:00" />
+<meta itemprop="wordCount" content="744">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JavaScript对象基本用法"/>
+<meta name="twitter:description" content="对象是什么？ 对象（object）是 JavaScript 语言的核心概念，也是最重要的数据类型。 什么是对象？简单说，对象就是一组“键值对”（key-value）的"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -233,7 +242,7 @@
   <ul id="menu" class="menu">
     
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -325,157 +334,207 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="posts" class="posts">
-  
-  
+          <article class="post bg-white">
     
-  
-  
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+    <header class="post-header">
+      <h1 class="post-title">JavaScript对象基本用法</h1>
       
-      <a class="post-link" href="/post/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">JavaScript对象基本用法</a>
-    </h1>
+      <div class="post-meta">
+        <time datetime="2019-12-31" class="post-time">
+          2019-12-31
+        </time>
+        
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
     
-    <div class="post-meta">
-      <time datetime="2019-12-31" class="post-time">
-        2019-12-31
-      </time>
-      
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
     
-    <div class="post-summary">
-      对象是什么？ 对象（object）是 JavaScript 语言的核心概念，也是最重要的数据类型。 什么是对象？简单说，对象就是一组“键值对”（key-value）的
-    </div>
-    <div class="read-more">
-      <a href="/post/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="read-more-link">阅读全文</a>
-    </div>
-    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">对象是什么？</a></li>
+    <li><a href="#heading1">声明对象的两种语法</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#heading3">如何删除对象的属性</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#heading5">如何查看对象的属性</a></li>
+    <li><a href="#heading6">如何修改或增加对象的属性</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#objnameobjnameobjname">区分obj[name]和obj[name]和obj.name</a></li>
+  </ul>
+</nav>
   </div>
-</article>
+</div>
 
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">JavaScript数据类型</a>
-    </h1>
     
-    <div class="post-meta">
-      <time datetime="2019-12-30" class="post-time">
-        2019-12-30
-      </time>
-      
-      
-      
-      
+    <div class="post-content">
+      <h2 id="heading">对象是什么？</h2>
+<p>对象（object）是 JavaScript 语言的核心概念，也是最重要的数据类型。</p>
+<p>什么是对象？简单说，对象就是一组“键值对”（key-value）的集合，是一种无序的复合数据集合。</p>
+<h2 id="heading1">声明对象的两种语法</h2>
+<ul>
+<li>let obj = { &lsquo;name&rsquo; : &lsquo;Jacky&rsquo;, &lsquo;age&rsquo; : 18 }</li>
+<li>let obj = new Object{ &lsquo;name&rsquo; : &lsquo;Jacky&rsquo;, &lsquo;age&rsquo; : 18 }</li>
+</ul>
+<p>以上两种方法都可以声明对象，第二种写法更规范，第一种是简化写法。</p>
+<p>细节：</p>
+<ul>
+<li>键名是字符串，可以包含任何字符</li>
+<li>键名引号可以省略，但省略以后只能写标识符</li>
+<li>就算引号省略了，键名还是会转成字符串保存</li>
+</ul>
+<h4 id="heading2">如何用变量做属性名</h4>
+<pre><code>let a = 'name'
+let obj = { [a] : 'Jacky' }
+</code></pre><p>使用中括号可以用变量做键名，如果是{ a : &lsquo;jacky&rsquo;},这样键名将会是'a&rsquo;。</p>
+<h2 id="heading3">如何删除对象的属性</h2>
+<ul>
+<li>delete.obj.xxx 或者 delete.obj[&lsquo;xxx&rsquo;]</li>
+</ul>
+<p>delete命令删除对象的属性。删除成功后，就会返回true。</p>
+<p>要注意如果删除一个不存在的属性，也会返回true，只有在删除不能删除的属性时才会返回false。</p>
+<h4 id="heading4">如何查看删除是否成功</h4>
+<ul>
+<li>&lsquo;xxx&rsquo; in obj === false</li>
+</ul>
+<p>&lsquo;xxx'不是obj的属性</p>
+<ul>
+<li>&lsquo;xxx&rsquo; in obj &amp;&amp; obj.xxx === undefined</li>
+</ul>
+<p>&lsquo;xxx'是obj的属性，值为undefined</p>
+<h2 id="heading5">如何查看对象的属性</h2>
+<ul>
+<li>Object.keys(obj)</li>
+</ul>
+<p>查看自身的所有属性</p>
+<ul>
+<li>console.dir(obj)</li>
+</ul>
+<p>查看自身属性和共有属性</p>
+<ul>
+<li>obj.hasOwnProperty(&lsquo;toString&rsquo;)</li>
+</ul>
+<p>判断一个属性是自身的还是共有的</p>
+<h2 id="heading6">如何修改或增加对象的属性</h2>
+<h4 id="heading7">修改对象属性</h4>
+<ul>
+<li>obj[&lsquo;name&rsquo;] = &lsquo;jacky&rsquo;</li>
+</ul>
+<p>修改自身属性</p>
+<ul>
+<li>obj.name = &lsquo;jacky&rsquo;</li>
+</ul>
+<p>修改自身属性</p>
+<ul>
+<li>Object.assign(obj, {&lsquo;age&rsquo; : 18 &hellip;})</li>
+</ul>
+<p>批量修改自身属性</p>
+<ul>
+<li>Object.prototype[&lsquo;toString&rsquo;] = &lsquo;xxx&rsquo;</li>
+</ul>
+<p>修改共有属性，但不建议这样做</p>
+<ul>
+<li>let obj = Object.create(common)</li>
+</ul>
+<p>把obj的共有属性修改为common</p>
+<h4 id="heading8">增加对象属性</h4>
+<p>增加对象属性的方法同上，已有属性则改，没有属性则增</p>
+<h2 id="objnameobjnameobjname">区分obj[name]和obj[&lsquo;name&rsquo;]和obj.name</h2>
+<p>这三个表达式看起来都一样，让人傻傻分不清</p>
+<p>但实际上，obj[&lsquo;name&rsquo;] === obj.name ，name都是字符串</p>
+<p>obj[name],name则是变量</p>
+<p>不服请看下图</p>
+<p><img src="/images/%E5%AF%B9%E8%B1%A1-%E5%8C%BA%E5%88%86.png" alt="区分"></p>
+
     </div>
-  </header>
-  
-  <div class="post-content">
+
     
-    <div class="post-summary">
-      JavaScript 数据类型 number 数字 string 字符串 symbol 符号 bool 布尔值 null 空 undefined 空 object 对象 口诀: 四基两空一对象 number JS的数字采用64位浮点数储存，又称双精度浮点数 浮点就是可浮动的点
-    </div>
-    <div class="read-more">
-      <a href="/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="read-more-link">阅读全文</a>
-    </div>
     
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Mr Lee</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2019-12-31
       
-      <a class="post-link" href="/post/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">JavaScript基本语法</a>
-    </h1>
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
     
-    <div class="post-meta">
-      <time datetime="2019-12-29" class="post-time">
-        2019-12-29
-      </time>
-      
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
     
-    <div class="post-summary">
-      什么是表达式和语句？ 语句 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。 语句（statement）是
-    </div>
-    <div class="read-more">
-      <a href="/post/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="read-more-link">阅读全文</a>
-    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+            <span class="next-text nav-default">JavaScript数据类型</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
     
-  </div>
-</article>
 
   
-</section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
-      
-      <li  class="active" >
-        <a href="/">1</a>
-      </li>
-      
-      <li >
-        <a href="/page/2/">2</a>
-      </li>
-      
-      <li >
-        <a href="/page/3/">3</a>
-      </li>
-      
-      <li >
-        <a href="/page/4/">4</a>
-      </li>
-      
-    </ul>
-  </nav>
-
-  
-  
-
-
-
-
 
         </div>
       </div>
