@@ -6,7 +6,7 @@
     <description>Recent content on 辉辉的小窝</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 31 Dec 2019 15:15:26 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jan 2020 15:23:26 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
@@ -27,6 +27,109 @@
 &lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cast&#34;&gt;Cast&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>JS 的 new 到底是干什么的？</title>
+      <link>http://localhost:1313/post/js-%E7%9A%84-new-%E5%88%B0%E5%BA%95%E6%98%AF%E5%B9%B2%E4%BB%80%E4%B9%88%E7%9A%84/</link>
+      <pubDate>Thu, 02 Jan 2020 15:23:26 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/js-%E7%9A%84-new-%E5%88%B0%E5%BA%95%E6%98%AF%E5%B9%B2%E4%BB%80%E4%B9%88%E7%9A%84/</guid>
+      
+        <description>&lt;p&gt;大部分讲new的文章都会从面向对象的思路来讲，但是对于新手学习是，引入一个更复杂的概念，无疑是增加了学习了难度。&lt;/p&gt;
+&lt;p&gt;本文将从[省代码]的角度讲解new&lt;/p&gt;
+&lt;p&gt;举一个简单的栗子，有一条制造iPhoneX的流水线，生产出的iPhoneX在计算机里就是一堆属性，如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/iPhoneX.png&#34; alt=&#34;iPhoneX&#34;&gt;&lt;/p&gt;
+&lt;p&gt;写成代码如下&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;let iPhoneX = {
+    ID: 1,
+    品牌: &#39;苹果&#39;,
+    颜色: &#39;土豪金&#39;, //有多种配色
+    屏幕: &#39;5.8英寸&#39;,
+    开机: function(){/* 开机代码 */},
+    死机: function(){/* 死机代码 */}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;1000iphonex&#34;&gt;制作1000台iPhoneX&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;let iPhoneXs = []
+let iPhoneX 
+for (let i = 0; i &amp;lt; 1000; i++) {
+    iPhoneX = {
+    ID: i,  //ID号不能重复
+    品牌: &#39;苹果&#39;,
+    颜色: &#39;土豪金&#39;,  //有多种配色
+    屏幕: &#39;5.8英寸&#39;,
+    开机: function(){/* 开机代码 */},
+    死机: function(){/* 死机代码 */}
+    }
+} 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;OK弄好了，so easy&lt;/p&gt;
+&lt;h4 id=&#34;heading&#34;&gt;质疑&lt;/h4&gt;
+&lt;p&gt;上面的代码存在一个问题：浪费了很多内存。&lt;/p&gt;
+&lt;p&gt;开机代码和死机代码对于每台iPhoneX其实是一样的，只需要各自引用同一个函数就可以了，没必要重复创建到每一个iPhoneX对象里&lt;/p&gt;
+&lt;p&gt;每台iPhoneX的品牌和屏幕尺寸也是相同的，同样没必要重复创建。&lt;/p&gt;
+&lt;p&gt;只有 ID 和 颜色 需要重复创建。&lt;/p&gt;
+&lt;h4 id=&#34;heading1&#34;&gt;改进&lt;/h4&gt;
+&lt;p&gt;属性JS原型链的同学肯定知道，用原型链可以解决重复创建的问题，&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;let iPhoneXs = []
+let iPhoneX 
+let iPhoneX原型 = {
+    品牌: &#39;苹果&#39;,
+    屏幕: &#39;5.8英寸&#39;,
+    开机: function(){/* 开机代码 */},
+    死机: function(){/* 死机代码 */}
+}
+for (let i = 0; i &amp;lt; 1000; i++) {
+    iPhoneX = {
+    ID: i,  //ID号不能重复
+    颜色: &#39;土豪金&#39; 
+    }
+    iPhoneX.__proto__ = iPhoneX原型
+    iPhoneXs.push(iPhoneX)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;heading2&#34;&gt;还不够优雅？&lt;/h4&gt;
+&lt;p&gt;有人指出制造iPhoneX的代码分散在两个地方不够优雅，于是我们用一个函数把这两个部分连接起来：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;let iPhoneXs = []
+function iPhoneXCreate(ID) {                            //构造函数
+    let iPhoneX = Object.create(iPhoneXCreate.iPhoneX原型)
+    iPhoneX.ID = ID
+    return iPhoneX
+}
+iPhoneXCreate.iPhoneX原型 = {
+    品牌: &#39;苹果&#39;,
+    屏幕: &#39;5.8英寸&#39;,
+    开机: function(){/* 开机代码 */},
+    死机: function(){/* 死机代码 */},X
+    constructor: iPhoneXCreate
+}
+for (let i = 0; i &amp;lt; 1000; i++) {
+    iPhoneXs[i] = iPhoneXCreate(i)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;js-&#34;&gt;JS 之父的关怀&lt;/h4&gt;
+&lt;p&gt;这一次我们用new来写&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;let iPhoneXs = []
+function IPhoneX(ID) {
+    this.ID = ID
+}
+
+IPhoneX.prototype.品牌 = &#39;苹果&#39;
+IPhoneX.prototype.屏幕 = &#39;5.8英寸&#39;
+IPhoneX.prototype.开机 = function(){/* 开机代码 */}
+IPhoneX.prototype.死机 = function(){/* 死机代码 */}
+
+for (let i = 0; i &amp;lt; 1000; i++) {
+    iPhoneXs[i] = new IPhoneX(i)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;完美，使用new省几行代码。（也就是所谓的语法糖）&lt;/p&gt;
+&lt;p&gt;只要你在IPhoneX前面使用 new 关键字，那么可以少做四件事情：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不用创建临时对象，因为 new 会帮你做（你使用「this」就可以访问到临时对象）；&lt;/li&gt;
+&lt;li&gt;不用绑定原型，因为 new 会帮你做（new 为了知道原型在哪，所以指定原型的名字为 prototype）；&lt;/li&gt;
+&lt;li&gt;不用 return 临时对象，因为 new 会帮你做；&lt;/li&gt;
+&lt;li&gt;不要给原型想名字了，因为 new 指定名字为 prototype。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本文参考方应杭的文章&lt;a href=&#34;https://zhuanlan.zhihu.com/p/23987456&#34;&gt;JS 的 new 到底是干什么的？&lt;/a&gt;&lt;/p&gt;
 </description>
       
     </item>
