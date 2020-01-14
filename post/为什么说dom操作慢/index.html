@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>辉辉的小窝</title>
+  <title>为什么说DOM操作慢 - 辉辉的小窝</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Mr Lee" />
-  <meta name="description" content="Hugo theme jane example site." />
+  <meta name="description" content="在学前端的过程中，经常会听说DOM操作慢，要尽量少去操作DOM，本文就浅析一下DOM操作慢的原因 我们知道： JS引擎不能操作页面，只能操作JS" />
+
   <meta name="keywords" content="Hugo, theme, jane" />
 
 
@@ -34,8 +35,8 @@
 <meta name="generator" content="Hugo 0.60.1" />
 
 
-<link rel="canonical" href="http://localhost:1313/" />
-<link href="/index.xml" rel="alternate" type="application/rss+xml" title="辉辉的小窝" />
+<link rel="canonical" href="http://localhost:1313/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4dom%E6%93%8D%E4%BD%9C%E6%85%A2/" />
+
 
 
 
@@ -58,15 +59,23 @@
 
 
 
-<meta property="og:title" content="辉辉的小窝" />
-<meta property="og:description" content="Hugo theme jane example site." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/" />
-<meta property="og:updated_time" content="2020-01-10T12:20:26+08:00" />
-<meta itemprop="name" content="辉辉的小窝">
-<meta itemprop="description" content="Hugo theme jane example site."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="辉辉的小窝"/>
-<meta name="twitter:description" content="Hugo theme jane example site."/>
+<meta property="og:title" content="为什么说DOM操作慢" />
+<meta property="og:description" content="在学前端的过程中，经常会听说DOM操作慢，要尽量少去操作DOM，本文就浅析一下DOM操作慢的原因 我们知道： JS引擎不能操作页面，只能操作JS" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4dom%E6%93%8D%E4%BD%9C%E6%85%A2/" />
+<meta property="article:published_time" content="2020-01-10T12:20:26+08:00" />
+<meta property="article:modified_time" content="2020-01-10T12:20:26+08:00" />
+<meta itemprop="name" content="为什么说DOM操作慢">
+<meta itemprop="description" content="在学前端的过程中，经常会听说DOM操作慢，要尽量少去操作DOM，本文就浅析一下DOM操作慢的原因 我们知道： JS引擎不能操作页面，只能操作JS">
+<meta itemprop="datePublished" content="2020-01-10T12:20:26&#43;08:00" />
+<meta itemprop="dateModified" content="2020-01-10T12:20:26&#43;08:00" />
+<meta itemprop="wordCount" content="566">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="为什么说DOM操作慢"/>
+<meta name="twitter:description" content="在学前端的过程中，经常会听说DOM操作慢，要尽量少去操作DOM，本文就浅析一下DOM操作慢的原因 我们知道： JS引擎不能操作页面，只能操作JS"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -233,7 +242,7 @@
   <ul id="menu" class="menu">
     
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -325,161 +334,163 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="posts" class="posts">
-  
-  
+          <article class="post bg-white">
     
-  
-  
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+    <header class="post-header">
+      <h1 class="post-title">为什么说DOM操作慢</h1>
       
-      <a class="post-link" href="/post/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">JavaScript对象基本用法</a>
-    </h1>
+      <div class="post-meta">
+        <time datetime="2020-01-10" class="post-time">
+          2020-01-10
+        </time>
+        
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
     
-    <div class="post-meta">
-      <time datetime="2019-12-31" class="post-time">
-        2019-12-31
-      </time>
-      
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
     
-    <div class="post-summary">
-      对象是什么？ 对象（object）是 JavaScript 语言的核心概念，也是最重要的数据类型。 什么是对象？简单说，对象就是一组“键值对”（key-value）的
-    </div>
-    <div class="read-more">
-      <a href="/post/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="read-more-link">阅读全文</a>
-    </div>
-    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#documentbodyappendchilddiv1js">那document.body.appendChild(div1)这句JS是如何改变页面的呢？</a></li>
+        <li><a href="#div1innertext--im-jacky-">div1.innerTEXT = I'm Jacky 操作了什么？</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
-</article>
+</div>
 
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">JavaScript数据类型</a>
-    </h1>
     
-    <div class="post-meta">
-      <time datetime="2019-12-30" class="post-time">
-        2019-12-30
-      </time>
-      
-      
-      
-      
+    <div class="post-content">
+      <p>在学前端的过程中，经常会听说DOM操作慢，要尽量少去操作DOM，本文就浅析一下DOM操作慢的原因</p>
+<p>我们知道：</p>
+<ul>
+<li>JS引擎不能操作页面，只能操作JS</li>
+<li>渲染引擎不能操作JS，只能操作页面</li>
+</ul>
+<h3 id="documentbodyappendchilddiv1js">那document.body.appendChild(&lsquo;div1&rsquo;)这句JS是如何改变页面的呢？</h3>
+<p>我们先来完成一下这句JS语句的代码</p>
+<pre><code>let div1 = document.createElement('div1')
+div1.innerTEXT = 'h1'
+document.body.append(div1)
+//...省略n行代码
+div.innerTEXT = `I'm Jacky`
+</code></pre><p>这段代码的运行过程</p>
+<ul>
+<li>
+<p>在 div1 放入页面之前:</p>
+<p><strong>对 div1 所有的操作都属于JS线程内的操作</strong></p>
+</li>
+<li>
+<p>把 div1 放入页面中：</p>
+<p><strong>浏览器会发现JS的意图</strong>
+<strong>就会通知渲染线程在页面中渲染 div1 对应的元素</strong></p>
+</li>
+<li>
+<p>把 div1 放入页面之后</p>
+<p><strong>你对 div1 的操作都<a href="">有可能</a>触发重新渲染</strong></p>
+</li>
+</ul>
+<p>注： 有可能代表，可能触发也可能不触发</p>
+<hr>
+<p><strong>用图表示</strong></p>
+<p><img src="/images/%E8%B7%A8%E7%BA%BF%E7%A8%8B%E6%93%8D%E4%BD%9C.png" alt="跨线程"></p>
+<p><strong>首先，DOM对象本身也是一个js对象，所以严格来说，并不是操作这个对象慢，而是说操作了这个对象后，需要经过跨流程通信和渲染线程触发的重新渲染，导致DOM操作慢。</strong></p>
+<h3 id="div1innertext--im-jacky-">div1.innerTEXT = <code>I'm Jacky</code> 操作了什么？</h3>
+<p>上图的最后一句语句，看似简单，但实际其全部含义是巨大的。可以粗略概述为：</p>
+<ul>
+<li>解析`I'm Jacky`为HTML文本</li>
+<li>向浏览器扩展程序寻求许可</li>
+<li>销毁现有的子节点div1</li>
+<li>创建子字节</li>
+<li>根据父子关系重新计算Layout</li>
+<li>重新Paint绘制</li>
+</ul>
+<p><strong>JS引擎和和渲染引擎的模块化设计，使得它们可以独立优化，运行速度更快，但是这种设计带来的后果就是DOM操作会越来越慢。</strong></p>
+
     </div>
-  </header>
-  
-  <div class="post-content">
+
     
-    <div class="post-summary">
-      JavaScript 数据类型 number 数字 string 字符串 symbol 符号 bool 布尔值 null 空 undefined 空 object 对象 口诀: 四基两空一对象 number JS的数字采用64位浮点数储存，又称双精度浮点数 浮点就是可浮动的点
-    </div>
-    <div class="read-more">
-      <a href="/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="read-more-link">阅读全文</a>
-    </div>
     
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Mr Lee</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2020-01-10
       
-      <a class="post-link" href="/post/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">JavaScript基本语法</a>
-    </h1>
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
     
-    <div class="post-meta">
-      <time datetime="2019-12-29" class="post-time">
-        2019-12-29
-      </time>
-      
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
     
-    <div class="post-summary">
-      什么是表达式和语句？ 语句 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。 语句（statement）是
-    </div>
-    <div class="read-more">
-      <a href="/post/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="read-more-link">阅读全文</a>
-    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/js-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/">
+            <span class="next-text nav-default">JS 函数的执行时机</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
     
-  </div>
-</article>
 
   
-</section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
-      
-      <li >
-        <a href="/">1</a>
-      </li>
-      
-      <li  class="active" >
-        <a href="/page/2/">2</a>
-      </li>
-      
-      <li >
-        <a href="/page/3/">3</a>
-      </li>
-      
-      <li >
-        <a href="/page/4/">4</a>
-      </li>
-      
-      <li >
-        <a href="/page/5/">5</a>
-      </li>
-      
-    </ul>
-  </nav>
-
-  
-  
-
-
-
-
 
         </div>
       </div>
