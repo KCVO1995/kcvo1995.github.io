@@ -374,14 +374,15 @@
 
     
     <div class="post-content">
-      <p>在学前端的过程中，经常会听说DOM操作慢，要尽量少去操作DOM，本文就浅析一下DOM操作慢的原因</p>
+      <p><img src="/images/bg2.jpg" alt="背景"></p>
+<p>在学前端的过程中，经常会听说DOM操作慢，要尽量少去操作DOM，本文就浅析一下DOM操作慢的原因</p>
 <p>我们知道：</p>
 <ul>
 <li>JS引擎不能操作页面，只能操作JS</li>
 <li>渲染引擎不能操作JS，只能操作页面</li>
 </ul>
 <h3 id="documentbodyappendchilddiv1js">那document.body.appendChild(&lsquo;div1&rsquo;)这句JS是如何改变页面的呢？</h3>
-<p>我们先来完成一下这句JS语句的代码</p>
+<p>我们先来完善一下这句JS语句的代码</p>
 <pre><code>let div1 = document.createElement('div1')
 div1.innerTEXT = 'h1'
 document.body.append(div1)
