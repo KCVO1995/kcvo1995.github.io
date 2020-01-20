@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 辉辉的小窝</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 10 Jan 2020 12:20:26 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jan 2020 12:23:26 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>jQuery设计思想及其简单实现</title>
+      <link>http://localhost:1313/post/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Sun, 19 Jan 2020 12:23:26 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</guid>
+      <description>前言 jQuery 是目前最长寿也是使用最广泛的 javaScript 函数库,据统计全球排名前 100k 的网站,有 90%都在使用 jQuery,远远超过了其他的库,数据如下图 jQuery 的实现都</description>
+    </item>
     
     <item>
       <title>为什么说DOM操作慢</title>
