@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 辉辉的小窝</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 19 Jan 2020 12:23:26 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jan 2020 12:23:26 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>axios 基本用法</title>
+      <link>http://localhost:1313/post/axios%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Mon, 20 Jan 2020 12:23:26 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/axios%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
+      <description>安装 使用 npm: $ npm install axios 使用 bower: $ bower install axios 使用 cdn: &amp;lt;script src=&amp;quot;https://unpkg.com/axios/dist/axios.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; 执行 GET 请求 // 为给定 ID 的 user 创建请求 axios.get(&#39;/user?ID=12345&#39;) .then(function (response) { console.log(response); }) .catch(function (error) { console.log(error); }); // 上面的请求也可以这样做 axios.get(&#39;/user&#39;, { params: { ID: 12345 } }) .then(function (response)</description>
+    </item>
     
     <item>
       <title>jQuery设计思想及其简单实现</title>
