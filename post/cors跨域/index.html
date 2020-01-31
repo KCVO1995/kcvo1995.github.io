@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>辉辉的小窝</title>
+  <title>CORS跨域 - 辉辉的小窝</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Mr Lee" />
-  <meta name="description" content="Hugo theme jane example site." />
+  <meta name="description" content="什么是跨域？ 简单的来说，出于安全方面的考虑，页面中的JavaScript无法访问其他服务器上的数据，即“同源策略”。而跨域就是通过某些手段来" />
+
   <meta name="keywords" content="Hugo, theme, jane" />
 
 
@@ -34,8 +35,8 @@
 <meta name="generator" content="Hugo 0.60.1" />
 
 
-<link rel="canonical" href="http://localhost:1313/" />
-<link href="/index.xml" rel="alternate" type="application/rss+xml" title="辉辉的小窝" />
+<link rel="canonical" href="http://localhost:1313/post/cors%E8%B7%A8%E5%9F%9F/" />
+
 
 
 
@@ -58,15 +59,23 @@
 
 
 
-<meta property="og:title" content="辉辉的小窝" />
-<meta property="og:description" content="Hugo theme jane example site." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/" />
-<meta property="og:updated_time" content="2020-01-31T12:12:26+08:00" />
-<meta itemprop="name" content="辉辉的小窝">
-<meta itemprop="description" content="Hugo theme jane example site."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="辉辉的小窝"/>
-<meta name="twitter:description" content="Hugo theme jane example site."/>
+<meta property="og:title" content="CORS跨域" />
+<meta property="og:description" content="什么是跨域？ 简单的来说，出于安全方面的考虑，页面中的JavaScript无法访问其他服务器上的数据，即“同源策略”。而跨域就是通过某些手段来" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/cors%E8%B7%A8%E5%9F%9F/" />
+<meta property="article:published_time" content="2020-01-26T12:23:26+08:00" />
+<meta property="article:modified_time" content="2020-01-26T12:23:26+08:00" />
+<meta itemprop="name" content="CORS跨域">
+<meta itemprop="description" content="什么是跨域？ 简单的来说，出于安全方面的考虑，页面中的JavaScript无法访问其他服务器上的数据，即“同源策略”。而跨域就是通过某些手段来">
+<meta itemprop="datePublished" content="2020-01-26T12:23:26&#43;08:00" />
+<meta itemprop="dateModified" content="2020-01-26T12:23:26&#43;08:00" />
+<meta itemprop="wordCount" content="883">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CORS跨域"/>
+<meta name="twitter:description" content="什么是跨域？ 简单的来说，出于安全方面的考虑，页面中的JavaScript无法访问其他服务器上的数据，即“同源策略”。而跨域就是通过某些手段来"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -233,7 +242,7 @@
   <ul id="menu" class="menu">
     
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -325,169 +334,177 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="posts" class="posts">
-  
-  
+          <article class="post bg-white">
     
-  
-  
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+    <header class="post-header">
+      <h1 class="post-title">CORS跨域</h1>
       
-      <a class="post-link" href="/post/js-%E7%9A%84-new-%E5%88%B0%E5%BA%95%E6%98%AF%E5%B9%B2%E4%BB%80%E4%B9%88%E7%9A%84/">JS 的 new 到底是干什么的？</a>
-    </h1>
+      <div class="post-meta">
+        <time datetime="2020-01-26" class="post-time">
+          2020-01-26
+        </time>
+        
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
     
-    <div class="post-meta">
-      <time datetime="2020-01-02" class="post-time">
-        2020-01-02
-      </time>
-      
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
     
-    <div class="post-summary">
-      大部分讲new的文章都会从面向对象的思路来讲，但是对于新手学习是，引入一个更复杂的概念，无疑是增加了学习了难度。 本文将从[省代码]的角度讲解
-    </div>
-    <div class="read-more">
-      <a href="/post/js-%E7%9A%84-new-%E5%88%B0%E5%BA%95%E6%98%AF%E5%B9%B2%E4%BB%80%E4%B9%88%E7%9A%84/" class="read-more-link">阅读全文</a>
-    </div>
-    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#heading">什么是跨域？</a></li>
+        <li><a href="#cors">CORS</a></li>
+        <li><a href="#heading1">非简单请求(预检请求)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
-</article>
+</div>
 
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">JavaScript对象基本用法</a>
-    </h1>
     
-    <div class="post-meta">
-      <time datetime="2019-12-31" class="post-time">
-        2019-12-31
-      </time>
-      
-      
-      
-      
+    <div class="post-content">
+      <h3 id="heading">什么是跨域？</h3>
+<p>简单的来说，出于安全方面的考虑，页面中的JavaScript无法访问其他服务器上的数据，即“同源策略”。而跨域就是通过某些手段来绕过同源策略限制，实现不同服务器之间通信的效果。</p>
+<p><img src="/images/CORS1.jpg" alt="跨域"></p>
+<h3 id="cors">CORS</h3>
+<p>CORS全称“跨域资源共享”(Cross-Origin-Resource-Share)</p>
+<p>CORS需要浏览器和服务器同时支持，才可以实现跨域请求，目前几乎所有浏览器都支持CORS，IE则不能低于IE10。CORS的整个过程都由浏览器自动完成，前端无需做任何设置，跟平时发送ajax请求并无差异。所以，实现CORS的关键在于服务器，只要服务器实现CORS接口，就可以实现跨域通信。</p>
+<p>请求类型：</p>
+<h4 id="cors1">CORS分为简单请求和非简单请求两种</h4>
+<p>符合以下条件，为简单请求：</p>
+<pre><code>请求方式使用下列方法之一：
+GET
+HEAD
+POST
+ 
+Content-Type 的值仅限于下列三者之一：
+text/plain
+multipart/form-data
+application/x-www-form-urlencoded
+</code></pre><p>对于简单请求，浏览器会直接发送CORS请求，具体说来就是在header中加入origin请求头字段。同样，在响应头中，返回服务器设置的相关CORS头部字段，Access-Control-Allow-Origin字段为允许跨域请求的源。请求时浏览器在请求头的Origin中说明请求的源，服务器收到后发现允许该源跨域请求，则会成功返回，具体如下：</p>
+<p><img src="/images/CORS2.jpg" alt="简单请求"></p>
+<p>在这里，http://localhost:3001为我们当前发送请求的源，如果服务器发现请求在指定的源范围内，则会返回响应的请求结果， 否则会在控制台报错，如下图所示，在这里需要注意的是，尽管请求失败，但返回的状态码依然可能为200。所以在做处理时需要格外注意。</p>
+<p><img src="/images/CORS3.png" alt="简单请求"></p>
+<ul>
+<li>
+<h3 id="heading1">非简单请求(预检请求)</h3>
+</li>
+</ul>
+<pre><code>使用了下面任一 HTTP 方法：
+PUT
+DELETE
+CONNECT
+OPTIONS
+TRACE
+PATCH
+ 
+Content-Type 的值不属于下列之一:
+application/x-www-form-urlencoded
+multipart/form-data
+text/plain
+</code></pre><p>当发生符合非简单请求（预检请求）的条件时，浏览器会自动先发送一个options请求，如果发现服务器支持该请求，则会将真正的请求发送到后端，反之，如果浏览器发现服务端并不支持该请求，则会在控制台抛出错误，如下：</p>
+<p><img src="/images/CORS4.png" alt="简单请求"></p>
+<p>如果非简单请求（预检请求）发送成功，则会在头部多返回以下字段</p>
+<pre><code>Access-Control-Allow-Origin: http://localhost:3001  //该字段表明可供那个源跨域
+Access-Control-Allow-Methods: GET, POST, PUT        // 该字段表明服务端支持的请求方法
+Access-Control-Allow-Headers: X-Custom-Header       // 实际请求将携带的自定义请求首部字段
+</code></pre>
     </div>
-  </header>
-  
-  <div class="post-content">
+
     
-    <div class="post-summary">
-      对象是什么？ 对象（object）是 JavaScript 语言的核心概念，也是最重要的数据类型。 什么是对象？简单说，对象就是一组“键值对”（key-value）的
-    </div>
-    <div class="read-more">
-      <a href="/post/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="read-more-link">阅读全文</a>
-    </div>
     
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Mr Lee</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2020-01-26
       
-      <a class="post-link" href="/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">JavaScript数据类型</a>
-    </h1>
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
     
-    <div class="post-meta">
-      <time datetime="2019-12-30" class="post-time">
-        2019-12-30
-      </time>
-      
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
     
-    <div class="post-summary">
-      JavaScript 数据类型 number 数字 string 字符串 symbol 符号 bool 布尔值 null 空 undefined 空 object 对象 口诀: 四基两空一对象 number JS的数字采用64位浮点数储存，又称双精度浮点数 浮点就是可浮动的点
-    </div>
-    <div class="read-more">
-      <a href="/post/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="read-more-link">阅读全文</a>
-    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/%E6%B5%85%E6%9E%90mvc/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">浅析 MVC</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/axios%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">
+            <span class="next-text nav-default">axios 基本用法</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
     
-  </div>
-</article>
 
   
-</section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
-      
-      <li >
-        <a href="/">1</a>
-      </li>
-      
-      <li >
-        <a href="/page/2/">2</a>
-      </li>
-      
-      <li  class="active" >
-        <a href="/page/3/">3</a>
-      </li>
-      
-      <li >
-        <a href="/page/4/">4</a>
-      </li>
-      
-      <li >
-        <a href="/page/5/">5</a>
-      </li>
-      
-      <li >
-        <a href="/page/6/">6</a>
-      </li>
-      
-      <li >
-        <a href="/page/7/">7</a>
-      </li>
-      
-    </ul>
-  </nav>
-
-  
-  
-
-
-
-
 
         </div>
       </div>

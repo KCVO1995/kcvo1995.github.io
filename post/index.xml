@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>CORS跨域</title>
+      <link>http://localhost:1313/post/cors%E8%B7%A8%E5%9F%9F/</link>
+      <pubDate>Sun, 26 Jan 2020 12:23:26 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/cors%E8%B7%A8%E5%9F%9F/</guid>
+      <description>什么是跨域？ 简单的来说，出于安全方面的考虑，页面中的JavaScript无法访问其他服务器上的数据，即“同源策略”。而跨域就是通过某些手段来</description>
+    </item>
+    
+    <item>
       <title>axios 基本用法</title>
       <link>http://localhost:1313/post/axios%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
       <pubDate>Mon, 20 Jan 2020 12:23:26 +0800</pubDate>

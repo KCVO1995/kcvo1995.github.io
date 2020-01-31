@@ -30,6 +30,13 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/post/cors%E8%B7%A8%E5%9F%9F/</loc>
+    <lastmod>2020-01-26T12:23:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/post/axios%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</loc>
     <lastmod>2020-01-20T12:23:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
