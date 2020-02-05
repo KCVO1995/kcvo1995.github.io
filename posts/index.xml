@@ -2,21 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on LeaveIt</title>
-    <link>http://localhost:1313/posts/</link>
+    <link>https://kcvo.top/posts/</link>
     <description>Recent content in Posts on LeaveIt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 02 Feb 2020 12:12:26 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 05 Feb 2020 12:12:26 +0800</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kcvo.top/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>浅析Vue数据响应式</title>
+      <link>https://kcvo.top/2020/%E6%B5%85%E6%9E%90vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/</link>
+      <pubDate>Wed, 05 Feb 2020 12:12:26 +0800</pubDate>
+      
+      <guid>https://kcvo.top/2020/%E6%B5%85%E6%9E%90vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/</guid>
+      <description>Vue的数据存储在data里，当数据更新时，会触发视图的渲染。 首先先来看一下Vue到底对data做了什么。 //引用完整版 Vue import Vue from &amp;ldquo;vue/dist/vue.js&amp;rdquo;;
+Vue.config.productionTip = false; //禁用警告
+const myData = { n: 0 } console.log(myData) // 精髓
+let vm = new Vue({ data: myData, template: &amp;lt;div&amp;gt;{{n}}&amp;lt;/div&amp;gt; }).$mount(&amp;quot;#app&amp;rdquo;);
+setTimeout(()=&amp;gt;{ myData.n += 10 console.log(myData) // 精髓 },3000)
+两次打印出的结果不同，说明vue对data里的数据进行了一些改造
+ES6 的 getter 和 setter getter 和 setter 可以对虚拟属性进行性改写 请看下面的例子
+需求一、得到姓名 let obj0 = { 姓: &amp;ldquo;迪&amp;rdquo;, 名: &amp;ldquo;丽热巴&amp;rdquo;, age: 18 }
+// 需求一，得到姓名
+let obj1 = { 姓: &amp;ldquo;迪&amp;rdquo;, 名: &amp;ldquo;丽热巴&amp;rdquo;, 姓名() { return this.</description>
+    </item>
+    
+    <item>
       <title>Vue完整版与Vue非完整版的区别</title>
-      <link>http://localhost:1313/2020/vue%E5%AE%8C%E6%95%B4%E7%89%88%E4%B8%8E%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88%E5%8C%BA%E5%88%AB/</link>
+      <link>https://kcvo.top/2020/vue%E5%AE%8C%E6%95%B4%E7%89%88%E4%B8%8E%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88%E5%8C%BA%E5%88%AB/</link>
       <pubDate>Sun, 02 Feb 2020 12:12:26 +0800</pubDate>
       
-      <guid>http://localhost:1313/2020/vue%E5%AE%8C%E6%95%B4%E7%89%88%E4%B8%8E%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88%E5%8C%BA%E5%88%AB/</guid>
+      <guid>https://kcvo.top/2020/vue%E5%AE%8C%E6%95%B4%E7%89%88%E4%B8%8E%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88%E5%8C%BA%E5%88%AB/</guid>
       <description>Vue完整版   Vue完整版文件名为 vue.js 和 vue.min.js , 后者是压缩版，取消了注释和警告，适合在生产环境下使用。
   Vue非完整版   Vue非完整版文件名为 vue.runtime.js 和 vue.runtime.min.js， 后者是压缩版，取消了注释和警告，适合在生成环境下使用。
 Vue完整版与Vue非完整版的区别 template 和 render 怎么用   template (完整版使用)   // 需要编译器 new Vue({ template: &#39;&amp;lt;div&amp;gt;{{ hi }}&amp;lt;/div&amp;gt;&#39; })   render (完整版与非完整使用)   // 不需要编译器 new Vue({ render (h) { return h(&#39;div&#39;, this.hi) } }) 完整代码和非完整版如何选择 个人建议：选择非完整版，然后配合vue-loader和vue文件。
@@ -25,10 +43,10 @@ why：  保证用户体验，用户下载的JS文件体积更小(小30%)，但�
     
     <item>
       <title>浅析 MVC</title>
-      <link>http://localhost:1313/2020/%E6%B5%85%E6%9E%90mvc/</link>
+      <link>https://kcvo.top/2020/%E6%B5%85%E6%9E%90mvc/</link>
       <pubDate>Fri, 31 Jan 2020 12:12:26 +0800</pubDate>
       
-      <guid>http://localhost:1313/2020/%E6%B5%85%E6%9E%90mvc/</guid>
+      <guid>https://kcvo.top/2020/%E6%B5%85%E6%9E%90mvc/</guid>
       <description>MVC是三个字母的缩写，分别是Model（模型）、View（视图）和Controller（控制） 这个模式认为，程序不论简单或复杂，从结构上看，都可以分成三类对象。
 1.模型model用于封装与应用程序的业务逻辑相关的数据以及对数据的处理方法，会有一个或多个视图监听此模型。一旦模型的数据发生变化，模型将通知有关的视图。
 // 伪代码示例 Model = { data: { 程序需要操作的数据或信息 }， create: { 增数据 }, delete: { 删数据 }, update(data) { Object.assign(m.data, data) //使用新数据替换旧数据 eventBus.trigger(&#39;m:upate&#39;) // eventBus触发&#39;m:update&#39;信息, 通知View刷新 }, get:{ 获取数据 } } 2.视图view是屏幕上的表示，描绘的是model的当前状态。当模型的数据发生变化，视图相应地得到刷新自己的机会
@@ -38,10 +56,10 @@ why：  保证用户体验，用户下载的JS文件体积更小(小30%)，但�
     
     <item>
       <title>CORS跨域</title>
-      <link>http://localhost:1313/2020/cors%E8%B7%A8%E5%9F%9F/</link>
+      <link>https://kcvo.top/2020/cors%E8%B7%A8%E5%9F%9F/</link>
       <pubDate>Sun, 26 Jan 2020 12:23:26 +0800</pubDate>
       
-      <guid>http://localhost:1313/2020/cors%E8%B7%A8%E5%9F%9F/</guid>
+      <guid>https://kcvo.top/2020/cors%E8%B7%A8%E5%9F%9F/</guid>
       <description>什么是跨域？ 简单的来说，出于安全方面的考虑，页面中的JavaScript无法访问其他服务器上的数据，即“同源策略”。而跨域就是通过某些手段来绕过同源策略限制，实现不同服务器之间通信的效果。
 CORS CORS全称“跨域资源共享”(Cross-Origin-Resource-Share)
 CORS需要浏览器和服务器同时支持，才可以实现跨域请求，目前几乎所有浏览器都支持CORS，IE则不能低于IE10。CORS的整个过程都由浏览器自动完成，前端无需做任何设置，跟平时发送ajax请求并无差异。所以，实现CORS的关键在于服务器，只要服务器实现CORS接口，就可以实现跨域通信。
@@ -56,10 +74,10 @@ Access-Control-Allow-Origin: http://localhost:3001 //该字段表明可供那个
     
     <item>
       <title>axios 基本用法</title>
-      <link>http://localhost:1313/2020/axios%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
+      <link>https://kcvo.top/2020/axios%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
       <pubDate>Mon, 20 Jan 2020 12:23:26 +0800</pubDate>
       
-      <guid>http://localhost:1313/2020/axios%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
+      <guid>https://kcvo.top/2020/axios%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
       <description>安装 使用 npm:
 $ npm install axios
 使用 bower:
@@ -71,10 +89,10 @@ $ bower install axios
     
     <item>
       <title>jQuery设计思想及其简单实现</title>
-      <link>http://localhost:1313/2020/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</link>
+      <link>https://kcvo.top/2020/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</link>
       <pubDate>Sun, 19 Jan 2020 12:23:26 +0800</pubDate>
       
-      <guid>http://localhost:1313/2020/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</guid>
+      <guid>https://kcvo.top/2020/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</guid>
       <description>前言 jQuery 是目前最长寿也是使用最广泛的 javaScript 函数库,据统计全球排名前 100k 的网站,有 90%都在使用 jQuery,远远超过了其他的库,数据如下图 jQuery 的实现都是基于 DOM api 的,大家都知道 js 提供的 dom 操作代码繁琐,而 jQuery 的核心里历练 wirte less,do more. 当我们使用 jQuery 时,只需使用$($是 jQuery 的别名)就会声明一个全局函数,这个函数接受一个选择器,以获取对应的元素,之后便返回一个由 jQuery 构造出来对象,也称 jQuery 对象,此对象包含了可操作元素的方法. 一、jQuery 如何获取元素 jQuery 的基本设计思想和主要用法,就是&#39;选择某个网页元素,然后对其进行某种操作&amp;rsquo;
 jQuery 使用$(selector) 的方法获取页面的操作元素,selector 接受字符串或着是元素组成的数组 我们可以使用 DOM API 的 querySelectorAll 进行类似的实现
 window.$ = window.jQuery = function (selectorOrArray) { let elements if(typeof selectorOrArray === &#39;string&#39;){ elements = document.querySelectorAll(selectorOrArray) }else if(selectorOrArray instanceof Array){ elements = selectorOrArray } return {//返回一个可操作 elements 的对象} } 查找元素 当我们获取元素后,需要找到并操作其内部的元素时,可以调用 jQuery 对象里面的 find()函数 find()函数的实现,需要使用 for 循环来遍历,并将新生成的数组放入$(selector)</description>
@@ -82,10 +100,10 @@ window.$ = window.jQuery = function (selectorOrArray) { let elements if(typeof s
     
     <item>
       <title>为什么说DOM操作慢</title>
-      <link>http://localhost:1313/2020/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4dom%E6%93%8D%E4%BD%9C%E6%85%A2/</link>
+      <link>https://kcvo.top/2020/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4dom%E6%93%8D%E4%BD%9C%E6%85%A2/</link>
       <pubDate>Fri, 10 Jan 2020 12:20:26 +0800</pubDate>
       
-      <guid>http://localhost:1313/2020/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4dom%E6%93%8D%E4%BD%9C%E6%85%A2/</guid>
+      <guid>https://kcvo.top/2020/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4dom%E6%93%8D%E4%BD%9C%E6%85%A2/</guid>
       <description>在学前端的过程中，经常会听说DOM操作慢，要尽量少去操作DOM，本文就浅析一下DOM操作慢的原因
 我们知道：
  JS引擎不能操作页面，只能操作JS 渲染引擎不能操作JS，只能操作页面  那document.body.appendChild(&amp;lsquo;div1&amp;rsquo;)这句JS是如何改变页面的呢？ 我们先来完善一下这句JS语句的代码
@@ -105,10 +123,10 @@ div1.innerTEXT = I&#39;m Jacky 操作了什么？ 上图的最后一句语句，
     
     <item>
       <title>JS 函数的执行时机</title>
-      <link>http://localhost:1313/2020/js-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</link>
+      <link>https://kcvo.top/2020/js-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</link>
       <pubDate>Sat, 04 Jan 2020 12:23:26 +0800</pubDate>
       
-      <guid>http://localhost:1313/2020/js-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</guid>
+      <guid>https://kcvo.top/2020/js-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</guid>
       <description>关于JS任务执行 众所周知，JS是一门单线程语言。那就像我们去银行办理业务，而单线程意味着只有一个办理窗口，那么每个人都要等前一个人办理完成后，再去办理。同理JS也是一样，JS任务要一个一个按顺序执行。那么问题来了，如果前一个任务执行时间过长，后一个任务也要等着，这样必然增加了网页的加载时间。因此聪明的程序员将任务分成两类
   同步任务
 上一件事情没有完成，继续处理上一件事情，只有上一件事情完成了，才会做下一件事情 &amp;ndash;&amp;gt; JS中大部分都是同步编程
@@ -126,10 +144,10 @@ let a = 1 function fn(){console.log(a)} a = 2 fn() 执行步骤：
     
     <item>
       <title>JS 的 new 到底是干什么的？</title>
-      <link>http://localhost:1313/2020/js-%E7%9A%84-new-%E5%88%B0%E5%BA%95%E6%98%AF%E5%B9%B2%E4%BB%80%E4%B9%88%E7%9A%84/</link>
+      <link>https://kcvo.top/2020/js-%E7%9A%84-new-%E5%88%B0%E5%BA%95%E6%98%AF%E5%B9%B2%E4%BB%80%E4%B9%88%E7%9A%84/</link>
       <pubDate>Thu, 02 Jan 2020 15:23:26 +0800</pubDate>
       
-      <guid>http://localhost:1313/2020/js-%E7%9A%84-new-%E5%88%B0%E5%BA%95%E6%98%AF%E5%B9%B2%E4%BB%80%E4%B9%88%E7%9A%84/</guid>
+      <guid>https://kcvo.top/2020/js-%E7%9A%84-new-%E5%88%B0%E5%BA%95%E6%98%AF%E5%B9%B2%E4%BB%80%E4%B9%88%E7%9A%84/</guid>
       <description>大部分讲new的文章都会从面向对象的思路来讲，但是对于新手学习是，引入一个更复杂的概念，无疑是增加了学习了难度。
 本文将从[省代码]的角度讲解new
 举一个简单的栗子，有一条制造iPhoneX的流水线，生产出的iPhoneX在计算机里就是一堆属性，如下图：
@@ -140,10 +158,10 @@ let iPhoneX = { ID: 1, 品牌: &#39;苹果&#39;, 颜色: &#39;土豪金&#39;, //
     
     <item>
       <title>JavaScript对象基本用法</title>
-      <link>http://localhost:1313/2019/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
+      <link>https://kcvo.top/2019/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
       <pubDate>Tue, 31 Dec 2019 15:15:26 +0800</pubDate>
       
-      <guid>http://localhost:1313/2019/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
+      <guid>https://kcvo.top/2019/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
       <description>对象是什么？ 对象（object）是 JavaScript 语言的核心概念，也是最重要的数据类型。
 什么是对象？简单说，对象就是一组“键值对”（key-value）的集合，是一种无序的复合数据集合。
 声明对象的两种语法  let obj = { &amp;lsquo;name&amp;rsquo; : &amp;lsquo;Jacky&amp;rsquo;, &amp;lsquo;age&amp;rsquo; : 18 } let obj = new Object{ &amp;lsquo;name&amp;rsquo; : &amp;lsquo;Jacky&amp;rsquo;, &amp;lsquo;age&amp;rsquo; : 18 }  以上两种方法都可以声明对象，第二种写法更规范，第一种是简化写法。
@@ -156,10 +174,10 @@ let iPhoneX = { ID: 1, 品牌: &#39;苹果&#39;, 颜色: &#39;土豪金&#39;, //
     
     <item>
       <title>JavaScript数据类型</title>
-      <link>http://localhost:1313/2019/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
+      <link>https://kcvo.top/2019/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
       <pubDate>Mon, 30 Dec 2019 15:23:26 +0800</pubDate>
       
-      <guid>http://localhost:1313/2019/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
+      <guid>https://kcvo.top/2019/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
       <description>JavaScript 数据类型   number 数字   string 字符串   symbol 符号   bool 布尔值   null 空   undefined 空   object 对象   口诀: 四基两空一对象
 number JS的数字采用64位浮点数储存，又称双精度浮点数
  浮点就是可浮动的点，意思是小数点位置可以改动 例如 123.456 可以表示位 1.23456e10^2  64位浮点数的数据结构：
@@ -174,10 +192,10 @@ number JS的数字采用64位浮点数储存，又称双精度浮点数
     
     <item>
       <title>JavaScript基本语法</title>
-      <link>http://localhost:1313/2019/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <link>https://kcvo.top/2019/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Sun, 29 Dec 2019 15:23:26 +0800</pubDate>
       
-      <guid>http://localhost:1313/2019/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      <guid>https://kcvo.top/2019/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
       <description>什么是表达式和语句？ 语句 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。
 语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。
 var a = 1 + 3
@@ -196,10 +214,10 @@ console.log(3)表达式的值为函数的返回值，也就是undefined
     
     <item>
       <title>从Brendan Eich的自述看JavaScript的诞生</title>
-      <link>http://localhost:1313/2019/%E4%BB%8Ebrendan-eich%E7%9A%84%E8%87%AA%E8%BF%B0%E7%9C%8Bjavascript%E7%9A%84%E8%AF%9E%E7%94%9F/</link>
+      <link>https://kcvo.top/2019/%E4%BB%8Ebrendan-eich%E7%9A%84%E8%87%AA%E8%BF%B0%E7%9C%8Bjavascript%E7%9A%84%E8%AF%9E%E7%94%9F/</link>
       <pubDate>Wed, 25 Dec 2019 15:23:26 +0800</pubDate>
       
-      <guid>http://localhost:1313/2019/%E4%BB%8Ebrendan-eich%E7%9A%84%E8%87%AA%E8%BF%B0%E7%9C%8Bjavascript%E7%9A%84%E8%AF%9E%E7%94%9F/</guid>
+      <guid>https://kcvo.top/2019/%E4%BB%8Ebrendan-eich%E7%9A%84%E8%87%AA%E8%BF%B0%E7%9C%8Bjavascript%E7%9A%84%E8%AF%9E%E7%94%9F/</guid>
       <description>JavaScript的诞生 从历史的角度，说明Javascript到底是如何设计出来的。只有了解这段历史，才能明白Javascript为什么是现在的样子。我依据的资料，主要是Brendan Eich的自述。
 1 1994年，网景公司（Netscape）发布了Navigator浏览器0.9版。这是历史上第一个比较成熟的网络浏览器，轰动一时。但是，这个版本的浏览器只能用来浏览，不具备与访问者互动的能力。&amp;hellip;&amp;hellip;网景公司急需一种网页脚本语言，使得浏览器可以与网页互动。
 网页脚本语言到底是什么语言？网景公司当时有两个选择：一个是采用现有的语言，比如Perl、Python、Tcl、Scheme等等，允许它们直接嵌入网页；另一个是发明一种全新的语言。
@@ -229,10 +247,10 @@ var date2 = new Date(2000,0,1); var year2 = date2.</description>
     
     <item>
       <title>CSS动画优化</title>
-      <link>http://localhost:1313/2019/css%E5%8A%A8%E7%94%BB%E4%BC%98%E5%8C%96/</link>
+      <link>https://kcvo.top/2019/css%E5%8A%A8%E7%94%BB%E4%BC%98%E5%8C%96/</link>
       <pubDate>Thu, 19 Dec 2019 15:23:26 +0800</pubDate>
       
-      <guid>http://localhost:1313/2019/css%E5%8A%A8%E7%94%BB%E4%BC%98%E5%8C%96/</guid>
+      <guid>https://kcvo.top/2019/css%E5%8A%A8%E7%94%BB%E4%BC%98%E5%8C%96/</guid>
       <description>浏览器渲染原理 浏览器渲染经过以下步骤:
  根据HTML构建HTML树。(DOM) 根据CSS构建CSS树。(CSSOM) 将两棵树合并成一颗渲染树。(rander tree) Layout布局(文档流、盒模型、计算大小和位置)。 Paint绘制(把边框颜色、文字颜色、阴影等画出来)。 Compose合成(根据层叠关系展示画面).  如何优化CSS动画 答案是:减少浏览器的渲染次数 三种的更新方式: 可见三种更新方式中,第一种更新方法需要重新渲染3次(包括layout,paint,compose),第二种需重新渲染2次,而第三种只需要重新渲染1次.
 不同的CSS属性有不同的更新方式,大家可以参考csstriggers.com(不需硬记),这个网站已经把所有属性都试过了.
@@ -243,10 +261,10 @@ Tips: 参考网站中的Blink为谷歌浏览器内核,Gecko为火狐浏览器内
     
     <item>
       <title>CSS动画制作的两种做法</title>
-      <link>http://localhost:1313/2019/css%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%81%9A%E6%B3%95/</link>
+      <link>https://kcvo.top/2019/css%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%81%9A%E6%B3%95/</link>
       <pubDate>Wed, 18 Dec 2019 15:23:26 +0800</pubDate>
       
-      <guid>http://localhost:1313/2019/css%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%81%9A%E6%B3%95/</guid>
+      <guid>https://kcvo.top/2019/css%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%81%9A%E6%B3%95/</guid>
       <description>我们来做一颗跳动的心吧 首先我们需要一颗心 百度搜索&amp;quot;心&amp;rdquo;&amp;hellip;&amp;hellip;这个也太可怕了吧,不适合儿童观众,我们还是自己用CSS画一个吧.
 心怎么画?我们学的块级元素都是方形的,算加上border-radius也顶多只能画个 球
 好吧!发挥我们的想象力,我们可以把它分解成两圆一方 代码如下:
@@ -267,10 +285,10 @@ animation属性中:
     
     <item>
       <title>浅析 URL</title>
-      <link>http://localhost:1313/2019/%E6%B5%85%E6%9E%90-url/</link>
+      <link>https://kcvo.top/2019/%E6%B5%85%E6%9E%90-url/</link>
       <pubDate>Sun, 15 Dec 2019 15:23:26 +0800</pubDate>
       
-      <guid>http://localhost:1313/2019/%E6%B5%85%E6%9E%90-url/</guid>
+      <guid>https://kcvo.top/2019/%E6%B5%85%E6%9E%90-url/</guid>
       <description>URL组成 URL，统一资源定位符，用于定位互联网上资源，俗称网址。
 URL的组成: URL=协议+域名或IP+端口号+路径+查询字符串+锚点 URL的写法: scheme://host.domain:port/path/filename 举个栗子 https://www.zhihu.com/explore 在上面的网站中
  scheme - 定义因特网服务的类型。常见的协议有 http、https、ftp、file，其中最常见的类型是http，而 https 则是进行加密的网络传输。例子中使用的是https host - 定义域主机（http 的默认主机是 www） domain - 定义因特网域名，例子中就是zhihu.com port - 定义主机上的端口号（http的默认端口号是 80,https 默认是 443，FTP 默 21 端口）, 例子中https的默认端口是443(已被省略) path - 定义服务器上的路径（如果省略，则文档必须位于网站的根目录中）,例子中的路径就是/explore filename - 定义文档/资源的名称  IP IP的全称为Internet Protocol(互联网协议),是设备的数字便签,用于互联网定位.常见的IP可分为IPv4。常见的IP地址可分为IPv4和IPv6两类,其中使用最广泛的是IPv4。
@@ -286,10 +304,10 @@ DNS DNS，全称 Domain Name System(service)，是一个域名系统。它作为
     
     <item>
       <title>负margin的理解</title>
-      <link>http://localhost:1313/2019/%E8%B4%9Fmargin%E7%9A%84%E7%90%86%E8%A7%A3/</link>
+      <link>https://kcvo.top/2019/%E8%B4%9Fmargin%E7%9A%84%E7%90%86%E8%A7%A3/</link>
       <pubDate>Sun, 15 Dec 2019 15:23:26 +0800</pubDate>
       
-      <guid>http://localhost:1313/2019/%E8%B4%9Fmargin%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
+      <guid>https://kcvo.top/2019/%E8%B4%9Fmargin%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
       <description>margin的概述 margin属性为给定元素设置所有四个（上下左右）方向的外边距属性。这是四个外边距属性设置的简写。四个外边距属性设置分别是： margin-top， margin-right， margin-bottom 和 margin-left 。指定的外边距允许为负数。
 先上栗子 此次测试的方法是,通过设定margin-left的值从正值变为负值,来观察其对div大小和移动方向的改变
 测试代码:
@@ -303,10 +321,10 @@ HTML代码 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;g
     
     <item>
       <title>HTML常用标签</title>
-      <link>http://localhost:1313/2019/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
+      <link>https://kcvo.top/2019/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
       <pubDate>Thu, 12 Dec 2019 16:23:26 +0800</pubDate>
       
-      <guid>http://localhost:1313/2019/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
+      <guid>https://kcvo.top/2019/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
       <description>a 标签的用法   a 的href取值     网址     https &amp;lt;a href=&amp;quot;https//google.com&amp;quot;&amp;gt;谷歌&amp;lt;/a&amp;gt;
   http &amp;lt;a href=&amp;quot;http//google.com&amp;quot;&amp;gt;谷歌&amp;lt;/a&amp;gt;
   // &amp;lt;a href=&amp;quot;//google.com&amp;quot;&amp;gt;谷歌&amp;lt;/a&amp;gt;
@@ -326,10 +344,10 @@ HTML代码 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;g
     
     <item>
       <title>HTML入门笔记1</title>
-      <link>http://localhost:1313/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</link>
+      <link>https://kcvo.top/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</link>
       <pubDate>Wed, 11 Dec 2019 16:23:26 +0800</pubDate>
       
-      <guid>http://localhost:1313/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</guid>
+      <guid>https://kcvo.top/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</guid>
       <description>Ⅰ.HTML 是谁发明的？ HTML 诞生于蒂姆·伯纳斯-李爵士的一篇文章HTML Tags
 Ⅱ.什么是HTML？ HTML 是网页使用的语言，定义了网页的结构和内容。浏览器访问网站，其实就是从服务器下载 HTML 代码，然后渲染出网页。HTML 的全名是“超文本标记语言”（HyperText Markup Language）
 Ⅲ.HTML 起手应该写什么 HTML起手应该包含以下代码：
@@ -344,10 +362,10 @@ HTML代码 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;g
     
     <item>
       <title>如何使用Hugo搭建个人博客</title>
-      <link>http://localhost:1313/2019/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://kcvo.top/2019/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Tue, 10 Dec 2019 15:24:33 +0800</pubDate>
       
-      <guid>http://localhost:1313/2019/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://kcvo.top/2019/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
       <description>Hugo是什么？ Hugo是一个用Go语言编写的静态网站生成器，Hugo一般只需要几秒钟就能生成一个网站（每页少于1毫秒），被称为”世界上最快的网站构建框架“，是最热门的静态网站生成器之一，被广泛采用。
 如何使用Hugo搭建个人博客 Step1：安装Hugo   下载Hugo安装包   下载到安装包，解压后把hugo.exe.放到x:\xxx\hugo
   添加环境变量：点击计算机图标-右键-属性-高级系统设置-系统变量-path  4.重启终端，运行hugo version。安装成功就能查看到版本号 Step2: 创建一个新的Hugo网页  进入Hugo官网，点击Quick Start。 Step1操作前面已完成，直接操作Step2 复制Step2的代码，在cmder上运行。注意这里要把”quickstart“改成“github用户名.github.io-creater!”(这样操作的好处是，上传到GitHub上后方便标识。)   Step3: 下载一个主题  依次复制Step3的代码在cmder上运行  由于主题是国外资源，国内下载很慢，建议挂VPN下载  Step4: 新建一篇文章  复制Step4的代码在cmder上运行  打开新建的markdown文件 将draft: true 改为false(draft为草稿意思，改为false后文章才会显示在blog上)   Step5: 开启Hugo服务器  复制Step5的代码在cmder上运行  运行后不要关闭服务器(关闭后本地访问会失败) 在浏览器中访问http://localhost:1313/或者127.0.0.1:1313 此时将会看到你新建的blog  Step6 自定义主题  打开hugo网站根目录的config.toml 可自定义一下代码，包括：语言、博客名   Step7 简历静态网站  复制Step7的代码在cmder上运行  运行后将会得到一个public的目录 在hugo的更目录中创建名为“.gitignore”的文件 编辑“.gitignore”,写入/public/(由于hugo根目录和public需要分别上传到GitHub，此操作可以防止子仓库的问题出现) 在GitHub上新建一个仓库，命名为github用户名.github.io 把public目录上传到新建的仓库中 在你的git仓库里面Settings的GitHub Pages下你可以看到http://你的用户名.</description>
@@ -355,10 +373,10 @@ HTML代码 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;g
     
     <item>
       <title>开博大吉</title>
-      <link>http://localhost:1313/2019/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</link>
+      <link>https://kcvo.top/2019/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</link>
       <pubDate>Mon, 09 Dec 2019 15:29:33 +0800</pubDate>
       
-      <guid>http://localhost:1313/2019/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</guid>
+      <guid>https://kcvo.top/2019/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</guid>
       <description>大家好 我的博客开通了，希望我能写出好文章给大家看</description>
     </item>
     
