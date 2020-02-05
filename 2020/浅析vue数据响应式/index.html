@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "浅析Vue数据响应式",
     "headline" : "浅析Vue数据响应式",
-    "description" : "Vue的数据存储在data里，当数据更新时，会触发视图的渲染。 首先先来看一下Vue到底对data做了什么。 \/\/引用完整版 Vue import Vue from \x26ldquo;vue\/dist\/vue.js\x26rdquo;;\nVue.config.productionTip = false; \/\/禁用警告\nconst myData = { n: 0 } console.log(myData) \/\/ 精髓\nlet vm = new Vue({ data: myData, template: \x26lt;div\x26gt;{{n}}\x26lt;\/div\x26gt; }).$mount(\x26quot;#app\x26rdquo;);\nsetTimeout(()=\x26gt;{ myData.n \x2b= 10 console.log(myData) \/\/ 精髓 },3000)\n两次打印出的结果不同，说明vue对data里的数据进行了一些改造\nES6 的 getter 和 setter getter 和 setter 可以对虚拟属性进行性改写 请看下面的例子\n需求一、得到姓名 let obj0 = { 姓: \x26ldquo;迪\x26rdquo;, 名: \x26ldquo;丽热巴\x26rdquo;, age: 18 }\n\/\/ 需求一，得到姓名\nlet obj1 = { 姓: \x26ldquo;迪\x26rdquo;, 名: \x26ldquo;丽热巴\x26rdquo;, 姓名() { return this.",
+    "description" : "Vue的数据存储在data里，当数据更新时，会触发视图的渲染。 首先先来看一下Vue到底对data做了什么。\n\/\/引用完整版 Vue import Vue from \x26quot;vue\/dist\/vue.js\x26quot;; Vue.config.productionTip = false; \/\/禁用警告 const myData = { n: 0 } console.log(myData) \/\/ 精髓 let vm = new Vue({ data: myData, template: ` \x26lt;div\x26gt;{{n}}\x26lt;\/div\x26gt; ` }).$mount(\x26quot;#app\x26quot;); setTimeout(()=\x26gt;{ myData.n \x2b= 10 console.log(myData) \/\/ 精髓 },3000) 两次打印出的结果不同，说明vue对data里的数据进行了一些改造 ES6 的 getter 和 setter getter 和 setter 可以对虚拟属性进行性改写 请看下面的例子\n需求一、得到姓名 let obj0 = { 姓: \x26quot;迪\x26quot;, 名: \x26quot;丽热巴\x26quot;, age: 18 } \/\/ 需求一，得到姓名 let obj1 = { 姓: \x26quot;迪\x26quot;, 名: \x26quot;丽热巴\x26quot;, 姓名() { return this.",
     "inLanguage" : "en-us",
     "author" : "Jacky Lee",
     "creator" : "Jacky Lee",
@@ -57,7 +57,7 @@
     "datePublished": "2020-02-05 12:12:26 \x2b0800 CST",
     "dateModified" : "2020-02-05 12:12:26 \x2b0800 CST",
     "url" : "https:\/\/kcvo.top\/2020\/%E6%B5%85%E6%9E%90vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F\/",
-    "wordCount" : "666",
+    "wordCount" : "675",
     "keywords" : [  "LeaveIt"]
 }
 </script>
@@ -130,6 +130,8 @@
         
 
         
+            
+        
 
         
         
@@ -142,259 +144,321 @@
           
           
 
-          <p>Vue的数据存储在data里，当数据更新时，会触发视图的渲染。
-首先先来看一下Vue到底对data做了什么。
-//引用完整版 Vue
-import Vue from &ldquo;vue/dist/vue.js&rdquo;;</p>
-<p>Vue.config.productionTip = false;  //禁用警告</p>
-<p>const myData = {
-n: 0
+          <h3 id="vuedata">Vue的数据存储在data里，当数据更新时，会触发视图的渲染。</h3>
+<p>首先先来看一下Vue到底对data做了什么。</p>
+<pre><code>//引用完整版 Vue
+import Vue from &quot;vue/dist/vue.js&quot;; 
+
+Vue.config.productionTip = false;  //禁用警告
+
+const myData = {
+  n: 0
 }
-console.log(myData)  // 精髓</p>
-<p>let vm = new Vue({
-data: myData,
-template: <code>&lt;div&gt;{{n}}&lt;/div&gt;</code>
-}).$mount(&quot;#app&rdquo;);</p>
-<p>setTimeout(()=&gt;{
-myData.n += 10
 console.log(myData)  // 精髓
-},3000)</p>
-<p>两次打印出的结果不同，说明vue对data里的数据进行了一些改造</p>
-<p>ES6 的 getter 和 setter
-getter 和 setter 可以对虚拟属性进行性改写
-请看下面的例子</p>
-<p>需求一、得到姓名
-let obj0 = {
-姓: &ldquo;迪&rdquo;,
-名: &ldquo;丽热巴&rdquo;,
-age: 18
-}</p>
-<p>// 需求一，得到姓名</p>
-<p>let obj1 = {
-姓: &ldquo;迪&rdquo;,
-名: &ldquo;丽热巴&rdquo;,
-姓名() {
-return this.姓 + this.名;
-},
-age: 18
-};</p>
-<p>console.log(&ldquo;需求一：&rdquo; + obj1.姓名()) // 需求一：迪丽热巴</p>
-<p>// 抬杠：obj1.姓名() 可以去到括号吗？
+
+let vm = new Vue({
+  data: myData,
+  template: `
+    &lt;div&gt;{{n}}&lt;/div&gt;
+  `
+}).$mount(&quot;#app&quot;);
+
+setTimeout(()=&gt;{
+  myData.n += 10
+console.log(myData)  // 精髓
+},3000)
+</code></pre><p><img src="/images/vuelog.png" alt=""></p>
+<h4 id="vuedata1">两次打印出的结果不同，说明vue对data里的数据进行了一些改造</h4>
+<h2 id="es6--getter--setter">ES6 的 getter 和 setter</h2>
+<h4 id="getter--setter-">getter 和 setter 可以对虚拟属性进行性改写</h4>
+<p>请看下面的例子</p>
+<h3 id="heading">需求一、得到姓名</h3>
+<pre><code>let obj0 = {
+  姓: &quot;迪&quot;,
+  名: &quot;丽热巴&quot;,
+  age: 18
+}
+
+// 需求一，得到姓名
+
+let obj1 = {
+  姓: &quot;迪&quot;,
+  名: &quot;丽热巴&quot;,
+  姓名() {
+    return this.姓 + this.名;
+  },
+  age: 18
+};
+
+console.log(&quot;需求一：&quot; + obj1.姓名()) // 需求一：迪丽热巴
+
+// 抬杠：obj1.姓名() 可以去到括号吗？ 
 // 不可以，因为姓名时函数
-需求二、姓名不要括号也可运行
-let obj2 = {
-姓: &ldquo;迪&rdquo;,
-名: &ldquo;丽热巴&rdquo;,
-get 姓名() {
-return this.姓 + this.名
-},
-age: 18
+</code></pre><h3 id="heading1">需求二、姓名不要括号也可运行</h3>
+<pre><code>let obj2 = {
+  姓: &quot;迪&quot;,
+  名: &quot;丽热巴&quot;,
+  get 姓名() {
+    return this.姓 + this.名
+  },
+  age: 18
 };
-console.log(&ldquo;需求二：&rdquo; + obj2.姓名) // 需求一： 迪丽热巴</p>
-<p>// 姓名()是虚拟属性
-通过get ，给属性提供一个getter方法，当该属性被访问时，该方法会被执行</p>
-<p>需求三、姓名要可以改写
-let obj3 = {
-姓: &ldquo;迪&rdquo;,
-名: &ldquo;丽热巴&rdquo;,
-get 姓名() {
-return this.姓 + this.名;
-},
-set 姓名(xxx){
-this.姓 = xxx[0]
-this.名 = xxx.slice(1)//或者this.名 = xxx.substring(1)
-},
-age: 18
+console.log(&quot;需求二：&quot; + obj2.姓名) // 需求一： 迪丽热巴
+
+// 姓名()是虚拟属性
+</code></pre><h4 id="get-getter">通过get ，给属性提供一个getter方法，当该属性被访问时，该方法会被执行</h4>
+<h3 id="heading2">需求三、姓名要可以改写</h3>
+<pre><code>let obj3 = {
+  姓: &quot;迪&quot;,
+  名: &quot;丽热巴&quot;,
+  get 姓名() {
+    return this.姓 + this.名;
+  },
+  set 姓名(xxx){
+    this.姓 = xxx[0]
+    this.名 = xxx.slice(1)//或者this.名 = xxx.substring(1)
+  },
+  age: 18
 };
-obj3.姓名 = &lsquo;古力娜扎&rsquo;</p>
-<p>console.log(<code>需求三：姓 ${obj3.姓}，名 ${obj3.名}</code>) // 需求三： 古力娜扎</p>
-<p>// 姓名()是虚拟属性
-通过set，给属性提供一个setter方法,当属性值修改时，触发执行该方法</p>
-<p>此时我们看看obj3的结构</p>
-<p>是不是和上文的vue处理后myData结构很类似，说明vue把myData的'n'改为虚拟属性，通过setter 和 getter 进行改写。</p>
-<p>getter 和 setter 我知道了，可是这样改有什么用呢？我们需要先学习一下Object.defineProperty
-请看下面的例子</p>
-<p>let data0 = {
-n: 0
+obj3.姓名 = '古力娜扎'
+
+console.log(`需求三：姓 ${obj3.姓}，名 ${obj3.名}`) // 需求三： 古力娜扎
+
+// 姓名()是虚拟属性
+</code></pre><h4 id="setsetter">通过set，给属性提供一个setter方法,当属性值修改时，触发执行该方法</h4>
+<h4 id="obj3">此时我们看看obj3的结构</h4>
+<p><img src="/images/vuelog2.png" alt="Vue"></p>
+<h4 id="vuemydatavuemydatansetter--getter-">是不是和上文的vue处理后myData结构很类似，说明vue把myData的'n'改为虚拟属性，通过setter 和 getter 进行改写。</h4>
+<h4 id="getter--setter-1">getter 和 setter 我知道了，可是这样改有什么用呢？我们需要先学习一下</h4>
+<h2 id="objectdefineproperty">Object.defineProperty</h2>
+<p>请看下面的例子</p>
+<pre><code>let data0 = {
+  n: 0
 }
-需求一：用Object.defineProperty</p>
-<p>let data1 = {}</p>
-<p>Object.defineProperty(data1, &lsquo;n&rsquo;, {
-value: 0
-})</p>
-<p>console.log(<code>需求一：${data1.n}</code>)  // 需求一：0</p>
-<p>// 总结： 这煞笔语法很好的化简为繁了，其实不是，请继续看
-需求二：n 不能小于 0</p>
-<p>即 data2.n = -1 应该无效，但data2.n = 1 有效</p>
-<p>let data2 = {}</p>
-<p>data2._n = 0 // _n 用来偷偷存储 n 的值</p>
-<p>Object.defineProperty(data2, &lsquo;n&rsquo;, {
-get(){
-return this._n
-},
-set(value){
-if(value &lt; 0) return
-this._n = value
-}
-})</p>
-<p>console.log(<code>需求二：${data2.n}</code>) // 需求二： 0
+</code></pre><h3 id="objectdefineproperty1">需求一：用Object.defineProperty</h3>
+<pre><code>let data1 = {}
+
+Object.defineProperty(data1, 'n', {
+  value: 0
+})
+
+console.log(`需求一：${data1.n}`)  // 需求一：0
+
+// 总结： 这煞笔语法很好的化简为繁了，其实不是，请继续看
+</code></pre><h3 id="n--0">需求二：n 不能小于 0</h3>
+<h4 id="-data2n--1-data2n--1-">即 data2.n = -1 应该无效，但data2.n = 1 有效</h4>
+<pre><code>let data2 = {}
+
+data2._n = 0 // _n 用来偷偷存储 n 的值
+
+Object.defineProperty(data2, 'n', {
+  get(){
+    return this._n
+  },
+  set(value){
+    if(value &lt; 0) return
+    this._n = value
+  }
+})
+
+console.log(`需求二：${data2.n}`) // 需求二： 0
 data2.n = -1
-console.log(<code>需求二：${data2.n} 设置为 -1 失败</code>)  // 需求二： 0 设置为 -1 失败
+console.log(`需求二：${data2.n} 设置为 -1 失败`)  // 需求二： 0 设置为 -1 失败
 data2.n = 1
-console.log(<code>需求二：${data2.n} 设置为 1 成功</code>)  // 需求二： 0 设置为 1 成功</p>
-<p>// 抬杠：那如果对方直接使用 data2._n 呢？
+console.log(`需求二：${data2.n} 设置为 1 成功`)  // 需求二： 0 设置为 1 成功
+
+// 抬杠：那如果对方直接使用 data2._n 呢？
 // 算你狠
-需求三：使用代理</p>
-<p>let data3 = proxy({ data:{n:0} }) // 括号里是匿名对象，无法访问</p>
-<p>function proxy({data}/* 解构赋值 */){
-const obj = {}
-Object.defineProperty(obj, &lsquo;n&rsquo;, {
-get(){
-return data.n
-},
-set(value){
-if(value&lt;0)return
-data.n = value
+</code></pre><h3 id="heading3">需求三：使用代理</h3>
+<pre><code>let data3 = proxy({ data:{n:0} }) // 括号里是匿名对象，无法访问
+
+function proxy({data}/* 解构赋值 */){
+  const obj = {}
+  Object.defineProperty(obj, 'n', { 
+    get(){
+      return data.n
+    },
+    set(value){
+      if(value&lt;0)return
+      data.n = value
+    }
+  })
+  return obj // obj 就是代理
 }
-})
-return obj // obj 就是代理
-}</p>
-<p>// data3 就是 obj
-console.log(<code>需求三：${data3.n}</code>) // 需求三： 0
+
+// data3 就是 obj
+console.log(`需求三：${data3.n}`) // 需求三： 0
 data3.n = -1
-console.log(<code>需求三：${data3.n}，设置为 -1 失败</code>) // 需求三： 0 设置为 -1 失败
+console.log(`需求三：${data3.n}，设置为 -1 失败`) // 需求三： 0 设置为 -1 失败
 data3.n = 1
-console.log(<code>需求三：${data3.n}，设置为 1 成功</code>) // 需求三： 1 设置为 1 成功</p>
-<p>// 杠精你还有话说吗？
+console.log(`需求三：${data3.n}，设置为 1 成功`) // 需求三： 1 设置为 1 成功
+
+// 杠精你还有话说吗？
 // 杠精说有！你看下面代码
-// 需求四</p>
-<p>let myData = {n:0}
-let data4 = proxy({ data:myData }) // 括号里是匿名对象，无法访问</p>
-<p>// data3 就是 obj
-console.log(<code>杠精：${data4.n}</code>) // 杠精： 0
+// 需求四
+
+let myData = {n:0}
+let data4 = proxy({ data:myData }) // 括号里是匿名对象，无法访问
+
+// data3 就是 obj
+console.log(`杠精：${data4.n}`) // 杠精： 0
 myData.n = -1
-console.log(<code>杠精：${data4.n}，设置为 -1 失败了吗！？</code>) // 杠精：设置为 -1 失败了吗！？</p>
-<p>// 我现在改 myData，是不是还能改？！你奈我何
+console.log(`杠精：${data4.n}，设置为 -1 失败了吗！？`) // 杠精：设置为 -1 失败了吗！？  
+
+// 我现在改 myData，是不是还能改？！你奈我何
 // 算你狠
-需求五：就算用户擅自修改 myData，也要拦截他</p>
-<p>let myData5 = {n:0}
-let data5 = proxy2({ data:myData5 }) // 括号里是匿名对象，无法访问</p>
-<p>function proxy2({data}/* 解构赋值 */){
-let value = data.n
-Object.defineProperty(data, &lsquo;n&rsquo;, {
-get(){
-return value
-},
-set(newValue){
-if(newValue&lt;0)return
-value = newValue
+</code></pre><h3 id="-mydata">需求五：就算用户擅自修改 myData，也要拦截他</h3>
+<pre><code>let myData5 = {n:0}
+let data5 = proxy2({ data:myData5 }) // 括号里是匿名对象，无法访问
+
+function proxy2({data}/* 解构赋值 */){
+  let value = data.n
+  Object.defineProperty(data, 'n', {
+    get(){
+      return value
+    },
+    set(newValue){
+      if(newValue&lt;0)return
+      value = newValue
+    }
+  })
+  // 就加了上面几句，这几句话会监听 data
+
+  const obj = {}
+  Object.defineProperty(obj, 'n', {
+    get(){
+      return data.n
+    },
+    set(value){
+      if(value&lt;0)return //这句话多余了
+      data.n = value
+    }
+  })
+  
+  return obj // obj 就是代理
 }
-})
-// 就加了上面几句，这几句话会监听 data</p>
-<p>const obj = {}
-Object.defineProperty(obj, &lsquo;n&rsquo;, {
-get(){
-return data.n
-},
-set(value){
-if(value&lt;0)return //这句话多余了
-data.n = value
-}
-})</p>
-<p>return obj // obj 就是代理
-}</p>
-<p>// data3 就是 obj
-console.log(<code>需求五：${data5.n}</code>)
+
+// data3 就是 obj
+console.log(`需求五：${data5.n}`)
 myData5.n = -1
-console.log(<code>需求五：${data5.n}，设置为 -1 失败了</code>)
+console.log(`需求五：${data5.n}，设置为 -1 失败了`)
 myData5.n = 1
-console.log(<code>需求五：${data5.n}，设置为 1 成功了</code>)
-看看这代码眼熟吗？</p>
-<p>let data5 =proxy2({ data:myData5 })</p>
-<p>let vm = new Vue({data: myData})</p>
-<p>现在我们可是说Vue对myData做了什么了</p>
-<p>给对象添加value属性，添加getter 和 setter 对属性进行监控
-使用vm作为myData的代理
-会对myData的所有属性进行监控，当vm知道myData属性变了，就可以调用render(data)进行渲染了。
-数据响应式
-const vm = new Vue({ data: { n: 0 } })</p>
+console.log(`需求五：${data5.n}，设置为 1 成功了`)
+</code></pre><h4 id="heading4">看看这代码眼熟吗？</h4>
+<pre><code>let data5 =proxy2({ data:myData5 })
+
+let vm = new Vue({data: myData})
+</code></pre><h2 id="vuemydata">现在我们可是说Vue对myData做了什么了</h2>
+<ul>
+<li>
+<h4 id="valuegetter--setter-">给对象添加value属性，添加getter 和 setter 对属性进行监控</h4>
+</li>
+<li>
+<h4 id="vmmydata">使用vm作为myData的代理</h4>
+</li>
+<li>
+<h4 id="mydatavmmydatarenderdata">会对myData的所有属性进行监控，当vm知道myData属性变了，就可以调用render(data)进行渲染了。</h4>
+</li>
+</ul>
+<h2 id="heading5">数据响应式</h2>
+<p><code>const vm = new Vue({ data: { n: 0 } })</code></p>
 <p>如果我修改vm.n，那么UI中的n就会响应我</p>
 <p>Vue 2 通过Object.defineProperty来实现数据响应式</p>
-<p>Vue 有 bug
-Object.defineProperty的问题</p>
+<h2 id="vue--bug">Vue 有 bug</h2>
+<p>Object.defineProperty的问题</p>
 <p>Object.defineProperty(obj, &lsquo;n&rsquo; ,{..})必须要有一个'n&rsquo;,才能监听&amp;代理obj.n</p>
 <p>那如果没有给出n呢？</p>
 <p>请看下面的示例：</p>
-<p>示例一：
-import Vue from &ldquo;vue/dist/vue.js&rdquo;;</p>
-<p>Vue.config.productionTip = false;</p>
-<p>new Vue({
-data: {},
-template: <code>&lt;div&gt;{{n}}&lt;/div&gt;</code>
-}).$mount(&quot;#app&rdquo;);
-Vue会给出一个警告</p>
-<p>示例二：</p>
-<p>import Vue from &ldquo;vue/dist/vue.js&rdquo;;</p>
-<p>Vue.config.productionTip = false;</p>
-<p>new Vue({
-data: {
-obj: {
-a: 0 // obj.a 会被 Vue 监听 &amp; 代理
-}
-},
-template: <code>&lt;div&gt; {{obj.b}} &lt;button @click=&quot;setB&quot;&gt;set b&lt;/button&gt; &lt;/div&gt;</code>,
-methods: {
-setB() {
-this.obj.b = 1;
-}
-}
-}).$mount(&quot;#app&rdquo;);
-此时点击setB后，页面会显示1吗？</p>
-<p>答案是：不会，因为Vue无法监听一开始就不存在的obj.b</p>
-<p>解决方法：
-// 一、一开始就声明好所有的key
+<p>示例一：</p>
+<pre><code>import Vue from &quot;vue/dist/vue.js&quot;;
+
+Vue.config.productionTip = false;
+
 new Vue({
-data: {
-obj: {
-a: 0 ；
-b:&rsquo;&rsquo;
-}
-},
+  data: {},
+  template: `
+    &lt;div&gt;{{n}}&lt;/div&gt;
+  `
+}).$mount(&quot;#app&quot;);
+Vue会给出一个警告
+</code></pre><p>示例二：</p>
+<pre><code>import Vue from &quot;vue/dist/vue.js&quot;;
+
+Vue.config.productionTip = false;
+
+new Vue({
+  data: {
+    obj: {
+      a: 0 // obj.a 会被 Vue 监听 &amp; 代理
+    }
+  },
+  template: `
+    &lt;div&gt;
+      {{obj.b}}
+      &lt;button @click=&quot;setB&quot;&gt;set b&lt;/button&gt;
+    &lt;/div&gt;
+  `,
+  methods: {
+    setB() {
+      this.obj.b = 1; 
+    }
+  }
+}).$mount(&quot;#app&quot;);
+</code></pre><h4 id="setb1">此时点击setB后，页面会显示1吗？</h4>
+<p>答案是：不会，因为Vue无法监听一开始就不存在的obj.b</p>
+<h3 id="heading6">解决方法：</h3>
+<pre><code>// 一、一开始就声明好所有的key
+new Vue({
+  data: {
+    obj: {
+      a: 0 ；
+      b:''
+ }
+ },
 // 二、使用Vue.set 和 this.$set
 methods: {
-setB() {
-Vue.set( this.obj, &lsquo;b&rsquo;, 1) // 或者 this.$set(this.obj, &lsquo;b&rsquo;, 1)
+    setB() {
+        Vue.set( this.obj, 'b', 1) // 或者 this.$set(this.obj, 'b', 1)
+    }
 }
-}
-总结：
-由于Object.definePropery 的限制，Vue无法检测到对象属性的添加或删除。所以Vue不允许动态添加根级响应式属性，所以你必须在初始化实例前声明所有根级响应式属性，哪怕只是一个空值，或者使用Vue.set 或 vm.$set 进行设置。</p>
-<p>当data是数组时：
-请看示例</p>
-<p>import Vue from &ldquo;vue/dist/vue.js&rdquo;;</p>
-<p>Vue.config.productionTip = false;</p>
-<p>new Vue({
-data: {
-array: [&ldquo;a&rdquo;, &ldquo;b&rdquo;, &ldquo;c&rdquo;]
-},
-template: <code>&lt;div&gt; {{array}} &lt;button @click=&quot;setD&quot;&gt;set d&lt;/button&gt; &lt;/div&gt;</code>,
-methods: {
-setD() {
-this.array[3] = &ldquo;d&rdquo;; //请问，页面中会显示 &lsquo;d&rsquo; 吗？
-// 等下，你为什么不用 this.array.push(&lsquo;d&rsquo;)
-}
-}
-}).$mount(&quot;#app&rdquo;);
-如果data时数组，意味着你无法提前声明所有key，也不可以一直使用Vue.set 或 vm.$set 进行设置。</p>
-<p>尤雨溪的做法是，篡改数组的API，我们可以使用Vue提供的变异方法操作，如下</p>
+</code></pre><h3 id="heading7">总结：</h3>
+<h4 id="objectdefinepropery-vuevuevueset--vmset-">由于Object.definePropery 的限制，Vue无法检测到对象属性的添加或删除。所以Vue不允许动态添加根级响应式属性，所以你必须在初始化实例前声明所有根级响应式属性，哪怕只是一个空值，或者使用Vue.set 或 vm.$set 进行设置。</h4>
+<h2 id="data">当data是数组时：</h2>
+<p>请看示例</p>
+<pre><code>import Vue from &quot;vue/dist/vue.js&quot;;
+
+Vue.config.productionTip = false;
+
+new Vue({
+  data: {
+    array: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+  },
+  template: `
+    &lt;div&gt;
+      {{array}}
+      &lt;button @click=&quot;setD&quot;&gt;set d&lt;/button&gt;
+    &lt;/div&gt;
+  `,
+  methods: {
+    setD() {
+      this.array[3] = &quot;d&quot;; //请问，页面中会显示 'd' 吗？
+      // 等下，你为什么不用 this.array.push('d')
+    }
+  }
+}).$mount(&quot;#app&quot;);
+</code></pre><h4 id="datakeyvueset--vmset-">如果data时数组，意味着你无法提前声明所有key，也不可以一直使用Vue.set 或 vm.$set 进行设置。</h4>
+<h4 id="apivue">尤雨溪的做法是，篡改数组的API，我们可以使用Vue提供的变异方法操作，如下:</h4>
 <p>this.array.push(&lsquo;value&rsquo;)
 这里使用的push并不是Array.push，而是经过vue篡改后的api，vue的data中的数组会增加一层原型，实现了对数组数据的监听和代理，从而触发视图的更新。在Vue中这种api称为变异方法。这些变异方法包括：</p>
-<p>push()
-pop()
-shift()
-unshift()
-splice()
-sort()
-reverse()</p>
+<ul>
+<li>push()</li>
+<li>pop()</li>
+<li>shift()</li>
+<li>unshift()</li>
+<li>splice()</li>
+<li>sort()</li>
+<li>reverse()</li>
+</ul>
 
     </div>
 
@@ -473,8 +537,9 @@ reverse()</p>
 
 
     
-    
-    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
     
   
 

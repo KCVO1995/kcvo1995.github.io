@@ -17,16 +17,9 @@
       <pubDate>Wed, 05 Feb 2020 12:12:26 +0800</pubDate>
       
       <guid>https://kcvo.top/2020/%E6%B5%85%E6%9E%90vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/</guid>
-      <description>Vue的数据存储在data里，当数据更新时，会触发视图的渲染。 首先先来看一下Vue到底对data做了什么。 //引用完整版 Vue import Vue from &amp;ldquo;vue/dist/vue.js&amp;rdquo;;
-Vue.config.productionTip = false; //禁用警告
-const myData = { n: 0 } console.log(myData) // 精髓
-let vm = new Vue({ data: myData, template: &amp;lt;div&amp;gt;{{n}}&amp;lt;/div&amp;gt; }).$mount(&amp;quot;#app&amp;rdquo;);
-setTimeout(()=&amp;gt;{ myData.n += 10 console.log(myData) // 精髓 },3000)
-两次打印出的结果不同，说明vue对data里的数据进行了一些改造
-ES6 的 getter 和 setter getter 和 setter 可以对虚拟属性进行性改写 请看下面的例子
-需求一、得到姓名 let obj0 = { 姓: &amp;ldquo;迪&amp;rdquo;, 名: &amp;ldquo;丽热巴&amp;rdquo;, age: 18 }
-// 需求一，得到姓名
-let obj1 = { 姓: &amp;ldquo;迪&amp;rdquo;, 名: &amp;ldquo;丽热巴&amp;rdquo;, 姓名() { return this.</description>
+      <description>Vue的数据存储在data里，当数据更新时，会触发视图的渲染。 首先先来看一下Vue到底对data做了什么。
+//引用完整版 Vue import Vue from &amp;quot;vue/dist/vue.js&amp;quot;; Vue.config.productionTip = false; //禁用警告 const myData = { n: 0 } console.log(myData) // 精髓 let vm = new Vue({ data: myData, template: ` &amp;lt;div&amp;gt;{{n}}&amp;lt;/div&amp;gt; ` }).$mount(&amp;quot;#app&amp;quot;); setTimeout(()=&amp;gt;{ myData.n += 10 console.log(myData) // 精髓 },3000) 两次打印出的结果不同，说明vue对data里的数据进行了一些改造 ES6 的 getter 和 setter getter 和 setter 可以对虚拟属性进行性改写 请看下面的例子
+需求一、得到姓名 let obj0 = { 姓: &amp;quot;迪&amp;quot;, 名: &amp;quot;丽热巴&amp;quot;, age: 18 } // 需求一，得到姓名 let obj1 = { 姓: &amp;quot;迪&amp;quot;, 名: &amp;quot;丽热巴&amp;quot;, 姓名() { return this.</description>
     </item>
     
     <item>
