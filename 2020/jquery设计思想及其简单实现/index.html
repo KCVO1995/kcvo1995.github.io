@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Jacky Lee">
+  
+  
+  
+  <link rel="prev" href="http://localhost:1313/2020/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4dom%E6%93%8D%E4%BD%9C%E6%85%A2/" />
+  <link rel="next" href="http://localhost:1313/2020/axios%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" />
+  <link rel="canonical" href="http://localhost:1313/2020/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           jQuery设计思想及其简单实现 | LeaveIt
+       
+  </title>
+  <meta name="title" content="jQuery设计思想及其简单实现 | LeaveIt">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/localhost:1313\/"
+    },
+    "articleSection" : "posts",
+    "name" : "jQuery设计思想及其简单实现",
+    "headline" : "jQuery设计思想及其简单实现",
+    "description" : "前言 jQuery 是目前最长寿也是使用最广泛的 javaScript 函数库,据统计全球排名前 100k 的网站,有 90%都在使用 jQuery,远远超过了其他的库,数据如下图 jQuery 的实现都是基于 DOM api 的,大家都知道 js 提供的 dom 操作代码繁琐,而 jQuery 的核心里历练 wirte less,do more. 当我们使用 jQuery 时,只需使用$($是 jQuery 的别名)就会声明一个全局函数,这个函数接受一个选择器,以获取对应的元素,之后便返回一个由 jQuery 构造出来对象,也称 jQuery 对象,此对象包含了可操作元素的方法. 一、jQuery 如何获取元素 jQuery 的基本设计思想和主要用法,就是\x27选择某个网页元素,然后对其进行某种操作\x26rsquo;\njQuery 使用$(selector) 的方法获取页面的操作元素,selector 接受字符串或着是元素组成的数组 我们可以使用 DOM API 的 querySelectorAll 进行类似的实现\nwindow.$ = window.jQuery = function (selectorOrArray) { let elements if(typeof selectorOrArray === \x27string\x27){ elements = document.querySelectorAll(selectorOrArray) }else if(selectorOrArray instanceof Array){ elements = selectorOrArray } return {\/\/返回一个可操作 elements 的对象} } 查找元素 当我们获取元素后,需要找到并操作其内部的元素时,可以调用 jQuery 对象里面的 find()函数 find()函数的实现,需要使用 for 循环来遍历,并将新生成的数组放入$(selector)",
+    "inLanguage" : "en-us",
+    "author" : "Jacky Lee",
+    "creator" : "Jacky Lee",
+    "publisher": "Jacky Lee",
+    "accountablePerson" : "Jacky Lee",
+    "copyrightHolder" : "Jacky Lee",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-19 12:23:26 \x2b0800 CST",
+    "dateModified" : "2020-01-19 12:23:26 \x2b0800 CST",
+    "url" : "http:\/\/localhost:1313\/2020\/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0\/",
+    "wordCount" : "245",
+    "keywords" : [  "LeaveIt"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">jQuery设计思想及其简单实现</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://localhost:1313/" rel="author">Jacky Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-01-19 itemprop="datePublished">January 19, 2020</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h3 id="heading">前言</h3>
+<h4 id="jquery--javascript--100k--90-jquery">jQuery 是目前最长寿也是使用最广泛的 javaScript 函数库,据统计全球排名前 100k 的网站,有 90%都在使用 jQuery,远远超过了其他的库,数据如下图</h4>
+<p><img src="/images/jQuery.png" alt="jQuery 使用数据"></p>
+<h4 id="jquery--dom-api--js--dom--jquery--wirte-lessdo-more">jQuery 的实现都是基于 DOM api 的,大家都知道 js 提供的 dom 操作代码繁琐,而 jQuery 的核心里历练 wirte less,do more.</h4>
+<h4 id="-jquery--jquery--jquery--jquery-">当我们使用 jQuery 时,只需使用$($是 jQuery 的别名)就会声明一个全局函数,这个函数接受一个选择器,以获取对应的元素,之后便返回一个由 jQuery 构造出来对象,也称 jQuery 对象,此对象包含了可操作元素的方法.</h4>
+<h3 id="jquery-">一、jQuery 如何获取元素</h3>
+<p>jQuery 的基本设计思想和主要用法,就是'选择某个网页元素,然后对其进行某种操作&rsquo;</p>
+<p>jQuery 使用$(selector) 的方法获取页面的操作元素,selector 接受字符串或着是元素组成的数组
+我们可以使用 DOM API 的 querySelectorAll 进行类似的实现</p>
+<pre><code>window.$ = window.jQuery = function (selectorOrArray) {
+let elements
+if(typeof selectorOrArray === 'string'){
+elements = document.querySelectorAll(selectorOrArray)
+}else if(selectorOrArray instanceof Array){
+elements = selectorOrArray
+}
+return {//返回一个可操作 elements 的对象}
+}
+</code></pre><h4 id="heading1">查找元素</h4>
+<p>当我们获取元素后,需要找到并操作其内部的元素时,可以调用 jQuery 对象里面的 find()函数
+find()函数的实现,需要使用 for 循环来遍历,并将新生成的数组放入$(selector)</p>
+<pre><code>find(selector){
+        let array = []
+        for(let i = 0; i &lt; elements.length; i++){
+            array.concat(Array.from(elements[i].querySelectorAll(selector)))
+        }
+        return $(array)
+}
+</code></pre><h4 id="heading2">遍历函数</h4>
+<p>在 jQuery 对象的操作方法中,遍历是经常用到的,那我们何不封装一个遍历函数 each() 来调用呢?</p>
+<pre><code>each(fn){
+for(let i = 0; i &lt; elements.length; i++){
+fn.call(null, elements, i)
+}
+return this
+}
+</code></pre><p>如此一来,有了 each()函数,find() 函数就能更简洁的实现了,如下</p>
+<pre><code>find(selector){
+ let array = []
+this.each(node =&gt; {
+array.concat(Array.from(node.querySelectorAll(selector)))
+})
+return \$(array)
+}
+</code></pre><h3 id="jquery-1">二、jQuery 的链式操作是怎样的</h3>
+<p>jQuery 设计思想之一,获取元素后,可以对它进行一系列的操作,并且所有操作可以连接在一起,称为链式操作,举个栗子:</p>
+<p><code>$('div').find('h3').eq(2).html('Hello')</code></p>
+<p>分解开来，就是下面这样</p>
+<pre><code>\$('div') //找到 div 元素
+
+.find('h3') //选择其中的 h3 元素
+
+.eq(2) //选择第 3 个 h3 元素
+
+.html('Hello'); //将它的内容改为 Hello
+</code></pre><p>从上面简易实现的代码可以看出，jQuery 的操作函数运行后，都会返回一个 jQuery 对象，这样是的不同操作可以连在一起，这是 jQuery 最令人称道、最方便的特点</p>
+<h3 id="jquery-2">三、jQuery 如何创建元素与属性的处理</h3>
+<ul>
+<li>
+<p>创建元素节点</p>
+<p><code>$(&quot;&lt;div&gt;&lt;/div&gt;&quot;)</code></p>
+</li>
+<li>
+<p>创建为文本节点</p>
+<p><code>$(&quot;&lt;div&gt;我是文本节点&lt;/div&gt;&quot;)</code></p>
+</li>
+<li>
+<p>创建为属性节点</p>
+<p><code>$(&quot;&lt;div class='right'&gt;&lt;div class='aaron'&gt;动态创建 DIV 元素节点&lt;/div&gt;&lt;/div&gt;&quot;)</code></p>
+</li>
+</ul>
+<p>这就是 jQuery 创建节点的方式，让我们保留 HTML 的结构书写方式，非常的简单、方便和灵活</p>
+<h3 id="jquery-3">四、jQuery 如何移动元素</h3>
+<p>jQuery 设计思想之一，就是提供两组方法，来操作元素在网页中的位置移动。一组方法是直接移动该元素，另一组方法是移动其他元素，使得目标元素达到我们想要的位置。</p>
+<ul>
+<li>
+<p>第一种方法是使用.insertAfter()，把 div 元素移动 p 元素后面：</p>
+<p><code>$('div').insertAfter($('p'))</code></p>
+</li>
+<li>
+<p>第二种方法是使用.after()，把 p 元素加到 div 元素前面：</p>
+<p><code>$('p').after($('div'))</code></p>
+</li>
+</ul>
+<p>表面上看，这两种方法的效果是一样的，唯一的不同似乎只是操作视角的不同。但是实际上，它们有一个重大差别，那就是返回的元素不一样。第一种方法返回 div 元素，第二种方法返回 p 元素。你可以根据需要，选择到底使用哪一种方法。</p>
+<h4 id="heading3">使用这种模式的操作方法，一共有四对：</h4>
+<ul>
+<li>.insertAfter()`和.after()：在现存元素的外部，从后面插入元素</li>
+<li>.insertBefore()和.before()：在现存元素的外部，从前面插入元素</li>
+<li>.appendTo()和.append()：在现存元素的内部，从后面插入元素</li>
+<li>.prependTo()和.prepend()：在现存元素的内部，从前面插入元素</li>
+</ul>
+<h3 id="jquery-4">五、jQuery 如何修改元素的属性</h3>
+<p>jQuery 提供多种修改元素的属性的方法：</p>
+<ul>
+<li>
+<p>attr()函数获取标签的某个属性</p>
+<p><code>$('#p').attr('class') //获取id为p的标签的属性值</code></p>
+</li>
+<li>
+<p>attr()修改或修改标签的属性值</p>
+<p><code>$('#p').attr('class','red') //如果存在就是修改，如果不存在就是添加</code></p>
+</li>
+<li>
+<p>删除某个属性</p>
+<p><code>$('#p').removeAttr('name')</code></p>
+</li>
+<li>
+<p>添加 class 名称</p>
+<p><code>$('#p').addClass('blue')</code></p>
+</li>
+<li>
+<p>删除 class 名称</p>
+<p><code>$('#p').removeClass('yellow')</code></p>
+</li>
+<li>
+<p>有 class 就删除 没有就添加</p>
+<p><code>$('#p').toggleClass('asdf')</code></p>
+</li>
+<li>
+<p>val()获取输入框内容</p>
+<p><code>var s = \$('input[name=&quot;user&quot;]').val()</code></p>
+</li>
+</ul>
+<p>参考资料：jQuery 设计实现 - 阮一峰的网络日志</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Jacky Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://localhost:1313/2020/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/>http://localhost:1313/2020/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://localhost:1313/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://localhost:1313/2020/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4dom%E6%93%8D%E4%BD%9C%E6%85%A2/" class="prev" rel="prev" title="为什么说DOM操作慢"><i class="iconfont icon-left"></i>&nbsp;为什么说DOM操作慢</a>
+         
+        
+        <a href="http://localhost:1313/2020/axios%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="next" rel="next" title="axios 基本用法">axios 基本用法&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://localhost:1313/">Jacky Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

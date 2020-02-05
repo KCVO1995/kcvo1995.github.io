@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Jacky Lee">
+  
+  
+  
+  <link rel="prev" href="http://localhost:1313/2019/css%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%81%9A%E6%B3%95/" />
+  <link rel="next" href="http://localhost:1313/2019/%E4%BB%8Ebrendan-eich%E7%9A%84%E8%87%AA%E8%BF%B0%E7%9C%8Bjavascript%E7%9A%84%E8%AF%9E%E7%94%9F/" />
+  <link rel="canonical" href="http://localhost:1313/2019/css%E5%8A%A8%E7%94%BB%E4%BC%98%E5%8C%96/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           CSS动画优化 | LeaveIt
+       
+  </title>
+  <meta name="title" content="CSS动画优化 | LeaveIt">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/localhost:1313\/"
+    },
+    "articleSection" : "posts",
+    "name" : "CSS动画优化",
+    "headline" : "CSS动画优化",
+    "description" : "浏览器渲染原理 浏览器渲染经过以下步骤:\n 根据HTML构建HTML树。(DOM) 根据CSS构建CSS树。(CSSOM) 将两棵树合并成一颗渲染树。(rander tree) Layout布局(文档流、盒模型、计算大小和位置)。 Paint绘制(把边框颜色、文字颜色、阴影等画出来)。 Compose合成(根据层叠关系展示画面).  如何优化CSS动画 答案是:减少浏览器的渲染次数 三种的更新方式: 可见三种更新方式中,第一种更新方法需要重新渲染3次(包括layout,paint,compose),第二种需重新渲染2次,而第三种只需要重新渲染1次.\n不同的CSS属性有不同的更新方式,大家可以参考csstriggers.com(不需硬记),这个网站已经把所有属性都试过了.\nTips: 参考网站中的Blink为谷歌浏览器内核,Gecko为火狐浏览器内核,WebKit为Safari浏览器内核,EdgeHTML为IE浏览器内核\n所以优化CSS动画性能的方法是尽量使用渲染次数少的CSS属性\n CSS优化:使用will-change或translate JS优化:使用requestAnimaitonFrame代替setTimeout或setlnterval  ",
+    "inLanguage" : "en-us",
+    "author" : "Jacky Lee",
+    "creator" : "Jacky Lee",
+    "publisher": "Jacky Lee",
+    "accountablePerson" : "Jacky Lee",
+    "copyrightHolder" : "Jacky Lee",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-19 15:23:26 \x2b0800 CST",
+    "dateModified" : "2019-12-19 15:23:26 \x2b0800 CST",
+    "url" : "http:\/\/localhost:1313\/2019\/css%E5%8A%A8%E7%94%BB%E4%BC%98%E5%8C%96\/",
+    "wordCount" : "19",
+    "keywords" : [  "LeaveIt"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">CSS动画优化</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://localhost:1313/" rel="author">Jacky Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-12-19 itemprop="datePublished">December 19, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="heading">浏览器渲染原理</h1>
+<p><img src="/images/randertree.png" alt="渲染树">
+浏览器渲染经过以下步骤:</p>
+<ol>
+<li>根据HTML构建HTML树。(DOM)</li>
+<li>根据CSS构建CSS树。(CSSOM)</li>
+<li>将两棵树合并成一颗渲染树。(rander tree)</li>
+<li>Layout布局(文档流、盒模型、计算大小和位置)。</li>
+<li>Paint绘制(把边框颜色、文字颜色、阴影等画出来)。</li>
+<li>Compose合成(根据层叠关系展示画面).</li>
+</ol>
+<h1 id="css">如何优化CSS动画</h1>
+<h3 id="heading1">答案是:减少浏览器的渲染次数</h3>
+<p>三种的更新方式:
+<img src="/images/3ways.png" alt="三种更新方式"></p>
+<p>可见三种更新方式中,第一种更新方法需要重新渲染3次(包括layout,paint,compose),第二种需重新渲染2次,而第三种只需要重新渲染1次.</p>
+<p>不同的CSS属性有不同的更新方式,大家可以参考csstriggers.com(不需硬记),这个网站已经把所有属性都试过了.</p>
+<p>Tips: 参考网站中的Blink为谷歌浏览器内核,Gecko为火狐浏览器内核,WebKit为Safari浏览器内核,EdgeHTML为IE浏览器内核</p>
+<p>所以优化CSS动画性能的方法是尽量使用渲染次数少的CSS属性</p>
+<ul>
+<li>CSS优化:使用will-change或translate</li>
+<li>JS优化:使用requestAnimaitonFrame代替setTimeout或setlnterval</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Jacky Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://localhost:1313/2019/css%E5%8A%A8%E7%94%BB%E4%BC%98%E5%8C%96/>http://localhost:1313/2019/css%E5%8A%A8%E7%94%BB%E4%BC%98%E5%8C%96/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://localhost:1313/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://localhost:1313/2019/css%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%81%9A%E6%B3%95/" class="prev" rel="prev" title="CSS动画制作的两种做法"><i class="iconfont icon-left"></i>&nbsp;CSS动画制作的两种做法</a>
+         
+        
+        <a href="http://localhost:1313/2019/%E4%BB%8Ebrendan-eich%E7%9A%84%E8%87%AA%E8%BF%B0%E7%9C%8Bjavascript%E7%9A%84%E8%AF%9E%E7%94%9F/" class="next" rel="next" title="从Brendan Eich的自述看JavaScript的诞生">从Brendan Eich的自述看JavaScript的诞生&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://localhost:1313/">Jacky Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

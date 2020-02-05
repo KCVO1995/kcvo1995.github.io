@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Jacky Lee">
+  
+  
+  
+  <link rel="prev" href="http://localhost:1313/2020/%E6%B5%85%E6%9E%90mvc/" />
+  
+  <link rel="canonical" href="http://localhost:1313/2020/vue%E5%AE%8C%E6%95%B4%E7%89%88%E4%B8%8E%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88%E5%8C%BA%E5%88%AB/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Vue完整版与Vue非完整版的区别 | LeaveIt
+       
+  </title>
+  <meta name="title" content="Vue完整版与Vue非完整版的区别 | LeaveIt">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/localhost:1313\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Vue完整版与Vue非完整版的区别",
+    "headline" : "Vue完整版与Vue非完整版的区别",
+    "description" : "Vue完整版   Vue完整版文件名为 vue.js 和 vue.min.js , 后者是压缩版，取消了注释和警告，适合在生产环境下使用。\n  Vue非完整版   Vue非完整版文件名为 vue.runtime.js 和 vue.runtime.min.js， 后者是压缩版，取消了注释和警告，适合在生成环境下使用。\nVue完整版与Vue非完整版的区别 template 和 render 怎么用   template (完整版使用)   \/\/ 需要编译器 new Vue({ template: \x27\x26lt;div\x26gt;{{ hi }}\x26lt;\/div\x26gt;\x27 })   render (完整版与非完整使用)   \/\/ 不需要编译器 new Vue({ render (h) { return h(\x27div\x27, this.hi) } }) 完整代码和非完整版如何选择 个人建议：选择非完整版，然后配合vue-loader和vue文件。\nwhy：  保证用户体验，用户下载的JS文件体积更小(小30%)，但只支持h函数。 保证开发体验，开发者可以直接在vue文件里写HTML标签，而不用写h函数。 累活让vue-loader来做，vue-loader把vue文件里的HTML转为h函数。  如何用 codesandbox.io 写 Vue 代码 codesandbox.",
+    "inLanguage" : "en-us",
+    "author" : "Jacky Lee",
+    "creator" : "Jacky Lee",
+    "publisher": "Jacky Lee",
+    "accountablePerson" : "Jacky Lee",
+    "copyrightHolder" : "Jacky Lee",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-02 12:12:26 \x2b0800 CST",
+    "dateModified" : "2020-02-02 12:12:26 \x2b0800 CST",
+    "url" : "http:\/\/localhost:1313\/2020\/vue%E5%AE%8C%E6%95%B4%E7%89%88%E4%B8%8E%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88%E5%8C%BA%E5%88%AB\/",
+    "wordCount" : "62",
+    "keywords" : [  "LeaveIt"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Vue完整版与Vue非完整版的区别</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://localhost:1313/" rel="author">Jacky Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-02-02 itemprop="datePublished">February 2, 2020</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <ul>
+<li>
+<h4 id="vue">Vue完整版</h4>
+</li>
+</ul>
+<p>Vue完整版文件名为 vue.js 和 vue.min.js , 后者是压缩版，取消了注释和警告，适合在生产环境下使用。</p>
+<ul>
+<li>
+<h4 id="vue1">Vue非完整版</h4>
+</li>
+</ul>
+<p>Vue非完整版文件名为 vue.runtime.js 和 vue.runtime.min.js， 后者是压缩版，取消了注释和警告，适合在生成环境下使用。</p>
+<h2 id="vuevue">Vue完整版与Vue非完整版的区别</h2>
+<p><img src="/images/different.png" alt="版本区别"></p>
+<h2 id="template--render-">template 和 render 怎么用</h2>
+<ul>
+<li>
+<h4 id="template-">template (完整版使用)</h4>
+</li>
+</ul>
+<pre><code>// 需要编译器
+new Vue({
+  template: '&lt;div&gt;{{ hi }}&lt;/div&gt;'
+})
+</code></pre><ul>
+<li>
+<h4 id="render-">render (完整版与非完整使用)</h4>
+</li>
+</ul>
+<pre><code>// 不需要编译器
+new Vue({
+  render (h) {
+    return h('div', this.hi)
+  }
+})
+</code></pre><h2 id="heading">完整代码和非完整版如何选择</h2>
+<p>个人建议：选择非完整版，然后配合vue-loader和vue文件。</p>
+<h4 id="why">why：</h4>
+<ol>
+<li>保证用户体验，用户下载的JS文件体积更小(小30%)，但只支持h函数。</li>
+<li>保证开发体验，开发者可以直接在vue文件里写HTML标签，而不用写h函数。</li>
+<li>累活让vue-loader来做，vue-loader把vue文件里的HTML转为h函数。</li>
+</ol>
+<h2 id="-codesandboxio--vue-">如何用 codesandbox.io 写 Vue 代码</h2>
+<h4 id="codesandboxiohttpscodesandboxio"><a href="https://codesandbox.io/">codesandbox.io</a>​</h4>
+<ul>
+<li>
+<h4 id="create-a-sandbox">第一步，create a Sandbox</h4>
+</li>
+</ul>
+<p><img src="/images/first.png" alt="first"></p>
+<ul>
+<li>
+<h4 id="vue2">第二步，选择Vue</h4>
+</li>
+</ul>
+<p><img src="/images/second.png" alt="second"></p>
+<ul>
+<li>
+<h4 id="-sandbox-">第三步，开始撸代码吧 （Sandbox 使用的是非完整版）</h4>
+</li>
+</ul>
+<p><img src="/images/third.png" alt="third"></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Jacky Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://localhost:1313/2020/vue%E5%AE%8C%E6%95%B4%E7%89%88%E4%B8%8E%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88%E5%8C%BA%E5%88%AB/>http://localhost:1313/2020/vue%E5%AE%8C%E6%95%B4%E7%89%88%E4%B8%8E%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88%E5%8C%BA%E5%88%AB/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://localhost:1313/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://localhost:1313/2020/%E6%B5%85%E6%9E%90mvc/" class="prev" rel="prev" title="浅析 MVC"><i class="iconfont icon-left"></i>&nbsp;浅析 MVC</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://localhost:1313/">Jacky Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

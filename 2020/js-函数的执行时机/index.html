@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Jacky Lee">
+  
+  
+  
+  <link rel="prev" href="http://localhost:1313/2020/js-%E7%9A%84-new-%E5%88%B0%E5%BA%95%E6%98%AF%E5%B9%B2%E4%BB%80%E4%B9%88%E7%9A%84/" />
+  <link rel="next" href="http://localhost:1313/2020/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4dom%E6%93%8D%E4%BD%9C%E6%85%A2/" />
+  <link rel="canonical" href="http://localhost:1313/2020/js-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           JS 函数的执行时机 | LeaveIt
+       
+  </title>
+  <meta name="title" content="JS 函数的执行时机 | LeaveIt">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/localhost:1313\/"
+    },
+    "articleSection" : "posts",
+    "name" : "JS 函数的执行时机",
+    "headline" : "JS 函数的执行时机",
+    "description" : "关于JS任务执行 众所周知，JS是一门单线程语言。那就像我们去银行办理业务，而单线程意味着只有一个办理窗口，那么每个人都要等前一个人办理完成后，再去办理。同理JS也是一样，JS任务要一个一个按顺序执行。那么问题来了，如果前一个任务执行时间过长，后一个任务也要等着，这样必然增加了网页的加载时间。因此聪明的程序员将任务分成两类\n  同步任务\n上一件事情没有完成，继续处理上一件事情，只有上一件事情完成了，才会做下一件事情 \x26ndash;\x26gt; JS中大部分都是同步编程\n  异步任务\n规划要做一件事情，但是不是当前立马去执行这件事情，需要等一定的时间，这样的话，我们不会等着他执行，而是继续执行下面的操作\n  JS 函数的执行时机 函数执行的时机不同，运行结果也不同。下面我们按同步任务和异步任务两种情况，分别解释函数执行时机。\n同步 举几个栗子 问：打印出多少?\nlet a = 1 function fn() {console.log(a)} 执行步骤：\n 声明变量a并赋值为1 声明函数fn 结束  答：函数未执行，不打印结果\nlet a = 1 function fn(){console.log(a)} fn() 执行步骤：\n 声明变量a并赋值为1 声明函数fn 执行fn() \/\/打印出a 结束  答：a的结果为1\nlet a = 1 function fn(){console.log(a)} a = 2 fn() 执行步骤：\n 声明变量a并赋值为1 声明函数fn 将2赋值给a 执行fn() \/\/打印出a 结束  答：a的结果为2",
+    "inLanguage" : "en-us",
+    "author" : "Jacky Lee",
+    "creator" : "Jacky Lee",
+    "publisher": "Jacky Lee",
+    "accountablePerson" : "Jacky Lee",
+    "copyrightHolder" : "Jacky Lee",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-04 12:23:26 \x2b0800 CST",
+    "dateModified" : "2020-01-04 12:23:26 \x2b0800 CST",
+    "url" : "http:\/\/localhost:1313\/2020\/js-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA\/",
+    "wordCount" : "239",
+    "keywords" : [  "LeaveIt"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">JS 函数的执行时机</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://localhost:1313/" rel="author">Jacky Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-01-04 itemprop="datePublished">January 4, 2020</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p><img src="/images/img1.jpg" alt="img1"></p>
+<h3 id="js">关于JS任务执行</h3>
+<p>众所周知，JS是一门单线程语言。那就像我们去银行办理业务，而单线程意味着只有一个办理窗口，那么每个人都要等前一个人办理完成后，再去办理。同理JS也是一样，JS任务要一个一个按顺序执行。那么问题来了，如果前一个任务执行时间过长，后一个任务也要等着，这样必然增加了网页的加载时间。因此聪明的程序员将任务分成两类</p>
+<ul>
+<li>
+<p>同步任务</p>
+<p>上一件事情没有完成，继续处理上一件事情，只有上一件事情完成了，才会做下一件事情 &ndash;&gt; JS中大部分都是同步编程</p>
+</li>
+<li>
+<p>异步任务</p>
+<p>规划要做一件事情，但是不是当前立马去执行这件事情，需要等一定的时间，这样的话，我们不会等着他执行，而是继续执行下面的操作</p>
+</li>
+</ul>
+<h3 id="js-">JS 函数的执行时机</h3>
+<p>函数执行的时机不同，运行结果也不同。下面我们按同步任务和异步任务两种情况，分别解释函数执行时机。</p>
+<h2 id="heading">同步</h2>
+<h3 id="heading1">举几个栗子</h3>
+<p>问：打印出多少?</p>
+<pre><code>let a = 1
+function fn() {console.log(a)}
+</code></pre><p>执行步骤：</p>
+<ol>
+<li>声明变量a并赋值为1</li>
+<li>声明函数fn</li>
+<li>结束</li>
+</ol>
+<p>答：函数未执行，不打印结果</p>
+<pre><code>let a = 1
+function fn(){console.log(a)}
+fn()
+</code></pre><p>执行步骤：</p>
+<ol>
+<li>声明变量a并赋值为1</li>
+<li>声明函数fn</li>
+<li>执行fn() //打印出a</li>
+<li>结束</li>
+</ol>
+<p>答：a的结果为1</p>
+<pre><code>let a = 1
+function fn(){console.log(a)}
+a = 2
+fn()
+</code></pre><p>执行步骤：</p>
+<ol>
+<li>声明变量a并赋值为1</li>
+<li>声明函数fn</li>
+<li>将2赋值给a</li>
+<li>执行fn() //打印出a</li>
+<li>结束</li>
+</ol>
+<p>答：a的结果为2</p>
+<pre><code>let a = 1
+function fn(){console.log(a)}
+fn()
+a = 2
+</code></pre><p>执行步骤：</p>
+<ol>
+<li>声明变量a并赋值为1</li>
+<li>声明函数fn</li>
+<li>执行fn() //打印出a</li>
+<li>将2赋值为a</li>
+<li>结束</li>
+</ol>
+<p>答：a的结果为1</p>
+<p>通过上面几个例子可以看出，在同步任务中，确定函数运行的结果，需要关注函数执行的时间前的代码。因为后面的代码还没执行，不会影响函数的运行结果。</p>
+<h2 id="heading2">异步</h2>
+<p>要说异步，就不得不用大名鼎鼎的setTimeout来举例子了</p>
+<pre><code>let a = 1
+function fn(){
+    setTimeout(()=&gt;{
+        console.log(a)
+    },0)
+}
+fn() // 2
+a = 2
+</code></pre><p>执行步骤：</p>
+<ol>
+<li>声明变量a并赋值为1</li>
+<li>声明函数fn</li>
+<li>执行fn() &ndash;&gt; setTimeout()会过一会执行 &ndash;&gt;跳过setTimeout()</li>
+<li>将2赋值为a</li>
+<li>执行setTimeout() //打印出a</li>
+<li>结束</li>
+</ol>
+<p>a的结果为2</p>
+<h4 id="heading3">再来看个经典面试题:</h4>
+<pre><code>let i 
+for( i = 0; i&lt;6; i++){
+    setTimeout(()=&gt;{
+        console.log(i)
+    },0)
+}
+</code></pre><p>问i的结果为？</p>
+<p>很简单，for循环总共执行6次。答案是0、1、2、3、4、5。</p>
+<p>完美！</p>
+<hr>
+<p>完美的错过了正确答案</p>
+<p>正确答案是6个6  //666666</p>
+<p>我们可以这样理解：</p>
+<p>for循环执行步骤：</p>
+<ol>
+<li>i赋值为0</li>
+<li>判断i &lt; 6 ?,满足进入第一循环</li>
+<li>setTimeout()会过一会执行&ndash;&gt;跳过setTimeout()继续执行</li>
+<li>执行i++，此时i的值为1</li>
+<li>判断i &lt; 6 ?,满足进入第二循环</li>
+<li>setTimeout()会过一会执行&ndash;&gt;跳过setTimeout()继续执行</li>
+<li>执行i++，此时i的值为2</li>
+<li>省略&hellip;</li>
+<li>执行i++，此时i的值为6</li>
+<li>判断i &lt; 6 ?,不满足跳出循环</li>
+<li>执行第一次循环的setTimeout() //打印出a</li>
+<li>执行第二次循环的setTimeout() //打印出a</li>
+<li>执行第三次循环的setTimeout() //打印出a</li>
+<li>执行第四次循环的setTimeout() //打印出a</li>
+<li>执行第五次循环的setTimeout() //打印出a</li>
+<li>执行第六次循环的setTimeout() //打印出a</li>
+<li>结束</li>
+</ol>
+<p>现在可以看出，由于setTimeout()的执行时间为for语句执行后，所以每次打印出的结果都为6</p>
+<h2 id="settimeout">setTimeout()的'过一会'执行究竟是多久呢？</h2>
+<p>上文中不止一次提到'过一会'了,那么'过一会'究竟是多久呢？</p>
+<p>setTimeout(fn,0)的含义是，指定某个任务在主线程最早可得的空闲时间执行，意思就是不用再等多少秒了，只要主线程执行栈内的同步任务全部执行完成，栈为空就马上执行。也就是当同步任务的函数和语句执行完后，0秒或者立刻执行setTimeout(fn,0)。</p>
+<h2 id="012345">那我就是想要打印0、1、2、3、4、5呢？</h2>
+<p>如果对于for循环使用setTimeout()的循行结果不满意，我们就是要打印0、1、2、3、4、5呢？</p>
+<p>可以这样写：</p>
+<pre><code>for(let i = 0; i&lt;6; i++){
+    setTimeout(()=&gt;{
+        console.log(i)
+    },0)
+}
+// 0 1 2 3 4 5
+</code></pre><p>解释： 因为let变量的作用域只能在当前函数中，所以每次for循环生成的都是一个新的i， setTimeout里输出的i就是这个新的i，这个i是不会变化的，所以输出的就是正常的。</p>
+<p>因为在for语句里用let声明变量是局部变量遵循块作用域，所以每次for循环执行时都会生成一个单独的作用域，也会生成一个新的i，相当于有6个 i。 此时，每次执行setTimeout()时都会打印出对应的i，打印结果就是0、1、2、3、4、5了。</p>
+<h4 id="heading4">我们还可以这样解决</h4>
+<ul>
+<li>闭包</li>
+</ul>
+<pre><code>let i 
+for(i = 0; i&lt;6; i++){
+  !function(j){
+      setTimeout(()=&gt;{
+        console.log(j)
+      },0)
+  }(i)
+}
+</code></pre><ul>
+<li>利用 setTimeout 的第三个参数,将i传进去</li>
+</ul>
+<pre><code>let i 
+for(i = 0; i&lt;6; i++){
+  !function(j){
+      setTimeout(()=&gt;{
+        console.log(j)
+      },0)
+  }(i)
+}
+</code></pre><ul>
+<li>利用 const 关键字</li>
+</ul>
+<pre><code>let i
+for(i = 0; i&lt;6; i++){
+    const x = i
+    setTimeout(()=&gt;{
+      console.log(x)
+    })
+}
+</code></pre>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Jacky Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://localhost:1313/2020/js-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/>http://localhost:1313/2020/js-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://localhost:1313/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://localhost:1313/2020/js-%E7%9A%84-new-%E5%88%B0%E5%BA%95%E6%98%AF%E5%B9%B2%E4%BB%80%E4%B9%88%E7%9A%84/" class="prev" rel="prev" title="JS 的 new 到底是干什么的？"><i class="iconfont icon-left"></i>&nbsp;JS 的 new 到底是干什么的？</a>
+         
+        
+        <a href="http://localhost:1313/2020/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4dom%E6%93%8D%E4%BD%9C%E6%85%A2/" class="next" rel="next" title="为什么说DOM操作慢">为什么说DOM操作慢&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://localhost:1313/">Jacky Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

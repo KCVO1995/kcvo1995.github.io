@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Jacky Lee">
+  
+  
+  
+  <link rel="prev" href="http://localhost:1313/2019/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" />
+  <link rel="next" href="http://localhost:1313/2019/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" />
+  <link rel="canonical" href="http://localhost:1313/2019/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           JavaScript数据类型 | LeaveIt
+       
+  </title>
+  <meta name="title" content="JavaScript数据类型 | LeaveIt">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/localhost:1313\/"
+    },
+    "articleSection" : "posts",
+    "name" : "JavaScript数据类型",
+    "headline" : "JavaScript数据类型",
+    "description" : "JavaScript 数据类型   number 数字   string 字符串   symbol 符号   bool 布尔值   null 空   undefined 空   object 对象   口诀: 四基两空一对象\nnumber JS的数字采用64位浮点数储存，又称双精度浮点数\n 浮点就是可浮动的点，意思是小数点位置可以改动 例如 123.456 可以表示位 1.23456e10^2  64位浮点数的数据结构：\n  符号位S：第 1 位是正负数符号位（sign），0代表正数，1代表负数\n  指数位E：中间的 11 位存储指数（exponent），用来表示次方数\n  尾数位M：最后的 52 位是尾数（mantissa），超出的部分自动进一舍零\n  特殊值:\n  正零和负零要区分，正零和负零值都为零\n  正无穷大和负无穷大要区分\n  NaN (Not a Number) 也是数字类型，是一个未知数",
+    "inLanguage" : "en-us",
+    "author" : "Jacky Lee",
+    "creator" : "Jacky Lee",
+    "publisher": "Jacky Lee",
+    "accountablePerson" : "Jacky Lee",
+    "copyrightHolder" : "Jacky Lee",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-30 15:23:26 \x2b0800 CST",
+    "dateModified" : "2019-12-30 15:23:26 \x2b0800 CST",
+    "url" : "http:\/\/localhost:1313\/2019\/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B\/",
+    "wordCount" : "117",
+    "keywords" : [  "LeaveIt"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">JavaScript数据类型</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://localhost:1313/" rel="author">Jacky Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-12-30 itemprop="datePublished">December 30, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h3 id="javascript-">JavaScript 数据类型</h3>
+<ul>
+<li>
+<h4 id="number-">number 数字</h4>
+</li>
+<li>
+<h4 id="string-">string 字符串</h4>
+</li>
+<li>
+<h4 id="symbol-">symbol 符号</h4>
+</li>
+<li>
+<h4 id="bool-">bool 布尔值</h4>
+</li>
+<li>
+<h4 id="null-">null 空</h4>
+</li>
+<li>
+<h4 id="undefined-">undefined 空</h4>
+</li>
+<li>
+<h4 id="object-">object 对象</h4>
+</li>
+</ul>
+<p>口诀: 四基两空一对象</p>
+<h3 id="number">number</h3>
+<p>JS的数字采用64位浮点数储存，又称双精度浮点数</p>
+<ul>
+<li>浮点就是可浮动的点，意思是小数点位置可以改动</li>
+<li>例如 123.456 可以表示位 1.23456e10^2</li>
+</ul>
+<p>64位浮点数的数据结构：</p>
+<p><img src="/images/%E6%B5%AE%E7%82%B9%E6%95%B0.png" alt="浮点数"></p>
+<ul>
+<li>
+<p>符号位S：第 1 位是正负数符号位（sign），0代表正数，1代表负数</p>
+</li>
+<li>
+<p>指数位E：中间的 11 位存储指数（exponent），用来表示次方数</p>
+</li>
+<li>
+<p>尾数位M：最后的 52 位是尾数（mantissa），超出的部分自动进一舍零</p>
+</li>
+</ul>
+<p>特殊值:</p>
+<ul>
+<li>
+<p>正零和负零要区分，正零和负零值都为零</p>
+</li>
+<li>
+<p>正无穷大和负无穷大要区分</p>
+</li>
+<li>
+<p>NaN (Not a Number) 也是数字类型，是一个未知数</p>
+</li>
+</ul>
+<h3 id="string">String</h3>
+<p>JS的字符串采用阉割版的UTF-8，每个字符占两个字节</p>
+<p>写法可以是:</p>
+<ul>
+<li>双引号 &ldquo;Hello&rdquo;</li>
+<li>单引号 &lsquo;Hello&rsquo;</li>
+<li>反引号 `Hello`</li>
+<li>注意引号不属于字符串的一部分</li>
+</ul>
+<p>有时我们需要用到转义</p>
+<p>例如输入 &lsquo;It's ok&rsquo;，此时就会出现错误，JS引擎会认为'it'就结束了</p>
+<p>可以写成:</p>
+<ul>
+<li>&lsquo;It's ok&rsquo;  使用了转义</li>
+<li>&ldquo;It's ok&rdquo;</li>
+<li>`It's ok`</li>
+</ul>
+<p>更多的转义写法</p>
+<ul>
+<li>&quot; 表示 &quot;</li>
+<li>' 表示 '</li>
+<li>\n 表示 换行</li>
+<li>\r 表示 回车</li>
+<li>\t 表示 Tab制表符</li>
+<li>\ 表示 \</li>
+<li>\uFFFF 表示对应的Unicode字符</li>
+<li>\xFF 表示前256个Unicode字符</li>
+</ul>
+<h3 id="symbol">symbol</h3>
+<p>symbol使用情况很少，暂且不讲，以后用到再补充</p>
+<h3 id="bool">bool</h3>
+<p>布尔值代表“真”和“假”两个状态。“真”用关键字true表示，“假”用关键字false表示。布尔值只有这两个值。</p>
+<p>下列运算符会返回布尔值：</p>
+<ul>
+<li>前置逻辑运算符： ! (Not)</li>
+<li>相等运算符：===，!==，==，!=</li>
+<li>比较运算符：&gt;，&gt;=，&lt;，&lt;=</li>
+</ul>
+<p>那问题来了如果表达式不返回布尔值，怎么判断真假呢？</p>
+<p>答:记住五个falsy值，falsy就是相当于false，但又不是false的值</p>
+<ul>
+<li>undefined</li>
+<li>null</li>
+<li>0</li>
+<li>NaN</li>
+<li>&ldquo;&ldquo;或&rsquo;'（空字符串）</li>
+</ul>
+<p>其余不返回布尔值的表达式都为真</p>
+<h3 id="null--undefined">null 和 undefined</h3>
+<p>null与undefined都可以表示“没有”，含义非常相似。本质上没有区别。</p>
+<p>不过要注意以下几个细节</p>
+<ul>
+<li>如果一个变量声明了，但没有赋值，那么默认值就是undefined，而不是null</li>
+<li>如果一个函数，没有写return，那么默认return undefined，而不是null</li>
+<li>前端程序员习惯上，把非对象的空值写为undefined，把对象的空值写为null，但只是习惯而已</li>
+</ul>
+<h3 id="object">object</h3>
+<p>object的内容较多，会在下一个blog补充，欢迎查看。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Jacky Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://localhost:1313/2019/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/>http://localhost:1313/2019/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://localhost:1313/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://localhost:1313/2019/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="prev" rel="prev" title="JavaScript基本语法"><i class="iconfont icon-left"></i>&nbsp;JavaScript基本语法</a>
+         
+        
+        <a href="http://localhost:1313/2019/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="next" rel="next" title="JavaScript对象基本用法">JavaScript对象基本用法&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://localhost:1313/">Jacky Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

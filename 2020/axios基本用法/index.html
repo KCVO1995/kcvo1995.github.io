@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Jacky Lee">
+  
+  
+  
+  <link rel="prev" href="http://localhost:1313/2020/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" />
+  <link rel="next" href="http://localhost:1313/2020/cors%E8%B7%A8%E5%9F%9F/" />
+  <link rel="canonical" href="http://localhost:1313/2020/axios%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           axios 基本用法 | LeaveIt
+       
+  </title>
+  <meta name="title" content="axios 基本用法 | LeaveIt">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/localhost:1313\/"
+    },
+    "articleSection" : "posts",
+    "name" : "axios 基本用法",
+    "headline" : "axios 基本用法",
+    "description" : "安装 使用 npm:\n$ npm install axios\n使用 bower:\n$ bower install axios\n使用 cdn:\n\x26lt;script src=\x26quot;https:\/\/unpkg.com\/axios\/dist\/axios.min.js\x26quot;\x26gt;\x26lt;\/script\x26gt;\n执行 GET 请求 \/\/ 为给定 ID 的 user 创建请求 axios.get(\x27\/user?ID=12345\x27) .then(function (response) { console.log(response); }) .catch(function (error) { console.log(error); }); \/\/ 上面的请求也可以这样做 axios.get(\x27\/user\x27, { params: { ID: 12345 } }) .then(function (response) { console.log(response); }) .catch(function (error) { console.log(error); }); 执行 POST 请求 axios.post(\x27\/user\x27, { firstName: \x27Fred\x27, lastName: \x27Flintstone\x27 }) .then(function (response) { console.",
+    "inLanguage" : "en-us",
+    "author" : "Jacky Lee",
+    "creator" : "Jacky Lee",
+    "publisher": "Jacky Lee",
+    "accountablePerson" : "Jacky Lee",
+    "copyrightHolder" : "Jacky Lee",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-20 12:23:26 \x2b0800 CST",
+    "dateModified" : "2020-01-20 12:23:26 \x2b0800 CST",
+    "url" : "http:\/\/localhost:1313\/2020\/axios%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95\/",
+    "wordCount" : "429",
+    "keywords" : [  "LeaveIt"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">axios 基本用法</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://localhost:1313/" rel="author">Jacky Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-01-20 itemprop="datePublished">January 20, 2020</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h3 id="heading">安装</h3>
+<p>使用 npm:</p>
+<p><code>$ npm install axios</code></p>
+<p>使用 bower:</p>
+<p><code>$ bower install axios</code></p>
+<p>使用 cdn:</p>
+<p><code>&lt;script src=&quot;https://unpkg.com/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;</code></p>
+<h3 id="-get-">执行 GET 请求</h3>
+<pre><code>// 为给定 ID 的 user 创建请求
+axios.get('/user?ID=12345')
+.then(function (response) {
+console.log(response);
+})
+.catch(function (error) {
+console.log(error);
+});
+
+// 上面的请求也可以这样做
+axios.get('/user', {
+params: {
+ID: 12345
+}
+})
+.then(function (response) {
+console.log(response);
+})
+.catch(function (error) {
+console.log(error);
+});
+</code></pre><h3 id="-post-">执行 POST 请求</h3>
+<pre><code>axios.post('/user', {
+firstName: 'Fred',
+lastName: 'Flintstone'
+})
+.then(function (response) {
+console.log(response);
+})
+.catch(function (error) {
+console.log(error);
+});
+执行多个并发请求
+function getUserAccount() {
+return axios.get('/user/12345');
+}
+
+function getUserPermissions() {
+return axios.get('/user/12345/permissions');
+}
+
+axios.all([getUserAccount(), getUserPermissions()])
+.then(axios.spread(function (acct, perms) {
+// 两个请求现在都执行完成
+}));
+</code></pre><h3 id="heading1">创建实例</h3>
+<p>可以使用自定义配置新建一个 axios 实例</p>
+<pre><code>axios.create([config])
+const instance = axios.create({
+baseURL: 'https://some-domain.com/api/',
+timeout: 1000,
+headers: {'X-Custom-Header': 'foobar'}
+});
+</code></pre><h3 id="heading2">响应结构</h3>
+<p>某个请求的响应包含以下信息</p>
+<pre><code>{
+// `data` 由服务器提供的响应
+data: {},
+
+// `status` 来自服务器响应的 HTTP 状态码
+status: 200,
+
+// `statusText` 来自服务器响应的 HTTP 状态信息
+statusText: 'OK',
+
+// `headers` 服务器响应的头
+headers: {},
+
+// `config` 是为请求提供的配置信息
+config: {},
+// 'request'
+// `request` is the request that generated this response
+// It is the last ClientRequest instance in node.js (in redirects)
+// and an XMLHttpRequest instance the browser
+request: {}
+}
+</code></pre><p>使用 then 时，你将接收下面这样的响应 :</p>
+<pre><code>axios.get('/user/12345')
+.then(function(response) {
+console.log(response.data);
+console.log(response.status);
+console.log(response.statusText);
+console.log(response.headers);
+console.log(response.config);
+});
+</code></pre><h3 id="heading3">配置默认值</h3>
+<p>你可以指定将被用在各个请求的配置默认值</p>
+<p>全局的 axios 默认值</p>
+<pre><code>axios.defaults.baseURL = 'https://api.example.com';
+axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+</code></pre><p>自定义实例默认值</p>
+<pre><code>// Set config defaults when creating the instance
+const instance = axios.create({
+baseURL: 'https://api.example.com'
+});
+
+// Alter defaults after instance has been created
+instance.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+</code></pre><p>配置的优先顺序</p>
+<p>配置会以一个优先顺序进行合并。这个顺序是：在 lib/defaults.js 找到的库的默认值，然后是实例的 defaults 属性，最后是请求的 config 参数。后者将优先于前者。这里是一个例子：</p>
+<pre><code>// 使用由库提供的配置的默认值来创建实例
+// 此时超时配置的默认值是 `0`
+var instance = axios.create();
+
+// 覆写库的超时默认值
+// 现在，在超时前，所有请求都会等待 2.5 秒
+instance.defaults.timeout = 2500;
+
+// 为已知需要花费很长时间的请求覆写超时设置
+instance.get('/longRequest', {
+timeout: 5000
+});
+</code></pre><h3 id="heading4">拦截器</h3>
+<p>在请求或响应被 then 或 catch 处理前拦截它们。</p>
+<pre><code>// 添加请求拦截器
+axios.interceptors.request.use(function (config) {
+// 在发送请求之前做些什么
+return config;
+}, function (error) {
+// 对请求错误做些什么
+return Promise.reject(error);
+});
+
+// 添加响应拦截器
+axios.interceptors.response.use(function (response) {
+// 对响应数据做点什么
+return response;
+}, function (error) {
+// 对响应错误做点什么
+return Promise.reject(error);
+});
+如果你想在稍后移除拦截器，可以这样：
+
+const myInterceptor = axios.interceptors.request.use(function () {/_..._/});
+axios.interceptors.request.eject(myInterceptor);
+可以为自定义 axios 实例添加拦截器
+
+const instance = axios.create();
+instance.interceptors.request.use(function () {/_..._/});
+</code></pre><h3 id="heading5">取消</h3>
+<p>使用 cancel token 取消请求</p>
+<p>Axios 的 cancel token API 基于 cancelable promises proposal，它还处于第一阶段。
+可以使用 CancelToken.source 工厂方法创建 cancel token，像这样：</p>
+<pre><code>const CancelToken = axios.CancelToken;
+const source = CancelToken.source();
+
+axios.get('/user/12345', {
+cancelToken: source.token
+}).catch(function(thrown) {
+if (axios.isCancel(thrown)) {
+console.log('Request canceled', thrown.message);
+} else {
+// 处理错误
+}
+});
+
+axios.post('/user/12345', {
+name: 'new name'
+}, {
+cancelToken: source.token
+})
+
+// 取消请求（message 参数是可选的）
+source.cancel('Operation canceled by the user.');
+还可以通过传递一个 executor 函数到 CancelToken 的构造函数来创建 cancel token：
+
+const CancelToken = axios.CancelToken;
+let cancel;
+
+axios.get('/user/12345', {
+cancelToken: new CancelToken(function executor(c) {
+// executor 函数接收一个 cancel 函数作为参数
+cancel = c;
+})
+});
+
+// cancel the request
+cancel();
+</code></pre><p>参考文章： axios 中文文档</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Jacky Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://localhost:1313/2020/axios%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/>http://localhost:1313/2020/axios%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://localhost:1313/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://localhost:1313/2020/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" class="prev" rel="prev" title="jQuery设计思想及其简单实现"><i class="iconfont icon-left"></i>&nbsp;jQuery设计思想及其简单实现</a>
+         
+        
+        <a href="http://localhost:1313/2020/cors%E8%B7%A8%E5%9F%9F/" class="next" rel="next" title="CORS跨域">CORS跨域&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://localhost:1313/">Jacky Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

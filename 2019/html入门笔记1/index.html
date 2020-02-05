@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Jacky Lee">
+  
+  
+  
+  <link rel="prev" href="http://localhost:1313/2019/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" />
+  <link rel="next" href="http://localhost:1313/2019/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" />
+  <link rel="canonical" href="http://localhost:1313/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           HTML入门笔记1 | LeaveIt
+       
+  </title>
+  <meta name="title" content="HTML入门笔记1 | LeaveIt">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/localhost:1313\/"
+    },
+    "articleSection" : "posts",
+    "name" : "HTML入门笔记1",
+    "headline" : "HTML入门笔记1",
+    "description" : "Ⅰ.HTML 是谁发明的？ HTML 诞生于蒂姆·伯纳斯-李爵士的一篇文章HTML Tags\nⅡ.什么是HTML？ HTML 是网页使用的语言，定义了网页的结构和内容。浏览器访问网站，其实就是从服务器下载 HTML 代码，然后渲染出网页。HTML 的全名是“超文本标记语言”（HyperText Markup Language）\nⅢ.HTML 起手应该写什么 HTML起手应该包含以下代码：\n\x26lt;!DOCTYPE html\x26gt; \x26lt;html lang=\x26quot;en\x26quot;\x26gt; \x26lt;head\x26gt; \x26lt;meta charset=\x26quot;UTF-8\x26quot;\x26gt; \x26lt;meta name=\x26quot;viewport\x26quot; content=\x26quot;width=device-width, initial-scale=1.0\x26quot;\x26gt; \x26lt;meta http-equiv=\x26quot;X-UA-Compatible\x26quot; content=\x26quot;ie=edge\x26quot;\x26gt; \x26lt;title\x26gt;Document\x26lt;\/title\x26gt; \x26lt;\/head\x26gt; \x26lt;body\x26gt; \x26lt;\/body\x26gt; \x26lt;\/html\x26gt; 提示：html文件用VScode打开后，输入!之后按tab键，上述代码将会自动生成，方便快捷。\nⅣ.网页的基本标签有哪些   \x26lt;!doctype\x26gt;   网页的第一个标签通常是\x26lt;!doctype\x26gt;，表示文档类型，告诉浏览器如何解析网页。\n  \x26lt;html\x26gt;   \x26lt;html\x26gt;标签是网页的顶层容器，也称为根元素（root element），其他元素都是它的子元素。一个网页只能有一个\x26lt;html\x26gt;标签。\n  \x26lt;head\x26gt;   \x26lt;head\x26gt;标签是一个容器标签，用于放置网页的元信息。它的内容不会出现在网页上，而是为网页渲染做准备。\n  \x26lt;meta\x26gt;   \x26lt;meta\x26gt;标签用于设置或说明网页的元数据，必须放在\x26lt;head\x26gt;里面。一个\x26lt;meta\x26gt;标签就是一项元数据，网页可以有多个\x26lt;meta\x26gt;。\n \x26lt;title\x26gt;  \x26lt;title\x26gt;标签用于指定网页的标题，会显示在浏览器窗口的标题栏。\n  \x26lt;body\x26gt;   \x26lt;body\x26gt;标签是一个容器标签，用于放置网页的主体内容。浏览器显示的页面内容，都是放置在它的内部。它是\x26lt;html\x26gt;的第二个子元素，紧跟在\x26lt;head\x26gt;后面。",
+    "inLanguage" : "en-us",
+    "author" : "Jacky Lee",
+    "creator" : "Jacky Lee",
+    "publisher": "Jacky Lee",
+    "accountablePerson" : "Jacky Lee",
+    "copyrightHolder" : "Jacky Lee",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-11 16:23:26 \x2b0800 CST",
+    "dateModified" : "2019-12-11 16:23:26 \x2b0800 CST",
+    "url" : "http:\/\/localhost:1313\/2019\/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01\/",
+    "wordCount" : "117",
+    "keywords" : [  "LeaveIt"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">HTML入门笔记1</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://localhost:1313/" rel="author">Jacky Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-12-11 itemprop="datePublished">December 11, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="html-">Ⅰ.HTML 是谁发明的？</h1>
+<p><img src="/images/Sir_Tim_Berners-Lee.jpg" alt="李爵士"></p>
+<p>HTML 诞生于蒂姆·伯纳斯-李爵士的一篇文章<a href="https://html.com/tags/">HTML Tags</a></p>
+<h1 id="html">Ⅱ.什么是HTML？</h1>
+<p>HTML 是网页使用的语言，定义了网页的结构和内容。浏览器访问网站，其实就是从服务器下载 HTML 代码，然后渲染出网页。HTML 的全名是“超文本标记语言”（HyperText Markup Language）</p>
+<h1 id="html-1">Ⅲ.HTML 起手应该写什么</h1>
+<p>HTML起手应该包含以下代码：</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>提示：html文件用VScode打开后，输入!之后按tab键，上述代码将会自动生成，方便快捷。</p>
+<h1 id="heading">Ⅳ.网页的基本标签有哪些</h1>
+<ul>
+<li>
+<h3 id="doctype"><code>&lt;!doctype&gt;</code></h3>
+</li>
+</ul>
+<p>网页的第一个标签通常是<code>&lt;!doctype&gt;</code>，表示文档类型，告诉浏览器如何解析网页。</p>
+<ul>
+<li>
+<h3 id="html1"><code>&lt;html&gt;</code></h3>
+</li>
+</ul>
+<p><code>&lt;html&gt;</code>标签是网页的顶层容器，也称为根元素（root element），其他元素都是它的子元素。一个网页只能有一个<code>&lt;html&gt;</code>标签。</p>
+<ul>
+<li>
+<h3 id="head"><code>&lt;head&gt;</code></h3>
+</li>
+</ul>
+<p><code>&lt;head&gt;</code>标签是一个容器标签，用于放置网页的元信息。它的内容不会出现在网页上，而是为网页渲染做准备。</p>
+<ul>
+<li>
+<h3 id="meta"><code>&lt;meta&gt;</code></h3>
+</li>
+</ul>
+<p><code>&lt;meta&gt;</code>标签用于设置或说明网页的元数据，必须放在<code>&lt;head&gt;</code>里面。一个<code>&lt;meta&gt;</code>标签就是一项元数据，网页可以有多个<code>&lt;meta&gt;</code>。</p>
+<ul>
+<li><code>&lt;title&gt;</code></li>
+</ul>
+<p><code>&lt;title&gt;</code>标签用于指定网页的标题，会显示在浏览器窗口的标题栏。</p>
+<ul>
+<li>
+<h3 id="body"><code>&lt;body&gt;</code></h3>
+</li>
+</ul>
+<p><code>&lt;body&gt;</code>标签是一个容器标签，用于放置网页的主体内容。浏览器显示的页面内容，都是放置在它的内部。它是<code>&lt;html&gt;</code>的第二个子元素，紧跟在<code>&lt;head&gt;</code>后面。</p>
+<h1 id="heading1">Ⅴ.常用的表章节的标签有哪些</h1>
+<ul>
+<li>
+<h3 id="h1h6"><code>&lt;h1&gt;~&lt;h6&gt;</code></h3>
+</li>
+</ul>
+<p>HTML 提供了6个标签，用来表示文章的标题。按照标题的等级，一共分成六级。<code>h1`~</code>h6`分别为一级标题、二级标题、三级标题、四级标题、五级标题、六级标题。默认情况下，浏览器会粗体显示标题。h1的字号比h2大，h2比h3大，以此类推。</p>
+<p><img src="/images/h1~h6.png" alt="h1~h6"></p>
+<ul>
+<li>
+<h3 id="section"><code>&lt;section&gt;</code></h3>
+</li>
+</ul>
+<p><code>&lt;section&gt;</code>标签表示一个含有主题的独立部分，通常用在文档里面表示一个章节。</p>
+<ul>
+<li>
+<h3 id="article"><code>&lt;article&gt;</code></h3>
+</li>
+</ul>
+<p><code>&lt;article&gt;</code>标签表示页面里面一段完整的内容，即使页面的其他部分不存在，也具有独立使用的意义，通常用来表示一篇文章或者一个论坛帖子。它可以有自己的标题（<code>&lt;h1&gt;</code>到<code>&lt;h6&gt;</code>）</p>
+<ul>
+<li>
+<h3 id="aside"><code>&lt;aside&gt;</code></h3>
+</li>
+</ul>
+<p><code>&lt;aside&gt;</code>标签用来放置与网页或文章主要内容间接相关的部分。网页级别的<code>&lt;aside&gt;</code>，可以用来放置侧边栏，但不一定就在页面的侧边；文章级别的<code>&lt;aside&gt;</code>，可以用来放置评论或注释。</p>
+<ul>
+<li>
+<h3 id="main"><code>&lt;main&gt;</code></h3>
+</li>
+</ul>
+<p><code>&lt;main&gt;</code>标签表示页面的主体内容，一个页面只能有一个<code>&lt;main&gt;</code>。</p>
+<h1 id="heading2">Ⅵ.全局属性有哪些</h1>
+<ul>
+<li>
+<h3 id="class">class</h3>
+</li>
+</ul>
+<p>class属性用来对网页元素进行分类。如果不同元素的class属性值相同，就表示它们是一类的。</p>
+<ul>
+<li>
+<h3 id="contenteditable">contenteditable</h3>
+</li>
+</ul>
+<p>HTML 网页的内容默认是用户不能编辑，contenteditable属性允许用户修改内容。它有两个可能的值。</p>
+<ol>
+<li>true或空字符串：内容可以编辑</li>
+<li>false：不可以编辑</li>
+</ol>
+<ul>
+<li>
+<h3 id="hidden">hidden</h3>
+</li>
+</ul>
+<p>hidden是一个布尔属性，表示当前的网页元素不再跟页面相关，因此浏览器不会渲染这个元素，所以就不会在网页中看到它。</p>
+<ul>
+<li>
+<h3 id="id">id</h3>
+</li>
+</ul>
+<p>id属性是元素在网页内的唯一标识符。比如，网页可能包含多个<code>&lt;p&gt;</code>标签，id属性可以指定每个<code>&lt;p&gt;</code>标签的唯一标识符。</p>
+<ul>
+<li>
+<h3 id="style">style</h3>
+</li>
+</ul>
+<p>style属性用来指定当前元素的 CSS 样式。具体的设置，请看 CSS 教程。</p>
+<ul>
+<li>
+<h3 id="tabindex">tabindex</h3>
+</li>
+</ul>
+<p>tabindex属性的值是一个整数，表示用户按下 Tab 键的时候，网页焦点转移的顺序。不同的属性值有不同的含义。</p>
+<ol>
+<li>负整数：该元素可以获得焦点（比如使用 JavaScript 的focus()方法），但不参与 Tab 键对网页元素的遍历。这个值通常是-1。</li>
+<li>0：该元素参与 Tab 键的遍历，顺序由浏览器指定，通常是按照其在网页里面出现的位置。</li>
+<li>正整数：网页元素按照从小到大的顺序（1、2、3、……），参与 Tab 键的遍历。如果多个元素的tabindex属性相同，则按照在网页源码里面出现的顺序遍历。</li>
+</ol>
+<ul>
+<li>
+<h3 id="title">title</h3>
+</li>
+</ul>
+<p>title属性用来为元素添加附加说明。大多数浏览器中，鼠标悬浮在元素上面时，会将title属性值作为浮动提示，显示出来。</p>
+<h1 id="heading3">Ⅶ.常用的内容标签有哪些</h1>
+<ul>
+<li>
+<h3 id="a"><code>&lt;a&gt;</code></h3>
+</li>
+</ul>
+<p>链接通过<!-- raw HTML omitted -->标签表示，用户点击后，浏览器会跳转到指定的网址。</p>
+<ul>
+<li>
+<h3 id="strong"><code>&lt;strong&gt;</code></h3>
+</li>
+</ul>
+<p>style属性用来指定当前元素的 CSS 样式。具体的设置，请看 CSS 教程</p>
+<ul>
+<li>
+<h3 id="em">em</h3>
+</li>
+</ul>
+<p><code>&lt;em&gt;</code>是一个行内标签，表示强调（emphasize），浏览器会以斜体显示它包含的内容。</p>
+<ul>
+<li>
+<h3 id="code"><code>&lt;code&gt;</code></h3>
+</li>
+</ul>
+<p><code>&lt;code&gt;</code>可以用于包裹代码。</p>
+<ul>
+<li>
+<h3 id="pre"><code>&lt;pre&gt;</code></h3>
+</li>
+</ul>
+<p><code>&lt;pre&gt;</code>是一个块级元素，表示保留原来的格式（preformatted），即浏览器会保留该标签内部原始的换行和空格。浏览器默认以等宽字体显示标签内容。</p>
+<h1 id="heading4">Ⅷ.最后介绍两个在线编程网站</h1>
+<ul>
+<li><a href="http://js.jirengu.com/?html,output">饥人谷Jsbin</a></li>
+</ul>
+<p>优点速度快，但是只能编写单个文件</p>
+<ul>
+<li><a href="https://codesandbox.io/">codesanbox</a></li>
+</ul>
+<p>速度较慢，但是有在线文件夹，可上传图片等等</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Jacky Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://localhost:1313/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/>http://localhost:1313/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://localhost:1313/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://localhost:1313/2019/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="prev" rel="prev" title="如何使用Hugo搭建个人博客"><i class="iconfont icon-left"></i>&nbsp;如何使用Hugo搭建个人博客</a>
+         
+        
+        <a href="http://localhost:1313/2019/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" class="next" rel="next" title="HTML常用标签">HTML常用标签&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://localhost:1313/">Jacky Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

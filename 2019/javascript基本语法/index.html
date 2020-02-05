@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Jacky Lee">
+  
+  
+  
+  <link rel="prev" href="http://localhost:1313/2019/%E4%BB%8Ebrendan-eich%E7%9A%84%E8%87%AA%E8%BF%B0%E7%9C%8Bjavascript%E7%9A%84%E8%AF%9E%E7%94%9F/" />
+  <link rel="next" href="http://localhost:1313/2019/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" />
+  <link rel="canonical" href="http://localhost:1313/2019/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           JavaScript基本语法 | LeaveIt
+       
+  </title>
+  <meta name="title" content="JavaScript基本语法 | LeaveIt">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/localhost:1313\/"
+    },
+    "articleSection" : "posts",
+    "name" : "JavaScript基本语法",
+    "headline" : "JavaScript基本语法",
+    "description" : "什么是表达式和语句？ 语句 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。\n语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。\nvar a = 1 \x2b 3\n这条语句先用var命令，声明了变量a，然后将1 \x2b 3的运算结果赋值给变量a。\n表达式 1 \x2b 3叫做表达式（expression），指一个为了得到返回值的计算式。\nadd(1,2)表达式的值为函数的返回值\nconsole.log表达式的值为函数本身\nconsole.log(3)表达式的值为函数的返回值，也就是undefined\n两者的区别 语句和表达式的区别在于，语句是为了进行某种操作，一般情况下不需要返回值，而表达式都是为了得到返回值，一定会返回一个值。凡是 JavaScript 语言中预期为值的地方，都可以使用表达式。比如，赋值语句的等号右边，预期是一个值，因此可以放置各种表达式。\n简单的判断方法  利用if语句判断  if(xxx){},如果没有报错就说明xxx是表达式，因为if括号里面需要的是布尔值，只要是有这个值就是表达式\n 利用赋值变量来判断  因为表达式得到的是一个值，所以表达式可以赋值给一个变量，而如果是语句的话就会报错。\n标识符的规则 标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名，以及后面要提到的函数名。JavaScript 语言的标识符对大小写敏感，所以a和A是两个不同的标识符。\n简单说，标识符命名规则如下。\n 第一个字符，可以是任意 Unicode 字母（包括英文字母和其他语言的字母），以及美元符号（$）和下划线（_）。注意不能使用数字 第二个字符及后面的字符，除了 Unicode 字母、美元符号和下划线，还可以用数字 0-9。 中文也是合法的标识符  if else 语句 语法  if(布尔值){语句1} else{语句2} {}在语句只有一句的时候可以省略，不建议这样做  举个栗子 if (m === 3) { console.log(\x26quot;m等于3\x26quot;) \/\/ 满足条件时，执行的语句 } else { console.log(\x27m不等于3\x27) \/\/ 不满足条件时，执行的语句 } 上面代码判断变量m是否等于3，如果等于就执行if代码块，否则执行else代码块。",
+    "inLanguage" : "en-us",
+    "author" : "Jacky Lee",
+    "creator" : "Jacky Lee",
+    "publisher": "Jacky Lee",
+    "accountablePerson" : "Jacky Lee",
+    "copyrightHolder" : "Jacky Lee",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-29 15:23:26 \x2b0800 CST",
+    "dateModified" : "2019-12-29 15:23:26 \x2b0800 CST",
+    "url" : "http:\/\/localhost:1313\/2019\/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95\/",
+    "wordCount" : "309",
+    "keywords" : [  "LeaveIt"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">JavaScript基本语法</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://localhost:1313/" rel="author">Jacky Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-12-29 itemprop="datePublished">December 29, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="heading">什么是表达式和语句？</h2>
+<h3 id="heading1">语句</h3>
+<p>JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。</p>
+<p>语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。</p>
+<p><code>var a = 1 + 3</code></p>
+<p>这条语句先用var命令，声明了变量a，然后将1 + 3的运算结果赋值给变量a。</p>
+<h3 id="heading2">表达式</h3>
+<p>1 + 3叫做表达式（expression），指一个为了得到返回值的计算式。</p>
+<p>add(1,2)表达式的值为函数的返回值</p>
+<p>console.log表达式的值为函数本身</p>
+<p>console.log(3)表达式的值为函数的返回值，也就是undefined</p>
+<h3 id="heading3">两者的区别</h3>
+<p>语句和表达式的区别在于，语句是为了进行某种操作，一般情况下不需要返回值，而表达式都是为了得到返回值，一定会返回一个值。凡是 JavaScript 语言中预期为值的地方，都可以使用表达式。比如，赋值语句的等号右边，预期是一个值，因此可以放置各种表达式。</p>
+<h3 id="heading4">简单的判断方法</h3>
+<ul>
+<li>利用if语句判断</li>
+</ul>
+<p>if(xxx){},如果没有报错就说明xxx是表达式，因为if括号里面需要的是布尔值，只要是有这个值就是表达式</p>
+<p><img src="/images/if%E5%88%A4%E6%96%AD.png" alt="if"></p>
+<ul>
+<li>利用赋值变量来判断</li>
+</ul>
+<p>因为表达式得到的是一个值，所以表达式可以赋值给一个变量，而如果是语句的话就会报错。</p>
+<p><img src="/images/%E5%8F%98%E9%87%8F%E8%B5%8B%E5%80%BC%E5%88%A4%E6%96%AD.png" alt="变量"></p>
+<h2 id="heading5">标识符的规则</h2>
+<p>标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名，以及后面要提到的函数名。JavaScript 语言的标识符对大小写敏感，所以a和A是两个不同的标识符。</p>
+<p>简单说，标识符命名规则如下。</p>
+<ul>
+<li>第一个字符，可以是任意 Unicode 字母（包括英文字母和其他语言的字母），以及美元符号（$）和下划线（_）。注意不能使用数字</li>
+<li>第二个字符及后面的字符，除了 Unicode 字母、美元符号和下划线，还可以用数字 0-9。</li>
+<li>中文也是合法的标识符</li>
+</ul>
+<h2 id="if-else-">if else 语句</h2>
+<h3 id="heading6">语法</h3>
+<ul>
+<li>if(布尔值){语句1} else{语句2}</li>
+<li>{}在语句只有一句的时候可以省略，不建议这样做</li>
+</ul>
+<h3 id="heading7">举个栗子</h3>
+<pre><code>if (m === 3) {
+    console.log(&quot;m等于3&quot;)
+    // 满足条件时，执行的语句
+} 
+else {
+    console.log('m不等于3')
+    // 不满足条件时，执行的语句
+}
+</code></pre><p>上面代码判断变量m是否等于3，如果等于就执行if代码块，否则执行else代码块。</p>
+<h2 id="while-">while 语句</h2>
+<h3 id="heading8">语法</h3>
+<p>while(表达式){循环体}</p>
+<ul>
+<li>判断表达式真假</li>
+<li>当表达式为真时，执行语句，在判断表达式真假</li>
+<li>当表达式为假时，执行后面的语句</li>
+</ul>
+<h3 id="heading9">举个栗子</h3>
+<pre><code>var i = 0;
+
+while (i &lt; 10) {
+  console.log('i 当前为：' + i);
+  i = i + 1;
+}
+</code></pre><p>上面的代码将循环10次，直到i等于10为止。</p>
+<pre><code>while (true) {
+  console.log('Hello, world');
+}
+</code></pre><p>上面的例子是一个无限循环，因为循环条件总是为真。</p>
+<h2 id="for-">for 语句</h2>
+<h3 id="heading10">语法</h3>
+<p>for (语句1，表达式2，语句3){循环体}</p>
+<ul>
+<li>先执行语句1</li>
+<li>然后判断语句2</li>
+<li>如果为真，执行循环体，然后执行语句3</li>
+<li>如果为假，跳出循环，执行后面的语句</li>
+</ul>
+<p>for 是 while 的方便写法</p>
+<h3 id="heading11">举个栗子</h3>
+<pre><code>if (let i = 1; i &lt; 10; i++) {
+    console.log('i 当前为：' + i);
+}
+</code></pre><p>上面的代码将循环10次，直到i等于10为止。</p>
+<h2 id="break">break</h2>
+<h3 id="break1">break语句用于跳出代码块或循环。</h3>
+<pre><code>for (let i = 0; i &lt; 5; i++) {
+  console.log(i);
+  if (i === 3)
+    break;
+}
+</code></pre><p>上面代码执行到i等于3，就会跳出循环。</p>
+<h2 id="continue">continue</h2>
+<h3 id="continue1">continue语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。</h3>
+<pre><code>for (let i = 0; i &lt; 100; i++) {
+    if (i % 2 === 0) {continue} ;
+    console.log('i 当前为：' + i);
+}
+</code></pre><p>上面代码只有在i为奇数时，才会输出i的值。如果i为偶数，则直接进入下一轮循环。</p>
+<h3 id="breakcontinue">如果存在多重循环，不带参数的break语句和continue语句都只针对最内层循环。</h3>
+<h2 id="label">label</h2>
+<p>JavaScript 语言允许，语句的前面有标签（label），相当于定位符，用于跳转到程序的任意位置，标签的格式如下。</p>
+<h3 id="heading12">举些栗子</h3>
+<pre><code>top:
+  for (var i = 0; i &lt; 3; i++){
+    for (var j = 0; j &lt; 3; j++){
+      if (i === 1 &amp;&amp; j === 1) break top;
+      console.log('i=' + i + ', j=' + j);
+    }
+  }
+// i=0, j=0
+// i=0, j=1
+// i=0, j=2
+// i=1, j=0
+</code></pre><p>上面代码为一个双重循环区块，break命令后面加上了top标签（注意，top不用加引号），满足条件时，直接跳出双层循环。如果break语句后面不使用标签，则只能跳出内层循环，进入下一次的外层循环。</p>
+<pre><code>foo: {
+  console.log(1);
+  break foo;
+  console.log('本行不会输出');
+}
+console.log(2);
+// 1
+// 2
+</code></pre><p>上面代码执行到break foo，就会跳出区块。</p>
+<pre><code>top:
+  for (var i = 0; i &lt; 3; i++){
+    for (var j = 0; j &lt; 3; j++){
+      if (i === 1 &amp;&amp; j === 1) continue top;
+      console.log('i=' + i + ', j=' + j);
+    }
+  }
+// i=0, j=0
+// i=0, j=1
+// i=0, j=2
+// i=1, j=0
+// i=2, j=0
+// i=2, j=1
+// i=2, j=2
+</code></pre><p>上面代码中，continue命令后面有一个标签名，满足条件时，会跳过当前循环，直接进入下一轮外层循环。如果continue语句后面不使用标签，则只能进入下一轮的内层循环。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Jacky Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://localhost:1313/2019/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/>http://localhost:1313/2019/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://localhost:1313/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://localhost:1313/2019/%E4%BB%8Ebrendan-eich%E7%9A%84%E8%87%AA%E8%BF%B0%E7%9C%8Bjavascript%E7%9A%84%E8%AF%9E%E7%94%9F/" class="prev" rel="prev" title="从Brendan Eich的自述看JavaScript的诞生"><i class="iconfont icon-left"></i>&nbsp;从Brendan Eich的自述看JavaScript的诞生</a>
+         
+        
+        <a href="http://localhost:1313/2019/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="next" rel="next" title="JavaScript数据类型">JavaScript数据类型&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://localhost:1313/">Jacky Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

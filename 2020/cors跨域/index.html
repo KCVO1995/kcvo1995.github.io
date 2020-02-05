@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Jacky Lee">
+  
+  
+  
+  <link rel="prev" href="http://localhost:1313/2020/axios%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" />
+  <link rel="next" href="http://localhost:1313/2020/%E6%B5%85%E6%9E%90mvc/" />
+  <link rel="canonical" href="http://localhost:1313/2020/cors%E8%B7%A8%E5%9F%9F/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           CORS跨域 | LeaveIt
+       
+  </title>
+  <meta name="title" content="CORS跨域 | LeaveIt">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/localhost:1313\/"
+    },
+    "articleSection" : "posts",
+    "name" : "CORS跨域",
+    "headline" : "CORS跨域",
+    "description" : "什么是跨域？ 简单的来说，出于安全方面的考虑，页面中的JavaScript无法访问其他服务器上的数据，即“同源策略”。而跨域就是通过某些手段来绕过同源策略限制，实现不同服务器之间通信的效果。\nCORS CORS全称“跨域资源共享”(Cross-Origin-Resource-Share)\nCORS需要浏览器和服务器同时支持，才可以实现跨域请求，目前几乎所有浏览器都支持CORS，IE则不能低于IE10。CORS的整个过程都由浏览器自动完成，前端无需做任何设置，跟平时发送ajax请求并无差异。所以，实现CORS的关键在于服务器，只要服务器实现CORS接口，就可以实现跨域通信。\n请求类型：\nCORS分为简单请求和非简单请求两种 符合以下条件，为简单请求：\n请求方式使用下列方法之一： GET HEAD POST Content-Type 的值仅限于下列三者之一： text\/plain multipart\/form-data application\/x-www-form-urlencoded 对于简单请求，浏览器会直接发送CORS请求，具体说来就是在header中加入origin请求头字段。同样，在响应头中，返回服务器设置的相关CORS头部字段，Access-Control-Allow-Origin字段为允许跨域请求的源。请求时浏览器在请求头的Origin中说明请求的源，服务器收到后发现允许该源跨域请求，则会成功返回，具体如下：\n在这里，http:\/\/localhost:3001为我们当前发送请求的源，如果服务器发现请求在指定的源范围内，则会返回响应的请求结果， 否则会在控制台报错，如下图所示，在这里需要注意的是，尽管请求失败，但返回的状态码依然可能为200。所以在做处理时需要格外注意。\n  非简单请求(预检请求)   使用了下面任一 HTTP 方法： PUT DELETE CONNECT OPTIONS TRACE PATCH Content-Type 的值不属于下列之一: application\/x-www-form-urlencoded multipart\/form-data text\/plain 当发生符合非简单请求（预检请求）的条件时，浏览器会自动先发送一个options请求，如果发现服务器支持该请求，则会将真正的请求发送到后端，反之，如果浏览器发现服务端并不支持该请求，则会在控制台抛出错误，如下：\n如果非简单请求（预检请求）发送成功，则会在头部多返回以下字段\nAccess-Control-Allow-Origin: http:\/\/localhost:3001 \/\/该字段表明可供那个源跨域 Access-Control-Allow-Methods: GET, POST, PUT \/\/ 该字段表明服务端支持的请求方法 Access-Control-Allow-Headers: X-Custom-Header \/\/ 实际请求将携带的自定义请求首部字段 ",
+    "inLanguage" : "en-us",
+    "author" : "Jacky Lee",
+    "creator" : "Jacky Lee",
+    "publisher": "Jacky Lee",
+    "accountablePerson" : "Jacky Lee",
+    "copyrightHolder" : "Jacky Lee",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-26 12:23:26 \x2b0800 CST",
+    "dateModified" : "2020-01-26 12:23:26 \x2b0800 CST",
+    "url" : "http:\/\/localhost:1313\/2020\/cors%E8%B7%A8%E5%9F%9F\/",
+    "wordCount" : "50",
+    "keywords" : [  "LeaveIt"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">CORS跨域</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://localhost:1313/" rel="author">Jacky Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-01-26 itemprop="datePublished">January 26, 2020</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h3 id="heading">什么是跨域？</h3>
+<p>简单的来说，出于安全方面的考虑，页面中的JavaScript无法访问其他服务器上的数据，即“同源策略”。而跨域就是通过某些手段来绕过同源策略限制，实现不同服务器之间通信的效果。</p>
+<p><img src="/images/CORS1.jpg" alt="跨域"></p>
+<h3 id="cors">CORS</h3>
+<p>CORS全称“跨域资源共享”(Cross-Origin-Resource-Share)</p>
+<p>CORS需要浏览器和服务器同时支持，才可以实现跨域请求，目前几乎所有浏览器都支持CORS，IE则不能低于IE10。CORS的整个过程都由浏览器自动完成，前端无需做任何设置，跟平时发送ajax请求并无差异。所以，实现CORS的关键在于服务器，只要服务器实现CORS接口，就可以实现跨域通信。</p>
+<p>请求类型：</p>
+<h4 id="cors1">CORS分为简单请求和非简单请求两种</h4>
+<p>符合以下条件，为简单请求：</p>
+<pre><code>请求方式使用下列方法之一：
+GET
+HEAD
+POST
+ 
+Content-Type 的值仅限于下列三者之一：
+text/plain
+multipart/form-data
+application/x-www-form-urlencoded
+</code></pre><p>对于简单请求，浏览器会直接发送CORS请求，具体说来就是在header中加入origin请求头字段。同样，在响应头中，返回服务器设置的相关CORS头部字段，Access-Control-Allow-Origin字段为允许跨域请求的源。请求时浏览器在请求头的Origin中说明请求的源，服务器收到后发现允许该源跨域请求，则会成功返回，具体如下：</p>
+<p><img src="/images/CORS2.jpg" alt="简单请求"></p>
+<p>在这里，http://localhost:3001为我们当前发送请求的源，如果服务器发现请求在指定的源范围内，则会返回响应的请求结果， 否则会在控制台报错，如下图所示，在这里需要注意的是，尽管请求失败，但返回的状态码依然可能为200。所以在做处理时需要格外注意。</p>
+<p><img src="/images/CORS3.png" alt="简单请求"></p>
+<ul>
+<li>
+<h3 id="heading1">非简单请求(预检请求)</h3>
+</li>
+</ul>
+<pre><code>使用了下面任一 HTTP 方法：
+PUT
+DELETE
+CONNECT
+OPTIONS
+TRACE
+PATCH
+ 
+Content-Type 的值不属于下列之一:
+application/x-www-form-urlencoded
+multipart/form-data
+text/plain
+</code></pre><p>当发生符合非简单请求（预检请求）的条件时，浏览器会自动先发送一个options请求，如果发现服务器支持该请求，则会将真正的请求发送到后端，反之，如果浏览器发现服务端并不支持该请求，则会在控制台抛出错误，如下：</p>
+<p><img src="/images/CORS4.png" alt="简单请求"></p>
+<p>如果非简单请求（预检请求）发送成功，则会在头部多返回以下字段</p>
+<pre><code>Access-Control-Allow-Origin: http://localhost:3001  //该字段表明可供那个源跨域
+Access-Control-Allow-Methods: GET, POST, PUT        // 该字段表明服务端支持的请求方法
+Access-Control-Allow-Headers: X-Custom-Header       // 实际请求将携带的自定义请求首部字段
+</code></pre>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Jacky Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://localhost:1313/2020/cors%E8%B7%A8%E5%9F%9F/>http://localhost:1313/2020/cors%E8%B7%A8%E5%9F%9F/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://localhost:1313/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://localhost:1313/2020/axios%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="prev" rel="prev" title="axios 基本用法"><i class="iconfont icon-left"></i>&nbsp;axios 基本用法</a>
+         
+        
+        <a href="http://localhost:1313/2020/%E6%B5%85%E6%9E%90mvc/" class="next" rel="next" title="浅析 MVC">浅析 MVC&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://localhost:1313/">Jacky Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Jacky Lee">
+  
+  
+  
+  <link rel="prev" href="http://localhost:1313/2020/js-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" />
+  <link rel="next" href="http://localhost:1313/2020/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" />
+  <link rel="canonical" href="http://localhost:1313/2020/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4dom%E6%93%8D%E4%BD%9C%E6%85%A2/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           为什么说DOM操作慢 | LeaveIt
+       
+  </title>
+  <meta name="title" content="为什么说DOM操作慢 | LeaveIt">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/localhost:1313\/"
+    },
+    "articleSection" : "posts",
+    "name" : "为什么说DOM操作慢",
+    "headline" : "为什么说DOM操作慢",
+    "description" : "在学前端的过程中，经常会听说DOM操作慢，要尽量少去操作DOM，本文就浅析一下DOM操作慢的原因\n我们知道：\n JS引擎不能操作页面，只能操作JS 渲染引擎不能操作JS，只能操作页面  那document.body.appendChild(\x26lsquo;div1\x26rsquo;)这句JS是如何改变页面的呢？ 我们先来完善一下这句JS语句的代码\nlet div1 = document.createElement(\x27div1\x27) div1.innerTEXT = \x27h1\x27 document.body.append(div1) \/\/...省略n行代码 div.innerTEXT = `I\x27m Jacky` 这段代码的运行过程\n  在 div1 放入页面之前:\n对 div1 所有的操作都属于JS线程内的操作\n  把 div1 放入页面中：\n浏览器会发现JS的意图 就会通知渲染线程在页面中渲染 div1 对应的元素\n  把 div1 放入页面之后\n你对 div1 的操作都有可能触发重新渲染\n  注： 有可能代表，可能触发也可能不触发\n 用图表示\n首先，DOM对象本身也是一个js对象，所以严格来说，并不是操作这个对象慢，而是说操作了这个对象后，需要经过跨流程通信和渲染线程触发的重新渲染，导致DOM操作慢。\ndiv1.innerTEXT = I\x27m Jacky 操作了什么？ 上图的最后一句语句，看似简单，但实际其全部含义是巨大的。可以粗略概述为：\n 解析`I\x27m Jacky`为HTML文本 向浏览器扩展程序寻求许可 销毁现有的子节点div1 创建子字节 根据父子关系重新计算Layout 重新Paint绘制  JS引擎和和渲染引擎的模块化设计，使得它们可以独立优化，运行速度更快，但是这种设计带来的后果就是DOM操作会越来越慢。",
+    "inLanguage" : "en-us",
+    "author" : "Jacky Lee",
+    "creator" : "Jacky Lee",
+    "publisher": "Jacky Lee",
+    "accountablePerson" : "Jacky Lee",
+    "copyrightHolder" : "Jacky Lee",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-10 12:20:26 \x2b0800 CST",
+    "dateModified" : "2020-01-10 12:20:26 \x2b0800 CST",
+    "url" : "http:\/\/localhost:1313\/2020\/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4dom%E6%93%8D%E4%BD%9C%E6%85%A2\/",
+    "wordCount" : "57",
+    "keywords" : [  "LeaveIt"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">为什么说DOM操作慢</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://localhost:1313/" rel="author">Jacky Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-01-10 itemprop="datePublished">January 10, 2020</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p><img src="/images/bg2.jpg" alt="背景"></p>
+<p>在学前端的过程中，经常会听说DOM操作慢，要尽量少去操作DOM，本文就浅析一下DOM操作慢的原因</p>
+<p>我们知道：</p>
+<ul>
+<li>JS引擎不能操作页面，只能操作JS</li>
+<li>渲染引擎不能操作JS，只能操作页面</li>
+</ul>
+<h3 id="documentbodyappendchilddiv1js">那document.body.appendChild(&lsquo;div1&rsquo;)这句JS是如何改变页面的呢？</h3>
+<p>我们先来完善一下这句JS语句的代码</p>
+<pre><code>let div1 = document.createElement('div1')
+div1.innerTEXT = 'h1'
+document.body.append(div1)
+//...省略n行代码
+div.innerTEXT = `I'm Jacky`
+</code></pre><p>这段代码的运行过程</p>
+<ul>
+<li>
+<p>在 div1 放入页面之前:</p>
+<p><strong>对 div1 所有的操作都属于JS线程内的操作</strong></p>
+</li>
+<li>
+<p>把 div1 放入页面中：</p>
+<p><strong>浏览器会发现JS的意图</strong>
+<strong>就会通知渲染线程在页面中渲染 div1 对应的元素</strong></p>
+</li>
+<li>
+<p>把 div1 放入页面之后</p>
+<p><strong>你对 div1 的操作都<a href="">有可能</a>触发重新渲染</strong></p>
+</li>
+</ul>
+<p>注： 有可能代表，可能触发也可能不触发</p>
+<hr>
+<p><strong>用图表示</strong></p>
+<p><img src="/images/%E8%B7%A8%E7%BA%BF%E7%A8%8B%E6%93%8D%E4%BD%9C.png" alt="跨线程"></p>
+<p><strong>首先，DOM对象本身也是一个js对象，所以严格来说，并不是操作这个对象慢，而是说操作了这个对象后，需要经过跨流程通信和渲染线程触发的重新渲染，导致DOM操作慢。</strong></p>
+<h3 id="div1innertext--im-jacky-">div1.innerTEXT = <code>I'm Jacky</code> 操作了什么？</h3>
+<p>上图的最后一句语句，看似简单，但实际其全部含义是巨大的。可以粗略概述为：</p>
+<ul>
+<li>解析`I'm Jacky`为HTML文本</li>
+<li>向浏览器扩展程序寻求许可</li>
+<li>销毁现有的子节点div1</li>
+<li>创建子字节</li>
+<li>根据父子关系重新计算Layout</li>
+<li>重新Paint绘制</li>
+</ul>
+<p><strong>JS引擎和和渲染引擎的模块化设计，使得它们可以独立优化，运行速度更快，但是这种设计带来的后果就是DOM操作会越来越慢。</strong></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Jacky Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://localhost:1313/2020/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4dom%E6%93%8D%E4%BD%9C%E6%85%A2/>http://localhost:1313/2020/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4dom%E6%93%8D%E4%BD%9C%E6%85%A2/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://localhost:1313/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://localhost:1313/2020/js-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" class="prev" rel="prev" title="JS 函数的执行时机"><i class="iconfont icon-left"></i>&nbsp;JS 函数的执行时机</a>
+         
+        
+        <a href="http://localhost:1313/2020/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" class="next" rel="next" title="jQuery设计思想及其简单实现">jQuery设计思想及其简单实现&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://localhost:1313/">Jacky Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

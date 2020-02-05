@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Jacky Lee">
+  
+  
+  
+  <link rel="prev" href="http://localhost:1313/2019/%E8%B4%9Fmargin%E7%9A%84%E7%90%86%E8%A7%A3/" />
+  <link rel="next" href="http://localhost:1313/2019/css%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%81%9A%E6%B3%95/" />
+  <link rel="canonical" href="http://localhost:1313/2019/%E6%B5%85%E6%9E%90-url/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           浅析 URL | LeaveIt
+       
+  </title>
+  <meta name="title" content="浅析 URL | LeaveIt">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/localhost:1313\/"
+    },
+    "articleSection" : "posts",
+    "name" : "浅析 URL",
+    "headline" : "浅析 URL",
+    "description" : "URL组成 URL，统一资源定位符，用于定位互联网上资源，俗称网址。\nURL的组成: URL=协议\x2b域名或IP\x2b端口号\x2b路径\x2b查询字符串\x2b锚点 URL的写法: scheme:\/\/host.domain:port\/path\/filename 举个栗子 https:\/\/www.zhihu.com\/explore 在上面的网站中\n scheme - 定义因特网服务的类型。常见的协议有 http、https、ftp、file，其中最常见的类型是http，而 https 则是进行加密的网络传输。例子中使用的是https host - 定义域主机（http 的默认主机是 www） domain - 定义因特网域名，例子中就是zhihu.com port - 定义主机上的端口号（http的默认端口号是 80,https 默认是 443，FTP 默 21 端口）, 例子中https的默认端口是443(已被省略) path - 定义服务器上的路径（如果省略，则文档必须位于网站的根目录中）,例子中的路径就是\/explore filename - 定义文档\/资源的名称  IP IP的全称为Internet Protocol(互联网协议),是设备的数字便签,用于互联网定位.常见的IP可分为IPv4。常见的IP地址可分为IPv4和IPv6两类,其中使用最广泛的是IPv4。\nIP可以分为内网IP和外网IP\n 外网IP由通讯公司提供,如国内的电信、移动等。外网用于外网之间的通信和定位 内网IP由路由器分配,用于区分内网连接设备  域名 域名实际上是IP地址的代称,目的是为了方便记忆。例如39.156.69.79这个百度的IP地址,在浏览器输入就可以访问百度,但我相信没人会这样做,因为这样实在太难记了。但baidu.com就十分方便好记,www.baidu.com通过DNS就会返回39.156.69.79这个IP,浏览器就可以访问了。\n域名可以分为:\n 顶级域名,例如\x26rdquo;.com\x26rdquo;、\x26quot;.net\x26rdquo;、\x26quot;.org\x26rdquo;、\x26quot;.edu\x26rdquo;、\x26quot;.info\x26rdquo; 二级域名,例如\x26quot;xiedaima.com\x26rdquo; 父域名 子域名  一图流总结:\n推荐一个可以查询自己域名的网站:IP138.com\nDNS DNS，全称 Domain Name System(service)，是一个域名系统。它作为将域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。\n在bash,输入ping命令即可查询到域名对应的IP地址。\n例如:",
+    "inLanguage" : "en-us",
+    "author" : "Jacky Lee",
+    "creator" : "Jacky Lee",
+    "publisher": "Jacky Lee",
+    "accountablePerson" : "Jacky Lee",
+    "copyrightHolder" : "Jacky Lee",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-15 15:23:26 \x2b0800 CST",
+    "dateModified" : "2019-12-15 15:23:26 \x2b0800 CST",
+    "url" : "http:\/\/localhost:1313\/2019\/%E6%B5%85%E6%9E%90-url\/",
+    "wordCount" : "61",
+    "keywords" : [  "LeaveIt"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">浅析 URL</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://localhost:1313/" rel="author">Jacky Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-12-15 itemprop="datePublished">December 15, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="url">URL组成</h2>
+<p>URL，统一资源定位符，用于定位互联网上资源，俗称网址。</p>
+<h3 id="url1">URL的组成:</h3>
+<h4 id="urlip">URL=协议+域名或IP+端口号+路径+查询字符串+锚点</h4>
+<h3 id="url2">URL的写法:</h3>
+<h4 id="schemehostdomainportpathfilename">scheme://host.domain:port/path/filename</h4>
+<h3 id="httpswwwzhihucomexplore">举个<a href="https://www.zhihu.com/explore">栗子</a></h3>
+<h4 id="httpswwwzhihucomexplore1"><a href="https://www.zhihu.com/explore">https://www.zhihu.com/explore</a></h4>
+<p>在上面的网站中</p>
+<ul>
+<li>scheme - 定义因特网服务的类型。常见的协议有 http、https、ftp、file，其中最常见的类型是http，而 https 则是进行加密的网络传输。例子中使用的是https</li>
+<li>host - 定义域主机（http 的默认主机是 www）</li>
+<li>domain - 定义因特网域名，例子中就是zhihu.com</li>
+<li>port - 定义主机上的端口号（http的默认端口号是 80,https 默认是 443，FTP 默 21 端口）,</li>
+<li>例子中https的默认端口是443(已被省略)</li>
+<li>path - 定义服务器上的路径（如果省略，则文档必须位于网站的根目录中）,例子中的路径就是/explore</li>
+<li>filename - 定义文档/资源的名称</li>
+</ul>
+<h2 id="ip">IP</h2>
+<p>IP的全称为Internet Protocol(互联网协议),是设备的数字便签,用于互联网定位.常见的IP可分为IPv4。常见的IP地址可分为IPv4和IPv6两类,其中使用最广泛的是IPv4。</p>
+<p>IP可以分为内网IP和外网IP</p>
+<ul>
+<li>外网IP由通讯公司提供,如国内的电信、移动等。外网用于外网之间的通信和定位</li>
+<li>内网IP由路由器分配,用于区分内网连接设备</li>
+</ul>
+<h2 id="heading">域名</h2>
+<p>域名实际上是IP地址的代称,目的是为了方便记忆。例如39.156.69.79这个百度的IP地址,在浏览器输入就可以访问百度,但我相信没人会这样做,因为这样实在太难记了。但baidu.com就十分方便好记,www.baidu.com通过DNS就会返回39.156.69.79这个IP,浏览器就可以访问了。</p>
+<p>域名可以分为:</p>
+<ul>
+<li>顶级域名,例如&rdquo;.com&rdquo;、&quot;.net&rdquo;、&quot;.org&rdquo;、&quot;.edu&rdquo;、&quot;.info&rdquo;</li>
+<li>二级域名,例如&quot;xiedaima.com&rdquo;</li>
+<li>父域名</li>
+<li>子域名</li>
+</ul>
+<p>一图流总结:</p>
+<p><img src="/images/domain.png" alt="domain"></p>
+<p>推荐一个可以查询自己域名的网站:IP138.com</p>
+<h2 id="dns">DNS</h2>
+<p>DNS，全称 Domain Name System(service)，是一个域名系统。它作为将域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。</p>
+<p>在bash,输入ping命令即可查询到域名对应的IP地址。</p>
+<p>例如:</p>
+<p><img src="/images/ip.png" alt="IP"></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Jacky Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://localhost:1313/2019/%E6%B5%85%E6%9E%90-url/>http://localhost:1313/2019/%E6%B5%85%E6%9E%90-url/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://localhost:1313/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://localhost:1313/2019/%E8%B4%9Fmargin%E7%9A%84%E7%90%86%E8%A7%A3/" class="prev" rel="prev" title="负margin的理解"><i class="iconfont icon-left"></i>&nbsp;负margin的理解</a>
+         
+        
+        <a href="http://localhost:1313/2019/css%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%81%9A%E6%B3%95/" class="next" rel="next" title="CSS动画制作的两种做法">CSS动画制作的两种做法&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://localhost:1313/">Jacky Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

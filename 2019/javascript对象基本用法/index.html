@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Jacky Lee">
+  
+  
+  
+  <link rel="prev" href="http://localhost:1313/2019/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" />
+  <link rel="next" href="http://localhost:1313/2020/js-%E7%9A%84-new-%E5%88%B0%E5%BA%95%E6%98%AF%E5%B9%B2%E4%BB%80%E4%B9%88%E7%9A%84/" />
+  <link rel="canonical" href="http://localhost:1313/2019/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           JavaScript对象基本用法 | LeaveIt
+       
+  </title>
+  <meta name="title" content="JavaScript对象基本用法 | LeaveIt">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/localhost:1313\/"
+    },
+    "articleSection" : "posts",
+    "name" : "JavaScript对象基本用法",
+    "headline" : "JavaScript对象基本用法",
+    "description" : "对象是什么？ 对象（object）是 JavaScript 语言的核心概念，也是最重要的数据类型。\n什么是对象？简单说，对象就是一组“键值对”（key-value）的集合，是一种无序的复合数据集合。\n声明对象的两种语法  let obj = { \x26lsquo;name\x26rsquo; : \x26lsquo;Jacky\x26rsquo;, \x26lsquo;age\x26rsquo; : 18 } let obj = new Object{ \x26lsquo;name\x26rsquo; : \x26lsquo;Jacky\x26rsquo;, \x26lsquo;age\x26rsquo; : 18 }  以上两种方法都可以声明对象，第二种写法更规范，第一种是简化写法。\n细节：\n 键名是字符串，可以包含任何字符 键名引号可以省略，但省略以后只能写标识符 就算引号省略了，键名还是会转成字符串保存  如何用变量做属性名 let a = \x27name\x27 let obj = { [a] : \x27Jacky\x27 } 使用中括号可以用变量做键名，如果是{ a : \x26lsquo;jacky\x26rsquo;},这样键名将会是\x27a\x26rsquo;。\n如何删除对象的属性  delete.obj.xxx 或者 delete.obj[\x26lsquo;xxx\x26rsquo;]  delete命令删除对象的属性。删除成功后，就会返回true。\n要注意如果删除一个不存在的属性，也会返回true，只有在删除不能删除的属性时才会返回false。\n如何查看删除是否成功  \x26lsquo;xxx\x26rsquo; in obj === false  \x26lsquo;xxx\x27不是obj的属性",
+    "inLanguage" : "en-us",
+    "author" : "Jacky Lee",
+    "creator" : "Jacky Lee",
+    "publisher": "Jacky Lee",
+    "accountablePerson" : "Jacky Lee",
+    "copyrightHolder" : "Jacky Lee",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-31 15:15:26 \x2b0800 CST",
+    "dateModified" : "2019-12-31 15:15:26 \x2b0800 CST",
+    "url" : "http:\/\/localhost:1313\/2019\/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95\/",
+    "wordCount" : "114",
+    "keywords" : [  "LeaveIt"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">JavaScript对象基本用法</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://localhost:1313/" rel="author">Jacky Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-12-31 itemprop="datePublished">December 31, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="heading">对象是什么？</h2>
+<p>对象（object）是 JavaScript 语言的核心概念，也是最重要的数据类型。</p>
+<p>什么是对象？简单说，对象就是一组“键值对”（key-value）的集合，是一种无序的复合数据集合。</p>
+<h2 id="heading1">声明对象的两种语法</h2>
+<ul>
+<li>let obj = { &lsquo;name&rsquo; : &lsquo;Jacky&rsquo;, &lsquo;age&rsquo; : 18 }</li>
+<li>let obj = new Object{ &lsquo;name&rsquo; : &lsquo;Jacky&rsquo;, &lsquo;age&rsquo; : 18 }</li>
+</ul>
+<p>以上两种方法都可以声明对象，第二种写法更规范，第一种是简化写法。</p>
+<p>细节：</p>
+<ul>
+<li>键名是字符串，可以包含任何字符</li>
+<li>键名引号可以省略，但省略以后只能写标识符</li>
+<li>就算引号省略了，键名还是会转成字符串保存</li>
+</ul>
+<h4 id="heading2">如何用变量做属性名</h4>
+<pre><code>let a = 'name'
+let obj = { [a] : 'Jacky' }
+</code></pre><p>使用中括号可以用变量做键名，如果是{ a : &lsquo;jacky&rsquo;},这样键名将会是'a&rsquo;。</p>
+<h2 id="heading3">如何删除对象的属性</h2>
+<ul>
+<li>delete.obj.xxx 或者 delete.obj[&lsquo;xxx&rsquo;]</li>
+</ul>
+<p>delete命令删除对象的属性。删除成功后，就会返回true。</p>
+<p>要注意如果删除一个不存在的属性，也会返回true，只有在删除不能删除的属性时才会返回false。</p>
+<h4 id="heading4">如何查看删除是否成功</h4>
+<ul>
+<li>&lsquo;xxx&rsquo; in obj === false</li>
+</ul>
+<p>&lsquo;xxx'不是obj的属性</p>
+<ul>
+<li>&lsquo;xxx&rsquo; in obj &amp;&amp; obj.xxx === undefined</li>
+</ul>
+<p>&lsquo;xxx'是obj的属性，值为undefined</p>
+<h2 id="heading5">如何查看对象的属性</h2>
+<ul>
+<li>Object.keys(obj)</li>
+</ul>
+<p>查看自身的所有属性</p>
+<ul>
+<li>console.dir(obj)</li>
+</ul>
+<p>查看自身属性和共有属性</p>
+<ul>
+<li>obj.hasOwnProperty(&lsquo;toString&rsquo;)</li>
+</ul>
+<p>判断一个属性是自身的还是共有的</p>
+<h2 id="heading6">如何修改或增加对象的属性</h2>
+<h4 id="heading7">修改对象属性</h4>
+<ul>
+<li>obj[&lsquo;name&rsquo;] = &lsquo;jacky&rsquo;</li>
+</ul>
+<p>修改自身属性</p>
+<ul>
+<li>obj.name = &lsquo;jacky&rsquo;</li>
+</ul>
+<p>修改自身属性</p>
+<ul>
+<li>Object.assign(obj, {&lsquo;age&rsquo; : 18 &hellip;})</li>
+</ul>
+<p>批量修改自身属性</p>
+<ul>
+<li>Object.prototype[&lsquo;toString&rsquo;] = &lsquo;xxx&rsquo;</li>
+</ul>
+<p>修改共有属性，但不建议这样做</p>
+<ul>
+<li>let obj = Object.create(common)</li>
+</ul>
+<p>把obj的共有属性修改为common</p>
+<h4 id="heading8">增加对象属性</h4>
+<p>增加对象属性的方法同上，已有属性则改，没有属性则增</p>
+<h2 id="objnameobjnameobjname">区分obj[name]和obj[&lsquo;name&rsquo;]和obj.name</h2>
+<p>这三个表达式看起来都一样，让人傻傻分不清</p>
+<p>但实际上，obj[&lsquo;name&rsquo;] === obj.name ，name都是字符串</p>
+<p>obj[name],name则是变量</p>
+<p>不服请看下图</p>
+<p><img src="/images/%E5%AF%B9%E8%B1%A1-%E5%8C%BA%E5%88%86.png" alt="区分"></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Jacky Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://localhost:1313/2019/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/>http://localhost:1313/2019/javascript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://localhost:1313/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://localhost:1313/2019/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="prev" rel="prev" title="JavaScript数据类型"><i class="iconfont icon-left"></i>&nbsp;JavaScript数据类型</a>
+         
+        
+        <a href="http://localhost:1313/2020/js-%E7%9A%84-new-%E5%88%B0%E5%BA%95%E6%98%AF%E5%B9%B2%E4%BB%80%E4%B9%88%E7%9A%84/" class="next" rel="next" title="JS 的 new 到底是干什么的？">JS 的 new 到底是干什么的？&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://localhost:1313/">Jacky Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Jacky Lee">
+  
+  
+  
+  <link rel="prev" href="http://localhost:1313/2020/cors%E8%B7%A8%E5%9F%9F/" />
+  <link rel="next" href="http://localhost:1313/2020/vue%E5%AE%8C%E6%95%B4%E7%89%88%E4%B8%8E%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88%E5%8C%BA%E5%88%AB/" />
+  <link rel="canonical" href="http://localhost:1313/2020/%E6%B5%85%E6%9E%90mvc/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           浅析 MVC | LeaveIt
+       
+  </title>
+  <meta name="title" content="浅析 MVC | LeaveIt">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/localhost:1313\/"
+    },
+    "articleSection" : "posts",
+    "name" : "浅析 MVC",
+    "headline" : "浅析 MVC",
+    "description" : "MVC是三个字母的缩写，分别是Model（模型）、View（视图）和Controller（控制） 这个模式认为，程序不论简单或复杂，从结构上看，都可以分成三类对象。\n1.模型model用于封装与应用程序的业务逻辑相关的数据以及对数据的处理方法，会有一个或多个视图监听此模型。一旦模型的数据发生变化，模型将通知有关的视图。\n\/\/ 伪代码示例 Model = { data: { 程序需要操作的数据或信息 }， create: { 增数据 }, delete: { 删数据 }, update(data) { Object.assign(m.data, data) \/\/使用新数据替换旧数据 eventBus.trigger(\x27m:upate\x27) \/\/ eventBus触发\x27m:update\x27信息, 通知View刷新 }, get:{ 获取数据 } } 2.视图view是屏幕上的表示，描绘的是model的当前状态。当模型的数据发生变化，视图相应地得到刷新自己的机会\n\/\/ 伪代码示例 View = { el: 需要刷新的元素, html: `\x26lt;h1\x26gt;M V C\x26lt;\/h1\x26gt;....显示在页面上的内容` init(){ v.el: 需要刷新的元素 }, render(){ 刷新页面 } } 3.控制器controller定义用户界面对用户输入的响应方式，起到不同层面间的组织作用，用于控制应用程序的流程，它处理用户的行为和数据model上的改变。\n\/\/ 伪代码示例 Controller = { init(){ v.init() \/\/ View初始化 v.render() \/\/ 第一次渲染 c.autoBindEvents() \/\/ 自动的事件绑定 eventBus.",
+    "inLanguage" : "en-us",
+    "author" : "Jacky Lee",
+    "creator" : "Jacky Lee",
+    "publisher": "Jacky Lee",
+    "accountablePerson" : "Jacky Lee",
+    "copyrightHolder" : "Jacky Lee",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-31 12:12:26 \x2b0800 CST",
+    "dateModified" : "2020-01-31 12:12:26 \x2b0800 CST",
+    "url" : "http:\/\/localhost:1313\/2020\/%E6%B5%85%E6%9E%90mvc\/",
+    "wordCount" : "207",
+    "keywords" : [  "LeaveIt"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://localhost:1313/">LeaveIt</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">浅析 MVC</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://localhost:1313/" rel="author">Jacky Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-01-31 itemprop="datePublished">January 31, 2020</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p><img src="/images/MVC.jpg" alt="img1"></p>
+<h3 id="mvcmodelviewcontroller">MVC是三个字母的缩写，分别是Model（模型）、View（视图）和Controller（控制）</h3>
+<p>这个模式认为，程序不论简单或复杂，从结构上看，都可以分成三类对象。</p>
+<p>1.模型model用于封装与应用程序的业务逻辑相关的数据以及对数据的处理方法，会有一个或多个视图监听此模型。一旦模型的数据发生变化，模型将通知有关的视图。</p>
+<pre><code>// 伪代码示例
+Model = {
+    data: { 程序需要操作的数据或信息 }，
+    create: { 增数据 },
+    delete: { 删数据 },
+    update(data) { 
+       Object.assign(m.data, data) //使用新数据替换旧数据
+       eventBus.trigger('m:upate') // eventBus触发'm:update'信息, 通知View刷新 
+    },
+    get:{ 获取数据 } 
+}
+</code></pre><p>2.视图view是屏幕上的表示，描绘的是model的当前状态。当模型的数据发生变化，视图相应地得到刷新自己的机会</p>
+<pre><code>// 伪代码示例
+View = {
+    el: 需要刷新的元素,
+    html: `&lt;h1&gt;M V C&lt;/h1&gt;....显示在页面上的内容`
+    init(){
+        v.el: 需要刷新的元素
+    },
+    render(){ 刷新页面 }
+}
+</code></pre><p>3.控制器controller定义用户界面对用户输入的响应方式，起到不同层面间的组织作用，用于控制应用程序的流程，它处理用户的行为和数据model上的改变。</p>
+<pre><code>// 伪代码示例
+Controller = {
+   init(){
+      v.init() // View初始化
+      v.render() // 第一次渲染
+      c.autoBindEvents() // 自动的事件绑定
+      eventBus.on('m:update', () =&gt; { v.render() }) // 当eventBus触发'm:update'时View刷新
+   },
+   events:{ 事件以哈希表方式记录 }，
+   method() {
+      data = 改变后的新数据
+      m.update(data)
+   }，
+   autoBindEvents() { 自动绑定事件 }
+}EventBus
+</code></pre><h3 id="eventbus">EventBus的作用</h3>
+<ul>
+<li>模块通信</li>
+</ul>
+<p><code>解决模块之间通信的问题，view组件层面，父子组件、兄弟组件通信都可以使eventbus处理</code></p>
+<ul>
+<li>模块解耦</li>
+</ul>
+<p><code>storage change事件，cookie change事件，view组件的事件等，全部转换使用Event Bus来订阅和发布，这样就统一了整个应用不同模块之间的通信接口问题。</code></p>
+<ul>
+<li>父子页面通信</li>
+</ul>
+<p><code>window.postMessage + Event Bus</code></p>
+<ul>
+<li>多页面通信</li>
+</ul>
+<p><code>storage change + Event Bus</code></p>
+<h4 id="eventbusapi">EventBus的一些常用api</h4>
+<ul>
+<li>on（监听事件）</li>
+<li>trigger（触发事件）</li>
+<li>off（取消监听）</li>
+</ul>
+<pre><code>eventBus.trigger('m:updated') // 触发事件,大叫'm 已经更新了'
+eventBus.on('m:updated', () =&gt; { console.log('here') }) '监听事件，听
+到后执行函数'
+</code></pre><h3 id="heading">表驱动编程</h3>
+<p>表驱动法是一种编程模式，从表(哈希表)里面查找信息而不是使用逻辑语句（if…else…switch），当是很简单的情况时，用逻辑语句很简单，但如果逻辑很复杂，再使用逻辑语句就很麻烦了。</p>
+<pre><code>// 举个栗子
+events:{  // 事件集合的哈希表
+   'click #app1': 'a操作'，
+   'click #app2': 'b操作'，
+   'click #app3': 'c操作'，
+   'click #app4': 'd操作'，
+} 
+autoBindEvents() { // 通过哈希变自动绑定事件
+    for ( let key in c.events) {
+        if ( c.events.hasOwnProperty(key) ) {
+            const spaceIndex = key.indexOf(' ')   // 找到'click #app1'空格的数组下标
+            const part1 = key.slice(0, spaceIndex) // 通过spaceIndex 分割 'click' 和 '#app1'
+            const part2 = key.slice(spaceIndex + 1)
+            const value = c[c.events[key]]
+            v.el.on(part1, part2, value)  // 自动把多个事件绑定在一个元素上
+        }
+    }
+}
+// 如何一来在稳定的复杂度里，可以绑定多个事件
+</code></pre><h3 id="heading1">对模块化的理解</h3>
+<p>在一个完整的web页面中，通过不同节点的功能，结构的不同，可以分出多个模块，而每个模块的实现方式和使用的技术等等都不相同，引入模块化，可以切断每个模块的相互影响，使得单个模块中可以更好的优化代码。</p>
+<p>模块化可以降低代码耦合度，减少重复代码，提高代码重用性，并且在项目结构上更加清晰，便于维护</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Jacky Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://localhost:1313/2020/%E6%B5%85%E6%9E%90mvc/>http://localhost:1313/2020/%E6%B5%85%E6%9E%90mvc/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://localhost:1313/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://localhost:1313/2020/cors%E8%B7%A8%E5%9F%9F/" class="prev" rel="prev" title="CORS跨域"><i class="iconfont icon-left"></i>&nbsp;CORS跨域</a>
+         
+        
+        <a href="http://localhost:1313/2020/vue%E5%AE%8C%E6%95%B4%E7%89%88%E4%B8%8E%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88%E5%8C%BA%E5%88%AB/" class="next" rel="next" title="Vue完整版与Vue非完整版的区别">Vue完整版与Vue非完整版的区别&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://localhost:1313/">Jacky Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
