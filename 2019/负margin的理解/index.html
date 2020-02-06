@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="cn-zh">
   <head>
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -47,7 +47,7 @@
     "name" : "负margin的理解",
     "headline" : "负margin的理解",
     "description" : "margin的概述 margin属性为给定元素设置所有四个（上下左右）方向的外边距属性。这是四个外边距属性设置的简写。四个外边距属性设置分别是： margin-top， margin-right， margin-bottom 和 margin-left 。指定的外边距允许为负数。\n先上栗子 此次测试的方法是,通过设定margin-left的值从正值变为负值,来观察其对div大小和移动方向的改变\n测试代码:\nHTML代码 \x26lt;!DOCTYPE html\x26gt; \x26lt;html\x26gt; \x26lt;head\x26gt; \x26lt;meta charset=\x26quot;utf-8\x26quot;\x26gt; \x26lt;title\x26gt;负margin测试\x26lt;\/title\x26gt; \x26lt;\/head\x26gt; \x26lt;body\x26gt; \x26lt;div class=\x26quot;container\x26quot;\x26gt; \x26lt;div class=\x26quot;test\x26quot;\x26gt;test-test-test\x26lt;\/div\x26gt; \x26lt;\/div\x26gt; \x26lt;\/body\x26gt; \x26lt;\/html\x26gt; CSS代码 *{ margin: 0; padding: 0; box-sizing: border-box; } .container{ margin: 50px; border: 1px solid blue; } .test{ margin: 20px; margin-left: 0px; border: 1px solid green; } 测试代码很简单,由简单入手，正所谓删繁就简三秋树，领异标新二月花\n第一步 设定margin-left: 0; 如图所示,margin-left赋值为0px,覆盖了它的初始值10px。图中蓝色是container的border,绿色是content的border,可以看出content此时宽度为554px\n第二步 设定margin-left: 30px; 如图所示,可以看出content此时宽度为524px,对比上一步减少了30px,左边缘向右移动\n第三步 设定margin-left: 50px; 如图所示,可以看出content此时宽度为504px,对比上一步减少了20px,左边缘向右移动\n此时不难看出,margin-left值增大时,test被向右挤压,宽度逐渐缩小\n第四步 设定margin-left: 20px; 如图所示,可以看出content此时宽度为534px,对比上一步增加了30px,左边缘向右移动",
-    "inLanguage" : "en-us",
+    "inLanguage" : "cn-zh",
     "author" : "Jacky Lee",
     "creator" : "Jacky Lee",
     "publisher": "Jacky Lee",

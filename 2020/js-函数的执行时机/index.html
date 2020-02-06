@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="cn-zh">
   <head>
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -47,7 +47,7 @@
     "name" : "JS 函数的执行时机",
     "headline" : "JS 函数的执行时机",
     "description" : "关于JS任务执行 众所周知，JS是一门单线程语言。那就像我们去银行办理业务，而单线程意味着只有一个办理窗口，那么每个人都要等前一个人办理完成后，再去办理。同理JS也是一样，JS任务要一个一个按顺序执行。那么问题来了，如果前一个任务执行时间过长，后一个任务也要等着，这样必然增加了网页的加载时间。因此聪明的程序员将任务分成两类\n  同步任务\n上一件事情没有完成，继续处理上一件事情，只有上一件事情完成了，才会做下一件事情 \x26ndash;\x26gt; JS中大部分都是同步编程\n  异步任务\n规划要做一件事情，但是不是当前立马去执行这件事情，需要等一定的时间，这样的话，我们不会等着他执行，而是继续执行下面的操作\n  JS 函数的执行时机 函数执行的时机不同，运行结果也不同。下面我们按同步任务和异步任务两种情况，分别解释函数执行时机。\n同步 举几个栗子 问：打印出多少?\nlet a = 1 function fn() {console.log(a)} 执行步骤：\n 声明变量a并赋值为1 声明函数fn 结束  答：函数未执行，不打印结果\nlet a = 1 function fn(){console.log(a)} fn() 执行步骤：\n 声明变量a并赋值为1 声明函数fn 执行fn() \/\/打印出a 结束  答：a的结果为1\nlet a = 1 function fn(){console.log(a)} a = 2 fn() 执行步骤：\n 声明变量a并赋值为1 声明函数fn 将2赋值给a 执行fn() \/\/打印出a 结束  答：a的结果为2",
-    "inLanguage" : "en-us",
+    "inLanguage" : "cn-zh",
     "author" : "Jacky Lee",
     "creator" : "Jacky Lee",
     "publisher": "Jacky Lee",

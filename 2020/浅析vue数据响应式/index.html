@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="cn-zh">
   <head>
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -47,7 +47,7 @@
     "name" : "浅析Vue数据响应式",
     "headline" : "浅析Vue数据响应式",
     "description" : "Vue的数据存储在data里，当数据更新时，会触发视图的渲染。 首先先来看一下Vue到底对data做了什么。\n\/\/引用完整版 Vue import Vue from \x26quot;vue\/dist\/vue.js\x26quot;; Vue.config.productionTip = false; \/\/禁用警告 const myData = { n: 0 } console.log(myData) \/\/ 精髓 let vm = new Vue({ data: myData, template: ` \x26lt;div\x26gt;{{n}}\x26lt;\/div\x26gt; ` }).$mount(\x26quot;#app\x26quot;); setTimeout(()=\x26gt;{ myData.n \x2b= 10 console.log(myData) \/\/ 精髓 },3000) 两次打印出的结果不同，说明vue对data里的数据进行了一些改造 ES6 的 getter 和 setter getter 和 setter 可以对虚拟属性进行性改写 请看下面的例子\n需求一、得到姓名 let obj0 = { 姓: \x26quot;迪\x26quot;, 名: \x26quot;丽热巴\x26quot;, age: 18 } \/\/ 需求一，得到姓名 let obj1 = { 姓: \x26quot;迪\x26quot;, 名: \x26quot;丽热巴\x26quot;, 姓名() { return this.",
-    "inLanguage" : "en-us",
+    "inLanguage" : "cn-zh",
     "author" : "Jacky Lee",
     "creator" : "Jacky Lee",
     "publisher": "Jacky Lee",

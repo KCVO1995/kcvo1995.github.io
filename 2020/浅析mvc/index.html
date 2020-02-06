@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="cn-zh">
   <head>
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -47,7 +47,7 @@
     "name" : "浅析 MVC",
     "headline" : "浅析 MVC",
     "description" : "MVC是三个字母的缩写，分别是Model（模型）、View（视图）和Controller（控制） 这个模式认为，程序不论简单或复杂，从结构上看，都可以分成三类对象。\n1.模型model用于封装与应用程序的业务逻辑相关的数据以及对数据的处理方法，会有一个或多个视图监听此模型。一旦模型的数据发生变化，模型将通知有关的视图。\n\/\/ 伪代码示例 Model = { data: { 程序需要操作的数据或信息 }， create: { 增数据 }, delete: { 删数据 }, update(data) { Object.assign(m.data, data) \/\/使用新数据替换旧数据 eventBus.trigger(\x27m:upate\x27) \/\/ eventBus触发\x27m:update\x27信息, 通知View刷新 }, get:{ 获取数据 } } 2.视图view是屏幕上的表示，描绘的是model的当前状态。当模型的数据发生变化，视图相应地得到刷新自己的机会\n\/\/ 伪代码示例 View = { el: 需要刷新的元素, html: `\x26lt;h1\x26gt;M V C\x26lt;\/h1\x26gt;....显示在页面上的内容` init(){ v.el: 需要刷新的元素 }, render(){ 刷新页面 } } 3.控制器controller定义用户界面对用户输入的响应方式，起到不同层面间的组织作用，用于控制应用程序的流程，它处理用户的行为和数据model上的改变。\n\/\/ 伪代码示例 Controller = { init(){ v.init() \/\/ View初始化 v.render() \/\/ 第一次渲染 c.autoBindEvents() \/\/ 自动的事件绑定 eventBus.",
-    "inLanguage" : "en-us",
+    "inLanguage" : "cn-zh",
     "author" : "Jacky Lee",
     "creator" : "Jacky Lee",
     "publisher": "Jacky Lee",

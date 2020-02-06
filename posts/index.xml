@@ -5,11 +5,21 @@
     <link>https://kcvo.top/posts/</link>
     <description>Recent content in Posts on LeaveIt</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 06 Feb 2020 10:12:26 +0800</lastBuildDate>
+    <language>cn-zh</language>
+    <lastBuildDate>Thu, 06 Feb 2020 15:12:26 +0800</lastBuildDate>
     
 	<atom:link href="https://kcvo.top/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue的语法糖 .sync修饰符</title>
+      <link>https://kcvo.top/2020/vue%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96-.sync%E4%BF%AE%E9%A5%B0%E7%AC%A6/</link>
+      <pubDate>Thu, 06 Feb 2020 15:12:26 +0800</pubDate>
+      
+      <guid>https://kcvo.top/2020/vue%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96-.sync%E4%BF%AE%E9%A5%B0%E7%AC%A6/</guid>
+      <description>看完这个栗子就明白了： &amp;lt;template&amp;gt; &amp;lt;div style=&#39;border: 3px solid red;padding: 10px;&#39;&amp;gt; App.vue 我现在有 {{total}} &amp;lt;hr&amp;gt; &amp;lt;Child :money=&amp;quot;total&amp;quot; v-on:update:money = &amp;quot;total = $event&amp;quot; /&amp;gt; &amp;lt;!-- $event 保存了$emit 传入的参数money-100 --&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; import Vue from &amp;quot;vue&amp;quot; Vue.component(&#39;Child&#39;, { template: `&amp;lt;div style=&#39;border: 3px solid green&#39;&amp;gt; {{money}} &amp;lt;button @click=&amp;quot;$emit(&#39;update:money&#39;, money-100)&amp;quot; &amp;gt; &amp;lt;span&amp;gt;花钱&amp;lt;/span&amp;gt; &amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt;`, props: [&amp;quot;money&amp;quot;] }) export default { data() { return { total: 10000 }; }, } &amp;lt;/script&amp;gt; 这个例子中，点击‘花钱’按钮时，子组件会通知父组件，‘我要花钱 money - 100’，父组件知道后修改total。完成花钱动作。这个一个完整的发布订阅模式。
+使用.sync 语法糖 &amp;lt;Child :money.</description>
+    </item>
     
     <item>
       <title>Vue的computed 与 watch 的区别</title>
