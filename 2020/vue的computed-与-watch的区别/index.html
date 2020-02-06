@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Jacky Lee">
+  
+  
+  
+  <link rel="prev" href="https://kcvo.top/2020/%E6%B5%85%E6%9E%90vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/" />
+  
+  <link rel="canonical" href="https://kcvo.top/2020/vue%E7%9A%84computed-%E4%B8%8E-watch%E7%9A%84%E5%8C%BA%E5%88%AB/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Vue的computed 与 watch 的区别 | LeaveIt
+       
+  </title>
+  <meta name="title" content="Vue的computed 与 watch 的区别 | LeaveIt">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/kcvo.top\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Vue的computed 与 watch 的区别",
+    "headline" : "Vue的computed 与 watch 的区别",
+    "description" : "computer 计算属性 通过计算得出的属性就是计算属性 计算属性可以是一个函数或者是一个getter和setter组成的对象 看看一个展示名字的实例：\n需求一：展示名字 \/\/ 引用完整版 Vue，方便讲解 import Vue from \x26quot;vue\/dist\/vue.js\x26quot;; new Vue({ data: { firstName: \x27Jacky\x27, lastName: \x27Lee\x27 }, computed: { fullName() { return this.firstName \x2b \x27 \x27 \x2b this.lastName } }, template: ` \x26lt;div\x26gt; {{fullName}} \x26lt;\/div\x26gt; `, methods: {} }).$mount(\x26quot;#app\x26quot;); fullName通过first.Name \x2b lastName 计算得出，fullName使用时不需要加括号，可以直接作为属性使用，展示再页面中 需求二：可以改名字 \/\/ 引用完整版 Vue，方便讲解 import Vue from \x26quot;vue\/dist\/vue.js\x26quot;; new Vue({ data: { firstName: \x27Jacky\x27, lastName: \x27Lee\x27 }, computed: { fullName: { get(){ return this.",
+    "inLanguage" : "en-us",
+    "author" : "Jacky Lee",
+    "creator" : "Jacky Lee",
+    "publisher": "Jacky Lee",
+    "accountablePerson" : "Jacky Lee",
+    "copyrightHolder" : "Jacky Lee",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-06 10:12:26 \x2b0800 CST",
+    "dateModified" : "2020-02-06 10:12:26 \x2b0800 CST",
+    "url" : "https:\/\/kcvo.top\/2020\/vue%E7%9A%84computed-%E4%B8%8E-watch%E7%9A%84%E5%8C%BA%E5%88%AB\/",
+    "wordCount" : "331",
+    "keywords" : [  "LeaveIt"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://kcvo.top/">LeaveIt</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://kcvo.top/">LeaveIt</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Vue的computed 与 watch 的区别</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://kcvo.top/" rel="author">Jacky Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-02-06 itemprop="datePublished">February 6, 2020</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="computer-">computer 计算属性</h2>
+<h4 id="heading">通过计算得出的属性就是计算属性</h4>
+<h4 id="gettersetter">计算属性可以是一个函数或者是一个getter和setter组成的对象</h4>
+<p>看看一个展示名字的实例：</p>
+<h3 id="heading1">需求一：展示名字</h3>
+<pre><code>// 引用完整版 Vue，方便讲解
+import Vue from &quot;vue/dist/vue.js&quot;;
+
+new Vue({
+  data: {
+    firstName: 'Jacky',
+    lastName: 'Lee'
+  },
+  computed: {
+    fullName() {
+      return this.firstName + ' ' + this.lastName      
+    }
+  },
+  template: `
+    &lt;div&gt;
+      {{fullName}}
+    &lt;/div&gt;
+  `,
+  methods: {}
+}).$mount(&quot;#app&quot;);
+</code></pre><h4 id="fullnamefirstname--lastname-fullname">fullName通过first.Name + lastName 计算得出，fullName使用时不需要加括号，可以直接作为属性使用，展示再页面中</h4>
+<h3 id="heading2">需求二：可以改名字</h3>
+<pre><code>// 引用完整版 Vue，方便讲解
+import Vue from &quot;vue/dist/vue.js&quot;;
+
+new Vue({
+  data: {
+    firstName: 'Jacky',
+    lastName: 'Lee'
+  },
+  computed: {
+    fullName: {
+      get(){
+      return this.firstName + ' ' + this.lastName
+      },
+      set(val){
+        const names = val.split(' ');
+        this.firstName = names[0];
+        this.lastName = names[1];
+      }
+    }
+  },
+  template: `
+    &lt;div&gt;
+      &lt;div&gt;
+      {{fullName}}
+      &lt;button @click=&quot;change&quot;&gt;改名字&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  `,
+  methods: {
+    change() {
+      this.fullName = &quot;Candy Wang&quot;
+      console.log('名字已更改') // 重复点击‘改名字’只打印一次？
+    }
+  }
+}).$mount(&quot;#app&quot;);
+</code></pre><h4 id="settergetter">通过setter和getter使得计算属性可修改，点击‘改名字’时，计算结果发生变化，重新运行计算，进行页面更新。计算属性的结果会被缓存，计算属性只有在它的相关依赖发生改变时才会重新计算。所以再次点击‘改名字’由于计算结果不变，不会重新运行计算。</h4>
+<h2 id="watch-">watch 监听/侦察</h2>
+<h4 id="heading3">当数据变化时执行一个函数</h4>
+<h4 id="watch">watch属性可以是字符串、函数、对象、数组</h4>
+<h4 id="deepimmediate">拥有deep，immediate两属性</h4>
+<h3 id="watch1">watch的监听方式</h3>
+<p>请看下面的例子：</p>
+<pre><code>// 引用完整版 Vue，方便讲解
+import Vue from &quot;vue/dist/vue.js&quot;;
+
+new Vue({
+  data: {
+    n: 0,
+    obj: {
+      a: &quot;a&quot;
+    }
+  },
+  template: `
+    &lt;div&gt;
+      &lt;button @click=&quot;n += 1&quot;&gt;n+1&lt;/button&gt;
+      &lt;button @click=&quot;obj.a += 'hi'&quot;&gt;obj.a + 'hi'&lt;/button&gt;
+      &lt;button @click=&quot;obj = {a:'a'}&quot;&gt;obj = 新对象&lt;/button&gt;
+    &lt;/div&gt;
+  `,
+  watch: {
+    n() {
+      console.log(&quot;n 变了&quot;);
+    },
+    obj() {
+      console.log(&quot;obj 变了&quot;);
+    },
+    &quot;obj.a&quot;: function() {
+      console.log(&quot;obj.a 变了&quot;);
+    }
+  }
+}).$mount(&quot;#app&quot;);
+</code></pre><h4 id="n1--n-">点击n+1 ： 打印出“n 变了”</h4>
+<h4 id="obja--hi--obja-obj-">点击obj.a + &lsquo;hi&rsquo; : 打印出“obj.a 变了”，不打印&quot;obj 变了&rdquo;</h4>
+<h4 id="obja--hi--obj----obj-obj-">不点击obj.a + &lsquo;hi&rsquo; , 点击obj = 新对象 : 打印出&quot;obj 变了&rdquo;，不打印&quot;obj 变了&rdquo;</h4>
+<h3 id="watch2">说明watch的监听方式是：简单数据类型看值，复杂数据类型（对象）看地址</h3>
+<h4 id="objobja">抬个杠，那我想通过监听obj也能obj.a变化可以吗？</h4>
+<h4 id="deep">答：可以，使用deep</h4>
+<h3 id="deep1">deep属性</h3>
+<pre><code>watch: {
+    n() {
+      console.log(&quot;n 变了&quot;)
+    },
+    obj() {
+      console.log(&quot;obj 变了&quot;)
+      deep: ture       // 可以监听到obj对象的所有内部属性
+    },
+    &quot;obj.a&quot;: function() {
+      console.log(&quot;obj.a 变了&quot;)
+    }
+  }
+</code></pre><h4 id="obja--hi--obja--obj-">点击obj.a + &lsquo;hi&rsquo; : 打印出“obj.a 变了”和 &ldquo;obj 变了&rdquo;</h4>
+<h3 id="deeptrue-objfalse">当deep：true 会监听到obj对象的所有内部属性，默认值为false</h3>
+<h3 id="immediate">immediate属性</h3>
+<p>请看这个例子</p>
+<pre><code>// 引用完整版 Vue，方便讲解
+import Vue from &quot;vue/dist/vue.js&quot;;
+
+new Vue({
+  data: {
+    firstName: 'Jacky',
+    lastName: 'Lee',
+    fullName: ''
+  },
+  watch: {
+    firstName: {
+      handler: 'change'
+    }
+  },
+  template: `
+    &lt;div&gt;
+      {{fullName}}
+      &lt;button @click=&quot;firstName='John'&quot;&gt;改名字&lt;/button&gt;
+    &lt;/div&gt;
+  `,
+  methods: {
+    change() {
+      this.fullName =  this.firstName + ' ' + this.lastName      
+    }
+  }
+}).$mount(&quot;#app&quot;);
+</code></pre><p>通过fullName属性展示 firstName + lastName 的计算值</p>
+<p>运行上面代码，页面啥也没有</p>
+<p>然后点击“改名字”，页面显示 John Lee</p>
+<h4 id="jacky-lee">啊？怎么回事Jacky Lee怎么不显示？</h4>
+<h4 id="watch3">答：因为watch不会监听第一次变化</h4>
+<h4 id="heading4">改造一下</h4>
+<pre><code>watch: {
+    firstName: {
+      handler: 'change',
+      immediate： ture
+    }
+}
+</code></pre><p>初始页面展示 Jacky Lee</p>
+<h3 id="-immediatetrue-">当 immediate：true 时，回调函数会在监听开始后立刻执行，可以监听到到第一次变化。</h3>
+<h2 id="heading5">总结：</h2>
+<ul>
+<li>
+<h4 id="computedcomputedcomputed">computed是用来计算一个值的，使用时不需要加括号，可以直接当属性使用。computed拥有依赖缓存特性，如果依赖值不变，computed不会重新计算</h4>
+</li>
+<li>
+<h4 id="watchimmediate--deepimmediate-true-deeptruewatch">watch是用来监听的，有两个选项，immediate 和 deep，当immediate: true时，表示会在第一次运行是执行这个函数，当 deep：true时，如果监听一个对象，会同时监听其内部属性。watch没有依赖缓存特性。</h4>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Jacky Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://kcvo.top/2020/vue%E7%9A%84computed-%E4%B8%8E-watch%E7%9A%84%E5%8C%BA%E5%88%AB/>https://kcvo.top/2020/vue%E7%9A%84computed-%E4%B8%8E-watch%E7%9A%84%E5%8C%BA%E5%88%AB/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://kcvo.top/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://kcvo.top/2020/%E6%B5%85%E6%9E%90vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/" class="prev" rel="prev" title="浅析Vue数据响应式"><i class="iconfont icon-left"></i>&nbsp;浅析Vue数据响应式</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://kcvo.top/">Jacky Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
