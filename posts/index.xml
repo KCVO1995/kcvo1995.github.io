@@ -6,10 +6,26 @@
     <description>Recent content in Posts on LeaveIt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn-zh</language>
-    <lastBuildDate>Thu, 06 Feb 2020 15:12:26 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 13 Feb 2020 15:12:26 +0800</lastBuildDate>
     
 	<atom:link href="https://kcvo.top/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JS 里this的值到底是什么？</title>
+      <link>https://kcvo.top/2020/js-%E9%87%8Cthis%E7%9A%84%E5%80%BC%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88/</link>
+      <pubDate>Thu, 13 Feb 2020 15:12:26 +0800</pubDate>
+      
+      <guid>https://kcvo.top/2020/js-%E9%87%8Cthis%E7%9A%84%E5%80%BC%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
+      <description>说到this，那就是面试的必考的题，如果你还没搞懂this，就请看看这篇文章吧。 面试中你可能会遇到这样的题目
+let a = { speak: function() { console.log(this) } } let b = a.speak b() // 打印出的this 是 window a.speak() // 打印出的this 是 a 最后两行运行的结果怎么不一样了？ 看起来很迷对吧，看完下文，你还会这么想吗？ 函数调用 弄懂函数调用是学习this的关键
+我们先来看看JS（ES5） 的三种函数调用形式
+fn(p1, p2) obj.fn(p1, p2) fn.call(p0, p1, p2) 大多数的初学者都习惯使用前两种调用方式，然而这样并不利于我们了解this
+实际上第三种调用方法才是正确的调用方式，也就是
+fn.call(p0, p1, p2) 其他两种调用方式都是语法糖，并且可以等价的改为 call 形式
+fn(p1, p2) // 等价于 fn.call(undefined, p1, p2) obj.fn(p1, p2) // 等价于 fn.call(obj, p1, p2) 为了方便下文描述，我们把这样的代码为 &#39; 转换代码 &#39; 这样，this 就很好解释了
+使用fn.call(p0, p1, p2)方式调用，参数p0传入的值就是this。 先来看看 fn(p1, p2) 中的this如何确定</description>
+    </item>
     
     <item>
       <title>Vue的语法糖 .sync修饰符</title>
