@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="cn-zh">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Jacky Lee">
+  
+  
+  
+  <link rel="prev" href="https://kcvo.top/2020/js-%E9%87%8Cthis%E7%9A%84%E5%80%BC%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88/" />
+  <link rel="next" href="https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5bug-copy/" />
+  <link rel="canonical" href="https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           米奇记账项目实记之 SVG引入 | LeaveIt
+       
+  </title>
+  <meta name="title" content="米奇记账项目实记之 SVG引入 | LeaveIt">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/kcvo.top\/"
+    },
+    "articleSection" : "posts",
+    "name" : "米奇记账项目实记之 SVG引入",
+    "headline" : "米奇记账项目实记之 SVG引入",
+    "description" : "先简单介绍一下SVG 什么是SVG SVG全称是Scalable Vector Graphics，是指伸缩矢量图片。我们常用的png，jpg图片属于位图，位图是由一个个像素组成的，放大后会变模糊。而SVG是通过软件生成的矢量图片，其元素对象可编辑，图像放大缩小都不影响图像的分辨率。\nSVG的优点  SVG 是一种基于 XML 语法的图像格式，所以在前端项目中我们可以进行二次编辑，可以修改颜色，大小\x26hellip;. SVG 于JPEG 和 GIF 图像比起来，尺寸更小 SVG 图像的文本是可选的，同时也是可搜索的  所以我认为SVG很适合在前端项目中应用\n怎么引入SVG 最近我在开发一个个人理财项目，底部导航栏需要用到SVG图标，设计稿是这样的：\n  第一步通过iconfont搜索相应的图标   iconfont是一个阿里巴巴提供的矢量图库，可以免费下载SVG图标，下载后我把SVG图标存在项目的assets\/icons文件夹中\n  第二步参考iconfont提供的引入方法   iconfont的帮助文档，我是用的是symbol引入，这是官方文档提供的方法\n由于我引入的下载后的SVG文件，js通过import引入\nimport \x27@\/assets\/icons\/label.svg\x27 import \x27@\/assets\/icons\/money.svg\x27 import \x27@\/assets\/icons\/statistics.svg\x27 HTML 和 CSS 照文档敲，要注意的是 xlink:href=\x26rdquo;#icon-xxx\x26rdquo; ,icon-xxx是SVG文件名，敲错了就无法显示了\n按照官方文档做完了，按理来说SVG就应该显示了，然而导航栏还是一片空白\n  第三步安装svg-sprite-load   于是开始上网查，发现是缺少了 svg-sprite-load\n安装命令:\nnpm i svg-sprite-loader --save 或者 yarn add svg-sprite-loader --dev   第四步配置vue.config.js   在vue.",
+    "inLanguage" : "cn-zh",
+    "author" : "Jacky Lee",
+    "creator" : "Jacky Lee",
+    "publisher": "Jacky Lee",
+    "accountablePerson" : "Jacky Lee",
+    "copyrightHolder" : "Jacky Lee",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-21 12:12:26 \x2b0800 CST",
+    "dateModified" : "2020-02-21 12:12:26 \x2b0800 CST",
+    "url" : "https:\/\/kcvo.top\/2020\/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5\/",
+    "wordCount" : "184",
+    "keywords" : [  "LeaveIt"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://kcvo.top/">LeaveIt</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://kcvo.top/">LeaveIt</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">米奇记账项目实记之 SVG引入</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://kcvo.top/" rel="author">Jacky Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-02-21 itemprop="datePublished">February 21, 2020</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="svg">先简单介绍一下SVG</h2>
+<h3 id="svg1">什么是SVG</h3>
+<p>SVG全称是Scalable Vector Graphics，是指伸缩矢量图片。我们常用的png，jpg图片属于位图，位图是由一个个像素组成的，放大后会变模糊。而SVG是通过软件生成的矢量图片，其元素对象可编辑，图像放大缩小都不影响图像的分辨率。</p>
+<h3 id="svg2">SVG的优点</h3>
+<ul>
+<li>SVG 是一种基于 XML 语法的图像格式，所以在前端项目中我们可以进行二次编辑，可以修改颜色，大小&hellip;.</li>
+<li>SVG 于JPEG 和 GIF 图像比起来，尺寸更小</li>
+<li>SVG 图像的文本是可选的，同时也是可搜索的</li>
+</ul>
+<p>所以我认为SVG很适合在前端项目中应用</p>
+<h2 id="svg3">怎么引入SVG</h2>
+<p>最近我在开发一个个人理财项目，底部导航栏需要用到SVG图标，设计稿是这样的：</p>
+<p><img src="/images/nav-design.png" alt="nav-1"></p>
+<ul>
+<li>
+<h4 id="iconfont">第一步通过iconfont搜索相应的图标</h4>
+</li>
+</ul>
+<p><a href="https://www.iconfont.cn/home/index">iconfont</a>是一个阿里巴巴提供的矢量图库，可以免费下载SVG图标，下载后我把SVG图标存在项目的assets/icons文件夹中</p>
+<ul>
+<li>
+<h4 id="iconfont1">第二步参考iconfont提供的引入方法</h4>
+</li>
+</ul>
+<p><a href="https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.16&amp;helptype=code">iconfont的帮助文档</a>，我是用的是symbol引入，这是官方文档提供的方法</p>
+<p><img src="/images/iconfont.png" alt="iconfont"></p>
+<p>由于我引入的下载后的SVG文件，js通过import引入</p>
+<pre><code>import '@/assets/icons/label.svg'
+import '@/assets/icons/money.svg'
+import '@/assets/icons/statistics.svg'
+</code></pre><p>HTML 和 CSS 照文档敲，要注意的是 xlink:href=&rdquo;#icon-xxx&rdquo; ,icon-xxx是SVG文件名，敲错了就无法显示了</p>
+<p>按照官方文档做完了，按理来说SVG就应该显示了，然而导航栏还是一片空白</p>
+<p><img src="/images/nav-none.png" alt="nav-none"></p>
+<ul>
+<li>
+<h4 id="svgspriteload">第三步安装svg-sprite-load</h4>
+</li>
+</ul>
+<p>于是开始上网查，发现是缺少了 svg-sprite-load</p>
+<p>安装命令:</p>
+<pre><code>npm i svg-sprite-loader --save
+或者
+yarn add svg-sprite-loader --dev
+</code></pre><ul>
+<li>
+<h4 id="vueconfigjs">第四步配置vue.config.js</h4>
+</li>
+</ul>
+<p>在vue.config.js 中添加</p>
+<pre><code>config.module
+      .rule('svg-sprite')  // 找到svg-loader
+      .test(/\.svg$/) 
+      .include.add(dir).end() 
+      .use('svg-sprite-loader').loader('svg-sprite-loader').options({extract:false}).end()
+    config.plugin('svg-sprite').use(require('svg-sprite-loader/plugin'), [{plainSprite: true}])
+    config.module.rule('svg').exclude.add(dir) 
+</code></pre><p>安照上面的代码在webStorm中运行，有的小伙伴会遇到这个报错 （在require语句的地方）</p>
+<pre><code>ESLint: Require statement not part of import statement.(@typescript-eslint/no-var-requires)
+</code></pre><h4 id="heading">有两种解决方式</h4>
+<ol>
+<li>
+<h4 id="-import-">按照误提示改为 import 引入</h4>
+</li>
+</ol>
+<pre><code>import svgLoader from 'svg-sprite-loader/plugin';
+// 然后在使用require的地方替换为 svgLoader
+config.plugin('svg-sprite').use(svgLoader, [{plainSprite: true}])
+</code></pre><ol start="2">
+<li>
+<h4 id="eslint-">告诉eslint 不检查这行代码（在报错的代码行上一行插入）</h4>
+</li>
+</ol>
+<pre><code>// eslint-disable-next-line @typescript-eslint/no-var-requires
+</code></pre><p>现在再次运行代码，SVG图片可以显示了</p>
+<p><img src="/images/nav-ok.png" alt="nav-ok"></p>
+<ul>
+<li>
+<h4 id="heading1">第五步优化代码之引入文件</h4>
+</li>
+</ul>
+<p>上文中js引入SVG文件是通过import，一个一个文件引入的，以后如果svg越来越多就要多次引入。</p>
+<p>于是我在网上找了一个方法可以直接引入icons文件，这样就不用每个icon多次引入了，代码如下</p>
+<pre><code>const importAll = (requireContext: __WebpackModuleApi.RequireContext) =&gt; requireContext.keys().forEach(requireContext);
+  try {
+    importAll(require.context('../assets/icons', true, /\.svg$/));
+  } catch (e) {
+    console.log(e);
+  }
+</code></pre><ul>
+<li>
+<h4 id="icon">第六步优化代码之封装成Icon组件</h4>
+</li>
+</ul>
+<p>按照文档所说，HTML使用的标签是</p>
+<pre><code>&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;use :xlink:href= &quot;'#' + name&quot; /&gt;
+&lt;/svg&gt;
+</code></pre><p>那我用到了三个SVG图标，我就要重复三次，代码就太丑了，我们可以封装成Icon组件</p>
+<pre><code>&lt;template&gt;
+  &lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;use :xlink:href= &quot;'#' + name&quot; /&gt;
+  &lt;/svg&gt;
+&lt;/template&gt;
+
+&lt;script lang='ts'&gt;
+  export default {
+    props: ['name']
+  };
+&lt;/script&gt;
+
+&lt;style lang='scss' scoped&gt;
+  .icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+  }
+&lt;/style&gt;
+</code></pre><p>并在main.ts 中全局引入</p>
+<pre><code>import Vue from 'vue';
+import Icon from '@/components/Icon.vue';
+
+Vue.component('Icon', Icon);
+</code></pre><p>这样每个组件使用SVG图标时，只需要即可</p>
+<pre><code>&lt;Icon name=&quot;SVG文件名&quot;/&gt;
+</code></pre><p>感谢看官们看到最后，目前使用svg-sprite-loader 发现有些bug，会在后续文章中更新解决方法</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Jacky Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5/>https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://kcvo.top/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://kcvo.top/2020/js-%E9%87%8Cthis%E7%9A%84%E5%80%BC%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88/" class="prev" rel="prev" title="JS 里this的值到底是什么？"><i class="iconfont icon-left"></i>&nbsp;JS 里this的值到底是什么？</a>
+         
+        
+        <a href="https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5bug-copy/" class="next" rel="next" title="米奇记账项目实记之 SVG引入bug">米奇记账项目实记之 SVG引入bug&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://kcvo.top/">Jacky Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
