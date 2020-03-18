@@ -6,17 +6,32 @@
     <description>Recent content in Posts on LeaveIt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn-zh</language>
-    <lastBuildDate>Mon, 24 Feb 2020 12:12:26 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2020 12:12:26 +0800</lastBuildDate>
     
 	<atom:link href="https://kcvo.top/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>米奇记账项目总结</title>
+      <link>https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sun, 01 Mar 2020 12:12:26 +0800</pubDate>
+      
+      <guid>https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/</guid>
+      <description>初学 Vue 和 TypeScript，想着准备一个小项目为自己找工作打打气，自己之前一直嚷嚷着要好好记账，于是从自身的需求出发，就有了米奇记账。
+已部署的版本 点这里，点这里：米奇记账
+源代码 Github
+项目介绍 米奇记账是一个基于 Vue 的单页面应用，简约的 UI 设计，支持账目的增删改查，标签管理及新增，账目数据直观展示，支持按月、按周、按天展示。
+米奇记账一共有这样几个页面：
+ 首页：显示当月收入和支出，显示当日收入和支出，可跳转到所有其他页面 记账页面：支持单笔记账的标签选择，备忘记录，金额记录 标签管理页面：展示已有标签，可选择删除，可选新增标签 新增标签页面：提供 20 个带精美图标的常用标签，还可以新建自定义标签 账目明细页面：提供月份选择器，周期选择器，日期选择器，按需暂时账目，另外可以删除或修改已有账目  技术栈   Vue   Vue Cli   Vue Router   Vuex   TypeScript   Sass   dayjs   UI   思路与经验 如何按照不同的时间单位显示金额 对于记账项目，记账金额需要按照不同的时间单位显示，例如按月，按周，按日，如果每次都要写一个函数进行显示，显然是繁琐的，于是我想出了一个可以复用的显示金额函数
+const showAmount = (type: string, unit: Unit, according: any, record: boolean) =&amp;gt; { const recordList = clone(store.</description>
+    </item>
+    
+    <item>
       <title>米奇记账项目实记之 SVG引入bug</title>
-      <link>https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5bug-copy/</link>
+      <link>https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5bug/</link>
       <pubDate>Mon, 24 Feb 2020 12:12:26 +0800</pubDate>
       
-      <guid>https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5bug-copy/</guid>
+      <guid>https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5bug/</guid>
       <description>在米奇记账项目中我使用了 svg-sprite-loader 进行SVG引入 现在发现了svg-sprite-loader使用中的一个bug   先说说我想达到的效果：   图中有三个icon，分别是标签、记一笔、统计，这三个icon是我从iconfont引入的SVG图标，当我点击某个icon时，被点击的icon会有高亮成红色的效果，并进入对应的导航页
   目前遇到的问题是   我点击了统计的icon，然后统计icon高亮红色正常，但是标签的icon我并没有设置高亮，但是却是蓝色的
 当我点击标签icon时

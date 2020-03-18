@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="cn-zh">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Jacky Lee">
+  
+  
+  
+  <link rel="prev" href="https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5/" />
+  <link rel="next" href="https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" />
+  <link rel="canonical" href="https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5bug/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           米奇记账项目实记之 SVG引入bug | LeaveIt
+       
+  </title>
+  <meta name="title" content="米奇记账项目实记之 SVG引入bug | LeaveIt">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/kcvo.top\/"
+    },
+    "articleSection" : "posts",
+    "name" : "米奇记账项目实记之 SVG引入bug",
+    "headline" : "米奇记账项目实记之 SVG引入bug",
+    "description" : "在米奇记账项目中我使用了 svg-sprite-loader 进行SVG引入 现在发现了svg-sprite-loader使用中的一个bug   先说说我想达到的效果：   图中有三个icon，分别是标签、记一笔、统计，这三个icon是我从iconfont引入的SVG图标，当我点击某个icon时，被点击的icon会有高亮成红色的效果，并进入对应的导航页\n  目前遇到的问题是   我点击了统计的icon，然后统计icon高亮红色正常，但是标签的icon我并没有设置高亮，但是却是蓝色的\n当我点击标签icon时\n标签icon依然是默认蓝色不变\n  解决的过程   首先我把自己对icon文件添加的SCSS都看了一遍，没看出问题\n那问题估计就在SVG的源文件上了\n仔细看一遍，发现SVG源码中有一个fill属性，这个属性给了icon一个默认且不可更改的颜色\n  怎么解决   直接把fill属性手动移除，简单粗暴，但是问题来了，如果有100个SVG都带有fill属性呢，很显然这个方法太low了\n那怎么解决呢？\n能不能写一段代码，自动把SVG里面的fill属性移除呢？\n下面是我搜了很久发现的一个答案\n.use(\x27svgo-loader\x27).loader(\x27svgo-loader\x27) .tap(options =\x26gt; ({...options, plugins: [{removeAttrs: {attrs: \x27fill\x27}}]})).end() ",
+    "inLanguage" : "cn-zh",
+    "author" : "Jacky Lee",
+    "creator" : "Jacky Lee",
+    "publisher": "Jacky Lee",
+    "accountablePerson" : "Jacky Lee",
+    "copyrightHolder" : "Jacky Lee",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-24 12:12:26 \x2b0800 CST",
+    "dateModified" : "2020-02-24 12:12:26 \x2b0800 CST",
+    "url" : "https:\/\/kcvo.top\/2020\/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5bug\/",
+    "wordCount" : "27",
+    "keywords" : [  "LeaveIt"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://kcvo.top/">LeaveIt</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://kcvo.top/">LeaveIt</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">米奇记账项目实记之 SVG引入bug</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://kcvo.top/" rel="author">Jacky Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-02-24 itemprop="datePublished">February 24, 2020</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h3 id="-svgspriteloader-svg">在米奇记账项目中我使用了 svg-sprite-loader 进行SVG引入</h3>
+<h3 id="svgspriteloaderbug">现在发现了svg-sprite-loader使用中的一个bug</h3>
+<ul>
+<li>
+<h4 id="heading">先说说我想达到的效果：</h4>
+</li>
+</ul>
+<p>图中有三个icon，分别是标签、记一笔、统计，这三个icon是我从iconfont引入的SVG图标，当我点击某个icon时，被点击的icon会有高亮成红色的效果，并进入对应的导航页</p>
+<ul>
+<li>
+<h4 id="heading1">目前遇到的问题是</h4>
+</li>
+</ul>
+<p><img src="/images/nav-ok-1.png" alt="nav-ok-1"></p>
+<p>我点击了统计的icon，然后统计icon高亮红色正常，但是标签的icon我并没有设置高亮，但是却是蓝色的</p>
+<p>当我点击标签icon时</p>
+<p><img src="/images/nav-bug-fill.png" alt="nav-fill"></p>
+<p>标签icon依然是默认蓝色不变</p>
+<ul>
+<li>
+<h4 id="heading2">解决的过程</h4>
+</li>
+</ul>
+<p>首先我把自己对icon文件添加的SCSS都看了一遍，没看出问题</p>
+<p>那问题估计就在SVG的源文件上了</p>
+<p>仔细看一遍，发现SVG源码中有一个fill属性，这个属性给了icon一个默认且不可更改的颜色</p>
+<p><img src="/images/svg-fill.png" alt="svg-fill"></p>
+<ul>
+<li>
+<h4 id="heading3">怎么解决</h4>
+</li>
+</ul>
+<p>直接把fill属性手动移除，简单粗暴，但是问题来了，如果有100个SVG都带有fill属性呢，很显然这个方法太low了</p>
+<p>那怎么解决呢？</p>
+<p>能不能写一段代码，自动把SVG里面的fill属性移除呢？</p>
+<p>下面是我搜了很久发现的一个答案</p>
+<pre><code>.use('svgo-loader').loader('svgo-loader')
+      .tap(options =&gt; ({...options, plugins: [{removeAttrs: {attrs: 'fill'}}]})).end()
+</code></pre>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Jacky Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5bug/>https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5bug/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://kcvo.top/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5/" class="prev" rel="prev" title="米奇记账项目实记之 SVG引入"><i class="iconfont icon-left"></i>&nbsp;米奇记账项目实记之 SVG引入</a>
+         
+        
+        <a href="https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" class="next" rel="next" title="米奇记账项目总结">米奇记账项目总结&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://kcvo.top/">Jacky Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
