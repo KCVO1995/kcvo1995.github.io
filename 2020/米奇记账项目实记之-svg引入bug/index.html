@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "米奇记账项目实记之 SVG引入bug",
     "headline" : "米奇记账项目实记之 SVG引入bug",
-    "description" : "在米奇记账项目中我使用了 svg-sprite-loader 进行SVG引入 现在发现了svg-sprite-loader使用中的一个bug   先说说我想达到的效果：   图中有三个icon，分别是标签、记一笔、统计，这三个icon是我从iconfont引入的SVG图标，当我点击某个icon时，被点击的icon会有高亮成红色的效果，并进入对应的导航页\n  目前遇到的问题是   我点击了统计的icon，然后统计icon高亮红色正常，但是标签的icon我并没有设置高亮，但是却是蓝色的\n当我点击标签icon时\n标签icon依然是默认蓝色不变\n  解决的过程   首先我把自己对icon文件添加的SCSS都看了一遍，没看出问题\n那问题估计就在SVG的源文件上了\n仔细看一遍，发现SVG源码中有一个fill属性，这个属性给了icon一个默认且不可更改的颜色\n  怎么解决   直接把fill属性手动移除，简单粗暴，但是问题来了，如果有100个SVG都带有fill属性呢，很显然这个方法太low了\n那怎么解决呢？\n能不能写一段代码，自动把SVG里面的fill属性移除呢？\n下面是我搜了很久发现的一个答案\n.use(\x27svgo-loader\x27).loader(\x27svgo-loader\x27) .tap(options =\x26gt; ({...options, plugins: [{removeAttrs: {attrs: \x27fill\x27}}]})).end() ",
+    "description" : "在米奇记账项目中我使用了 svg-sprite-loader 进行SVG引入 现在发现了svg-sprite-loader使用中的一个bug   先说说我想达到的效果：   图中有三个icon，分别是标签、记一笔、统计，这三个icon是我从iconfont引入的SVG图标，当我点击某个icon时，被点击的icon会有高亮成红色的效果，并进入对应的导航页\n  目前遇到的问题是   我点击了统计的icon，然后统计icon高亮红色正常，但是标签的icon我并没有设置高亮，但是却是蓝色的\n当我点击标签icon时\n标签icon依然是默认蓝色不变\n  解决的过程   首先我把自己对icon文件添加的SCSS都看了一遍，没看出问题\n那问题估计就在SVG的源文件上了\n仔细看一遍，发现SVG源码中有一个fill属性，这个属性给了icon一个默认且不可更改的颜色\n  怎么解决   直接把fill属性手动移除，简单粗暴，但是问题来了，如果有100个SVG都带有fill属性呢，很显然这个方法太low了\n那怎么解决呢？\n能不能写一段代码，自动把SVG里面的fill属性移除呢？\n下面是我搜了很久发现的一个答案\n.use(\x26#39;svgo-loader\x26#39;).loader(\x26#39;svgo-loader\x26#39;) .tap(options =\x26gt; ({...options, plugins: [{removeAttrs: {attrs: \x26#39;fill\x26#39;}}]})).end() ",
     "inLanguage" : "cn-zh",
     "author" : "Jacky Lee",
     "creator" : "Jacky Lee",
@@ -180,9 +180,9 @@
 <p>那怎么解决呢？</p>
 <p>能不能写一段代码，自动把SVG里面的fill属性移除呢？</p>
 <p>下面是我搜了很久发现的一个答案</p>
-<pre><code>.use('svgo-loader').loader('svgo-loader')
-      .tap(options =&gt; ({...options, plugins: [{removeAttrs: {attrs: 'fill'}}]})).end()
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#39;svgo-loader&#39;</span>).<span style="color:#a6e22e">loader</span>(<span style="color:#e6db74">&#39;svgo-loader&#39;</span>)
+      .<span style="color:#a6e22e">tap</span>(<span style="color:#a6e22e">options</span> =&gt; ({...<span style="color:#a6e22e">options</span>, <span style="color:#a6e22e">plugins</span><span style="color:#f92672">:</span> [{<span style="color:#a6e22e">removeAttrs</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">attrs</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;fill&#39;</span>}}]})).<span style="color:#a6e22e">end</span>()
+</code></pre></div>
     </div>
 
     <div class="post-copyright">

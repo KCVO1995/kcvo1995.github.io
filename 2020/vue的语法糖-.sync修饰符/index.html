@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Vue的语法糖 .sync修饰符",
     "headline" : "Vue的语法糖 .sync修饰符",
-    "description" : "看完这个栗子就明白了： \x26lt;template\x26gt; \x26lt;div style=\x27border: 3px solid red;padding: 10px;\x27\x26gt; App.vue 我现在有 {{total}} \x26lt;hr\x26gt; \x26lt;Child :money=\x26quot;total\x26quot; v-on:update:money = \x26quot;total = $event\x26quot; \/\x26gt; \x26lt;!-- $event 保存了$emit 传入的参数money-100 --\x26gt; \x26lt;\/div\x26gt; \x26lt;\/template\x26gt; \x26lt;script\x26gt; import Vue from \x26quot;vue\x26quot; Vue.component(\x27Child\x27, { template: `\x26lt;div style=\x27border: 3px solid green\x27\x26gt; {{money}} \x26lt;button @click=\x26quot;$emit(\x27update:money\x27, money-100)\x26quot; \x26gt; \x26lt;span\x26gt;花钱\x26lt;\/span\x26gt; \x26lt;\/button\x26gt; \x26lt;\/div\x26gt;`, props: [\x26quot;money\x26quot;] }) export default { data() { return { total: 10000 }; }, } \x26lt;\/script\x26gt; 这个例子中，点击‘花钱’按钮时，子组件会通知父组件，‘我要花钱 money - 100’，父组件知道后修改total。完成花钱动作。这个一个完整的发布订阅模式。\n使用.sync 语法糖 \x26lt;Child :money.",
+    "description" : "看完这个栗子就明白了： \x26lt;template\x26gt; \x26lt;div style=\x26#39;border: 3px solid red;padding: 10px;\x26#39;\x26gt; App.vue 我现在有 {{total}} \x26lt;hr\x26gt; \x26lt;Child :money=\x26#34;total\x26#34; v-on:update:money = \x26#34;total = $event\x26#34; \/\x26gt; \x26lt;!-- $event 保存了$emit 传入的参数money-100 --\x26gt; \x26lt;\/div\x26gt; \x26lt;\/template\x26gt; \x26lt;script\x26gt; import Vue from \x26#34;vue\x26#34; Vue.component(\x26#39;Child\x26#39;, { template: `\x26lt;div style=\x26#39;border: 3px solid green\x26#39;\x26gt; {{money}} \x26lt;button @click=\x26#34;$emit(\x26#39;update:money\x26#39;, money-100)\x26#34; \x26gt; \x26lt;span\x26gt;花钱\x26lt;\/span\x26gt; \x26lt;\/button\x26gt; \x26lt;\/div\x26gt;`, props: [\x26#34;money\x26#34;] }) export default { data() { return { total: 10000 }; }, } \x26lt;\/script\x26gt; 这个例子中，点击‘花钱’按钮时，子组件会通知父组件，‘我要花钱 money - 100’，父组件知道后修改total。完成花钱动作。这个一个完整的发布订阅模式。\n使用.sync 语法糖 \x26lt;Child :money.",
     "inLanguage" : "cn-zh",
     "author" : "Jacky Lee",
     "creator" : "Jacky Lee",
@@ -143,36 +143,36 @@
           
 
           <h3 id="heading">看完这个栗子就明白了：</h3>
-<pre><code>&lt;template&gt;
-  &lt;div style='border: 3px solid red;padding: 10px;'&gt;
-    App.vue 我现在有 {{total}}
-    &lt;hr&gt;
-    &lt;Child :money=&quot;total&quot; v-on:update:money = &quot;total = $event&quot;  /&gt;
-    &lt;!-- $event 保存了$emit 传入的参数money-100 --&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">template</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;border: 3px solid red;padding: 10px;&#39;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#a6e22e">App</span>.<span style="color:#a6e22e">vue</span> <span style="color:#a6e22e">我现在有</span> {{<span style="color:#a6e22e">total</span>}}
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">hr</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Child</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">money</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;total&#34;</span> <span style="color:#a6e22e">v</span><span style="color:#f92672">-</span><span style="color:#a6e22e">on</span><span style="color:#f92672">:</span><span style="color:#a6e22e">update</span><span style="color:#f92672">:</span><span style="color:#a6e22e">money</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;total = $event&#34;</span>  <span style="color:#f92672">/</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#75715e">&lt;!--</span> <span style="color:#a6e22e">$event</span> <span style="color:#a6e22e">保存了$emit</span> <span style="color:#a6e22e">传入的参数money</span><span style="color:#f92672">-</span><span style="color:#ae81ff">100</span> <span style="color:#f92672">--</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#960050;background-color:#1e0010">d</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">v</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">m</span><span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
 
 
-&lt;script&gt;
-import Vue from &quot;vue&quot;
+<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span><span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vue&#34;</span>
 
-Vue.component('Child', {
-  template: `&lt;div style='border: 3px solid green'&gt;
-                {{money}}
-            &lt;button @click=&quot;$emit('update:money', money-100)&quot; &gt;
-            &lt;span&gt;花钱&lt;/span&gt;
-            &lt;/button&gt;
-            &lt;/div&gt;`,
-  props: [&quot;money&quot;]
+<span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">component</span>(<span style="color:#e6db74">&#39;Child&#39;</span>, {
+  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">&lt;div style=&#39;border: 3px solid green&#39;&gt;
+</span><span style="color:#e6db74">                {{money}}
+</span><span style="color:#e6db74">            &lt;button @click=&#34;</span><span style="color:#e6db74">$</span><span style="color:#e6db74">emit(&#39;update:money&#39;, money-100)&#34; &gt;
+</span><span style="color:#e6db74">            &lt;span&gt;花钱&lt;/span&gt;
+</span><span style="color:#e6db74">            &lt;/button&gt;
+</span><span style="color:#e6db74">            &lt;/div&gt;</span><span style="color:#e6db74">`</span>,
+  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;money&#34;</span>]
 })
 
-export default {
-  data() {
-    return { total: 10000 };
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+  <span style="color:#a6e22e">data</span>() {
+    <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">total</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10000</span> };
   },
 }
-&lt;/script&gt;
-</code></pre><p>这个例子中，点击‘花钱’按钮时，子组件会通知父组件，‘我要花钱 money - 100’，父组件知道后修改total。完成花钱动作。这个一个完整的发布订阅模式。</p>
+<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">c</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+</code></pre></div><p>这个例子中，点击‘花钱’按钮时，子组件会通知父组件，‘我要花钱 money - 100’，父组件知道后修改total。完成花钱动作。这个一个完整的发布订阅模式。</p>
 <h3 id="sync-">使用.sync 语法糖</h3>
 <p><code>&lt;Child :money.sync=&quot;total&quot; /&gt;</code></p>
 <h4 id="heading1">等同于</h4>

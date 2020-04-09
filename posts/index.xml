@@ -6,10 +6,32 @@
     <description>Recent content in Posts on LeaveIt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn-zh</language>
-    <lastBuildDate>Sun, 01 Mar 2020 12:12:26 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 03 Mar 2020 12:12:26 +0800</lastBuildDate>
     
 	<atom:link href="https://kcvo.top/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>番茄土豆项目总结</title>
+      <link>https://kcvo.top/2020/tomatodo/</link>
+      <pubDate>Tue, 03 Mar 2020 12:12:26 +0800</pubDate>
+      
+      <guid>https://kcvo.top/2020/tomatodo/</guid>
+      <description>初学 React 和 TypeScript 于是像找个项目练练手，尝试做了一个番茄土豆。
+已部署的版本 点这里，点这里：Tomatodo - 番茄土豆
+源代码 Github
+项目介绍 本项目是一个基于 React 的单页面应用，是一款非常好用的时间管理工具，它由三部分组成，分别是番茄闹钟、土豆任务和统计模块。
+在番茄部分可以定义一个番茄闹钟、查看番茄历史，在土豆部分可以新增土豆任务，查看任务历史，提供修改和删除功能，在统计模块，可以分别查看番茄闹钟和土豆任务的记录并提供增删改查，还有提供折线统计图。
+此外还具有登陆和注册功能，可以同步信息，在 PC 端和移动端都有良好的适配性。
+技术栈  React React Router Redux TypeScript axiosLess Less Ant Design  思路与经验 如何在 React 项目中配置别名 React Create App 官方似乎不支持 import alias, 但是每次 import 路径都是 &amp;lsquo;../../xxx.ts&amp;rsquo;，这样太麻烦了，于是搜了配置 alias 的方法
+由于这个项目是 create-react-app 创建的，配置文件没有暴露
+在网上搜索了一下，目前有两种方法修改配置
+方法一 yarn eject
+这样可以让配置文件暴露处理，但是这种方法不可逆
+方法二 react-app-rewired
+  安装 react-app-rewired
+yarn add react-app-rewired   修改 package.json, 将原本的react-script 改为 react-app-rewired</description>
+    </item>
     
     <item>
       <title>米奇记账项目总结</title>
@@ -43,7 +65,7 @@ const showAmount = (type: string, unit: Unit, according: any, record: boolean) =
 那怎么解决呢？
 能不能写一段代码，自动把SVG里面的fill属性移除呢？
 下面是我搜了很久发现的一个答案
-.use(&#39;svgo-loader&#39;).loader(&#39;svgo-loader&#39;) .tap(options =&amp;gt; ({...options, plugins: [{removeAttrs: {attrs: &#39;fill&#39;}}]})).end() </description>
+.use(&amp;#39;svgo-loader&amp;#39;).loader(&amp;#39;svgo-loader&amp;#39;) .tap(options =&amp;gt; ({...options, plugins: [{removeAttrs: {attrs: &amp;#39;fill&amp;#39;}}]})).end() </description>
     </item>
     
     <item>
@@ -58,7 +80,7 @@ SVG的优点  SVG 是一种基于 XML 语法的图像格式，所以在前端项
   第一步通过iconfont搜索相应的图标   iconfont是一个阿里巴巴提供的矢量图库，可以免费下载SVG图标，下载后我把SVG图标存在项目的assets/icons文件夹中
   第二步参考iconfont提供的引入方法   iconfont的帮助文档，我是用的是symbol引入，这是官方文档提供的方法
 由于我引入的下载后的SVG文件，js通过import引入
-import &#39;@/assets/icons/label.svg&#39; import &#39;@/assets/icons/money.svg&#39; import &#39;@/assets/icons/statistics.svg&#39; HTML 和 CSS 照文档敲，要注意的是 xlink:href=&amp;rdquo;#icon-xxx&amp;rdquo; ,icon-xxx是SVG文件名，敲错了就无法显示了
+import &amp;#39;@/assets/icons/label.svg&amp;#39; import &amp;#39;@/assets/icons/money.svg&amp;#39; import &amp;#39;@/assets/icons/statistics.svg&amp;#39; HTML 和 CSS 照文档敲，要注意的是 xlink:href=&amp;rdquo;#icon-xxx&amp;rdquo; ,icon-xxx是SVG文件名，敲错了就无法显示了
 按照官方文档做完了，按理来说SVG就应该显示了，然而导航栏还是一片空白
   第三步安装svg-sprite-load   于是开始上网查，发现是缺少了 svg-sprite-load
 安装命令:
@@ -87,7 +109,7 @@ fn(p1, p2) // 等价于 fn.call(undefined, p1, p2) obj.fn(p1, p2) // 等价于 f
       <pubDate>Thu, 06 Feb 2020 15:12:26 +0800</pubDate>
       
       <guid>https://kcvo.top/2020/vue%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96-.sync%E4%BF%AE%E9%A5%B0%E7%AC%A6/</guid>
-      <description>看完这个栗子就明白了： &amp;lt;template&amp;gt; &amp;lt;div style=&#39;border: 3px solid red;padding: 10px;&#39;&amp;gt; App.vue 我现在有 {{total}} &amp;lt;hr&amp;gt; &amp;lt;Child :money=&amp;quot;total&amp;quot; v-on:update:money = &amp;quot;total = $event&amp;quot; /&amp;gt; &amp;lt;!-- $event 保存了$emit 传入的参数money-100 --&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; import Vue from &amp;quot;vue&amp;quot; Vue.component(&#39;Child&#39;, { template: `&amp;lt;div style=&#39;border: 3px solid green&#39;&amp;gt; {{money}} &amp;lt;button @click=&amp;quot;$emit(&#39;update:money&#39;, money-100)&amp;quot; &amp;gt; &amp;lt;span&amp;gt;花钱&amp;lt;/span&amp;gt; &amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt;`, props: [&amp;quot;money&amp;quot;] }) export default { data() { return { total: 10000 }; }, } &amp;lt;/script&amp;gt; 这个例子中，点击‘花钱’按钮时，子组件会通知父组件，‘我要花钱 money - 100’，父组件知道后修改total。完成花钱动作。这个一个完整的发布订阅模式。
+      <description>看完这个栗子就明白了： &amp;lt;template&amp;gt; &amp;lt;div style=&amp;#39;border: 3px solid red;padding: 10px;&amp;#39;&amp;gt; App.vue 我现在有 {{total}} &amp;lt;hr&amp;gt; &amp;lt;Child :money=&amp;#34;total&amp;#34; v-on:update:money = &amp;#34;total = $event&amp;#34; /&amp;gt; &amp;lt;!-- $event 保存了$emit 传入的参数money-100 --&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; import Vue from &amp;#34;vue&amp;#34; Vue.component(&amp;#39;Child&amp;#39;, { template: `&amp;lt;div style=&amp;#39;border: 3px solid green&amp;#39;&amp;gt; {{money}} &amp;lt;button @click=&amp;#34;$emit(&amp;#39;update:money&amp;#39;, money-100)&amp;#34; &amp;gt; &amp;lt;span&amp;gt;花钱&amp;lt;/span&amp;gt; &amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt;`, props: [&amp;#34;money&amp;#34;] }) export default { data() { return { total: 10000 }; }, } &amp;lt;/script&amp;gt; 这个例子中，点击‘花钱’按钮时，子组件会通知父组件，‘我要花钱 money - 100’，父组件知道后修改total。完成花钱动作。这个一个完整的发布订阅模式。
 使用.sync 语法糖 &amp;lt;Child :money.</description>
     </item>
     
@@ -98,7 +120,7 @@ fn(p1, p2) // 等价于 fn.call(undefined, p1, p2) obj.fn(p1, p2) // 等价于 f
       
       <guid>https://kcvo.top/2020/vue%E7%9A%84computed-%E4%B8%8E-watch%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
       <description>computer 计算属性 通过计算得出的属性就是计算属性 计算属性可以是一个函数或者是一个getter和setter组成的对象 看看一个展示名字的实例：
-需求一：展示名字 // 引用完整版 Vue，方便讲解 import Vue from &amp;quot;vue/dist/vue.js&amp;quot;; new Vue({ data: { firstName: &#39;Jacky&#39;, lastName: &#39;Lee&#39; }, computed: { fullName() { return this.firstName + &#39; &#39; + this.lastName } }, template: ` &amp;lt;div&amp;gt; {{fullName}} &amp;lt;/div&amp;gt; `, methods: {} }).$mount(&amp;quot;#app&amp;quot;); fullName通过first.Name + lastName 计算得出，fullName使用时不需要加括号，可以直接作为属性使用，展示再页面中 需求二：可以改名字 // 引用完整版 Vue，方便讲解 import Vue from &amp;quot;vue/dist/vue.js&amp;quot;; new Vue({ data: { firstName: &#39;Jacky&#39;, lastName: &#39;Lee&#39; }, computed: { fullName: { get(){ return this.</description>
+需求一：展示名字 // 引用完整版 Vue，方便讲解 import Vue from &amp;#34;vue/dist/vue.js&amp;#34;; new Vue({ data: { firstName: &amp;#39;Jacky&amp;#39;, lastName: &amp;#39;Lee&amp;#39; }, computed: { fullName() { return this.firstName + &amp;#39; &amp;#39; + this.lastName } }, template: `&amp;lt;div&amp;gt; {{fullName}} &amp;lt;/div&amp;gt; `, methods: {} }).$mount(&amp;#34;#app&amp;#34;); fullName通过first.Name + lastName 计算得出，fullName使用时不需要加括号，可以直接作为属性使用，展示再页面中 需求二：可以改名字 // 引用完整版 Vue，方便讲解 import Vue from &amp;#34;vue/dist/vue.js&amp;#34;; new Vue({ data: { firstName: &amp;#39;Jacky&amp;#39;, lastName: &amp;#39;Lee&amp;#39; }, computed: { fullName: { get(){ return this.</description>
     </item>
     
     <item>

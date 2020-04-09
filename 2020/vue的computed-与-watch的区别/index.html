@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Vue的computed 与 watch 的区别",
     "headline" : "Vue的computed 与 watch 的区别",
-    "description" : "computer 计算属性 通过计算得出的属性就是计算属性 计算属性可以是一个函数或者是一个getter和setter组成的对象 看看一个展示名字的实例：\n需求一：展示名字 \/\/ 引用完整版 Vue，方便讲解 import Vue from \x26quot;vue\/dist\/vue.js\x26quot;; new Vue({ data: { firstName: \x27Jacky\x27, lastName: \x27Lee\x27 }, computed: { fullName() { return this.firstName \x2b \x27 \x27 \x2b this.lastName } }, template: ` \x26lt;div\x26gt; {{fullName}} \x26lt;\/div\x26gt; `, methods: {} }).$mount(\x26quot;#app\x26quot;); fullName通过first.Name \x2b lastName 计算得出，fullName使用时不需要加括号，可以直接作为属性使用，展示再页面中 需求二：可以改名字 \/\/ 引用完整版 Vue，方便讲解 import Vue from \x26quot;vue\/dist\/vue.js\x26quot;; new Vue({ data: { firstName: \x27Jacky\x27, lastName: \x27Lee\x27 }, computed: { fullName: { get(){ return this.",
+    "description" : "computer 计算属性 通过计算得出的属性就是计算属性 计算属性可以是一个函数或者是一个getter和setter组成的对象 看看一个展示名字的实例：\n需求一：展示名字 \/\/ 引用完整版 Vue，方便讲解 import Vue from \x26#34;vue\/dist\/vue.js\x26#34;; new Vue({ data: { firstName: \x26#39;Jacky\x26#39;, lastName: \x26#39;Lee\x26#39; }, computed: { fullName() { return this.firstName \x2b \x26#39; \x26#39; \x2b this.lastName } }, template: `\x26lt;div\x26gt; {{fullName}} \x26lt;\/div\x26gt; `, methods: {} }).$mount(\x26#34;#app\x26#34;); fullName通过first.Name \x2b lastName 计算得出，fullName使用时不需要加括号，可以直接作为属性使用，展示再页面中 需求二：可以改名字 \/\/ 引用完整版 Vue，方便讲解 import Vue from \x26#34;vue\/dist\/vue.js\x26#34;; new Vue({ data: { firstName: \x26#39;Jacky\x26#39;, lastName: \x26#39;Lee\x26#39; }, computed: { fullName: { get(){ return this.",
     "inLanguage" : "cn-zh",
     "author" : "Jacky Lee",
     "creator" : "Jacky Lee",
@@ -57,7 +57,7 @@
     "datePublished": "2020-02-06 10:12:26 \x2b0800 CST",
     "dateModified" : "2020-02-06 10:12:26 \x2b0800 CST",
     "url" : "https:\/\/kcvo.top\/2020\/vue%E7%9A%84computed-%E4%B8%8E-watch%E7%9A%84%E5%8C%BA%E5%88%AB\/",
-    "wordCount" : "331",
+    "wordCount" : "327",
     "keywords" : [  "LeaveIt"]
 }
 </script>
@@ -147,161 +147,161 @@
 <h4 id="gettersetter">计算属性可以是一个函数或者是一个getter和setter组成的对象</h4>
 <p>看看一个展示名字的实例：</p>
 <h3 id="heading1">需求一：展示名字</h3>
-<pre><code>// 引用完整版 Vue，方便讲解
-import Vue from &quot;vue/dist/vue.js&quot;;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// 引用完整版 Vue，方便讲解
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vue/dist/vue.js&#34;</span>;
 
-new Vue({
-  data: {
-    firstName: 'Jacky',
-    lastName: 'Lee'
+<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Jacky&#39;</span>,
+    <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Lee&#39;</span>
   },
-  computed: {
-    fullName() {
-      return this.firstName + ' ' + this.lastName      
+  <span style="color:#a6e22e">computed</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">fullName</span>() {
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastName</span>      
     }
   },
-  template: `
-    &lt;div&gt;
-      {{fullName}}
-    &lt;/div&gt;
-  `,
-  methods: {}
-}).$mount(&quot;#app&quot;);
-</code></pre><h4 id="fullnamefirstname--lastname-fullname">fullName通过first.Name + lastName 计算得出，fullName使用时不需要加括号，可以直接作为属性使用，展示再页面中</h4>
+  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">    &lt;div&gt;
+</span><span style="color:#e6db74">      {{fullName}}
+</span><span style="color:#e6db74">    &lt;/div&gt;
+</span><span style="color:#e6db74">  </span><span style="color:#e6db74">`</span>,
+  <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {}
+}).<span style="color:#a6e22e">$mount</span>(<span style="color:#e6db74">&#34;#app&#34;</span>);
+</code></pre></div><h4 id="fullnamefirstname--lastname-fullname">fullName通过first.Name + lastName 计算得出，fullName使用时不需要加括号，可以直接作为属性使用，展示再页面中</h4>
 <h3 id="heading2">需求二：可以改名字</h3>
-<pre><code>// 引用完整版 Vue，方便讲解
-import Vue from &quot;vue/dist/vue.js&quot;;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// 引用完整版 Vue，方便讲解
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vue/dist/vue.js&#34;</span>;
 
-new Vue({
-  data: {
-    firstName: 'Jacky',
-    lastName: 'Lee'
+<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Jacky&#39;</span>,
+    <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Lee&#39;</span>
   },
-  computed: {
-    fullName: {
-      get(){
-      return this.firstName + ' ' + this.lastName
+  <span style="color:#a6e22e">computed</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">fullName</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">get</span>(){
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastName</span>
       },
-      set(val){
-        const names = val.split(' ');
-        this.firstName = names[0];
-        this.lastName = names[1];
+      <span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">val</span>){
+        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">names</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">val</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39; &#39;</span>);
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">names</span>[<span style="color:#ae81ff">0</span>];
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">names</span>[<span style="color:#ae81ff">1</span>];
       }
     }
   },
-  template: `
-    &lt;div&gt;
-      &lt;div&gt;
-      {{fullName}}
-      &lt;button @click=&quot;change&quot;&gt;改名字&lt;/button&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  `,
-  methods: {
-    change() {
-      this.fullName = &quot;Candy Wang&quot;
-      console.log('名字已更改') // 重复点击‘改名字’只打印一次？
-    }
+  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">    &lt;div&gt;
+</span><span style="color:#e6db74">      &lt;div&gt;
+</span><span style="color:#e6db74">      {{fullName}}
+</span><span style="color:#e6db74">      &lt;button @click=&#34;change&#34;&gt;改名字&lt;/button&gt;
+</span><span style="color:#e6db74">      &lt;/div&gt;
+</span><span style="color:#e6db74">    &lt;/div&gt;
+</span><span style="color:#e6db74">  </span><span style="color:#e6db74">`</span>,
+  <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">change</span>() {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">fullName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Candy Wang&#34;</span>
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;名字已更改&#39;</span>) <span style="color:#75715e">// 重复点击‘改名字’只打印一次？
+</span><span style="color:#75715e"></span>    }
   }
-}).$mount(&quot;#app&quot;);
-</code></pre><h4 id="settergetter">通过setter和getter使得计算属性可修改，点击‘改名字’时，计算结果发生变化，重新运行计算，进行页面更新。计算属性的结果会被缓存，计算属性只有在它的相关依赖发生改变时才会重新计算。所以再次点击‘改名字’由于计算结果不变，不会重新运行计算。</h4>
+}).<span style="color:#a6e22e">$mount</span>(<span style="color:#e6db74">&#34;#app&#34;</span>);
+</code></pre></div><h4 id="settergetter">通过setter和getter使得计算属性可修改，点击‘改名字’时，计算结果发生变化，重新运行计算，进行页面更新。计算属性的结果会被缓存，计算属性只有在它的相关依赖发生改变时才会重新计算。所以再次点击‘改名字’由于计算结果不变，不会重新运行计算。</h4>
 <h2 id="watch-">watch 监听/侦察</h2>
 <h4 id="heading3">当数据变化时执行一个函数</h4>
 <h4 id="watch">watch属性可以是字符串、函数、对象、数组</h4>
 <h4 id="deepimmediate">拥有deep，immediate两属性</h4>
 <h3 id="watch1">watch的监听方式</h3>
 <p>请看下面的例子：</p>
-<pre><code>// 引用完整版 Vue，方便讲解
-import Vue from &quot;vue/dist/vue.js&quot;;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// 引用完整版 Vue，方便讲解
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vue/dist/vue.js&#34;</span>;
 
-new Vue({
-  data: {
-    n: 0,
-    obj: {
-      a: &quot;a&quot;
+<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">n</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+    <span style="color:#a6e22e">obj</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;a&#34;</span>
     }
   },
-  template: `
-    &lt;div&gt;
-      &lt;button @click=&quot;n += 1&quot;&gt;n+1&lt;/button&gt;
-      &lt;button @click=&quot;obj.a += 'hi'&quot;&gt;obj.a + 'hi'&lt;/button&gt;
-      &lt;button @click=&quot;obj = {a:'a'}&quot;&gt;obj = 新对象&lt;/button&gt;
-    &lt;/div&gt;
-  `,
-  watch: {
-    n() {
-      console.log(&quot;n 变了&quot;);
+  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">    &lt;div&gt;
+</span><span style="color:#e6db74">      &lt;button @click=&#34;n += 1&#34;&gt;n+1&lt;/button&gt;
+</span><span style="color:#e6db74">      &lt;button @click=&#34;obj.a += &#39;hi&#39;&#34;&gt;obj.a + &#39;hi&#39;&lt;/button&gt;
+</span><span style="color:#e6db74">      &lt;button @click=&#34;obj = {a:&#39;a&#39;}&#34;&gt;obj = 新对象&lt;/button&gt;
+</span><span style="color:#e6db74">    &lt;/div&gt;
+</span><span style="color:#e6db74">  </span><span style="color:#e6db74">`</span>,
+  <span style="color:#a6e22e">watch</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">n</span>() {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;n 变了&#34;</span>);
     },
-    obj() {
-      console.log(&quot;obj 变了&quot;);
+    <span style="color:#a6e22e">obj</span>() {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;obj 变了&#34;</span>);
     },
-    &quot;obj.a&quot;: function() {
-      console.log(&quot;obj.a 变了&quot;);
+    <span style="color:#e6db74">&#34;obj.a&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;obj.a 变了&#34;</span>);
     }
   }
-}).$mount(&quot;#app&quot;);
-</code></pre><h4 id="n1--n-">点击n+1 ： 打印出“n 变了”</h4>
+}).<span style="color:#a6e22e">$mount</span>(<span style="color:#e6db74">&#34;#app&#34;</span>);
+</code></pre></div><h4 id="n1--n-">点击n+1 ： 打印出“n 变了”</h4>
 <h4 id="obja--hi--obja-obj-">点击obj.a + &lsquo;hi&rsquo; : 打印出“obj.a 变了”，不打印&quot;obj 变了&rdquo;</h4>
 <h4 id="obja--hi--obj----obj-obj-">不点击obj.a + &lsquo;hi&rsquo; , 点击obj = 新对象 : 打印出&quot;obj 变了&rdquo;，不打印&quot;obj 变了&rdquo;</h4>
 <h3 id="watch2">说明watch的监听方式是：简单数据类型看值，复杂数据类型（对象）看地址</h3>
 <h4 id="objobja">抬个杠，那我想通过监听obj也能obj.a变化可以吗？</h4>
 <h4 id="deep">答：可以，使用deep</h4>
 <h3 id="deep1">deep属性</h3>
-<pre><code>watch: {
-    n() {
-      console.log(&quot;n 变了&quot;)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">watch</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">n</span>() {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;n 变了&#34;</span>)
     },
-    obj() {
-      console.log(&quot;obj 变了&quot;)
-      deep: ture       // 可以监听到obj对象的所有内部属性
-    },
-    &quot;obj.a&quot;: function() {
-      console.log(&quot;obj.a 变了&quot;)
+    <span style="color:#a6e22e">obj</span>() {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;obj 变了&#34;</span>)
+      <span style="color:#a6e22e">deep</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ture</span>       <span style="color:#75715e">// 可以监听到obj对象的所有内部属性
+</span><span style="color:#75715e"></span>    },
+    <span style="color:#e6db74">&#34;obj.a&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;obj.a 变了&#34;</span>)
     }
   }
-</code></pre><h4 id="obja--hi--obja--obj-">点击obj.a + &lsquo;hi&rsquo; : 打印出“obj.a 变了”和 &ldquo;obj 变了&rdquo;</h4>
+</code></pre></div><h4 id="obja--hi--obja--obj-">点击obj.a + &lsquo;hi&rsquo; : 打印出“obj.a 变了”和 &ldquo;obj 变了&rdquo;</h4>
 <h3 id="deeptrue-objfalse">当deep：true 会监听到obj对象的所有内部属性，默认值为false</h3>
 <h3 id="immediate">immediate属性</h3>
 <p>请看这个例子</p>
-<pre><code>// 引用完整版 Vue，方便讲解
-import Vue from &quot;vue/dist/vue.js&quot;;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// 引用完整版 Vue，方便讲解
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vue/dist/vue.js&#34;</span>;
 
-new Vue({
-  data: {
-    firstName: 'Jacky',
-    lastName: 'Lee',
-    fullName: ''
+<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Jacky&#39;</span>,
+    <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Lee&#39;</span>,
+    <span style="color:#a6e22e">fullName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>
   },
-  watch: {
-    firstName: {
-      handler: 'change'
+  <span style="color:#a6e22e">watch</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">handler</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;change&#39;</span>
     }
   },
-  template: `
-    &lt;div&gt;
-      {{fullName}}
-      &lt;button @click=&quot;firstName='John'&quot;&gt;改名字&lt;/button&gt;
-    &lt;/div&gt;
-  `,
-  methods: {
-    change() {
-      this.fullName =  this.firstName + ' ' + this.lastName      
+  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">    &lt;div&gt;
+</span><span style="color:#e6db74">      {{fullName}}
+</span><span style="color:#e6db74">      &lt;button @click=&#34;firstName=&#39;John&#39;&#34;&gt;改名字&lt;/button&gt;
+</span><span style="color:#e6db74">    &lt;/div&gt;
+</span><span style="color:#e6db74">  </span><span style="color:#e6db74">`</span>,
+  <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">change</span>() {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">fullName</span> <span style="color:#f92672">=</span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastName</span>      
     }
   }
-}).$mount(&quot;#app&quot;);
-</code></pre><p>通过fullName属性展示 firstName + lastName 的计算值</p>
+}).<span style="color:#a6e22e">$mount</span>(<span style="color:#e6db74">&#34;#app&#34;</span>);
+</code></pre></div><p>通过fullName属性展示 firstName + lastName 的计算值</p>
 <p>运行上面代码，页面啥也没有</p>
 <p>然后点击“改名字”，页面显示 John Lee</p>
 <h4 id="jacky-lee">啊？怎么回事Jacky Lee怎么不显示？</h4>
 <h4 id="watch3">答：因为watch不会监听第一次变化</h4>
 <h4 id="heading4">改造一下</h4>
-<pre><code>watch: {
-    firstName: {
-      handler: 'change',
-      immediate： ture
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">watch</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">handler</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;change&#39;</span>,
+      <span style="color:#a6e22e">immediate</span><span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#a6e22e">ture</span>
     }
 }
-</code></pre><p>初始页面展示 Jacky Lee</p>
+</code></pre></div><p>初始页面展示 Jacky Lee</p>
 <h3 id="-immediatetrue-">当 immediate：true 时，回调函数会在监听开始后立刻执行，可以监听到到第一次变化。</h3>
 <h2 id="heading5">总结：</h2>
 <ul>

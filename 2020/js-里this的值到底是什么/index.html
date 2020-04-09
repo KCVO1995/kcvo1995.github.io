@@ -144,93 +144,93 @@
 
           <h3 id="thisthis">说到this，那就是面试的必考的题，如果你还没搞懂this，就请看看这篇文章吧。</h3>
 <p>面试中你可能会遇到这样的题目</p>
-<pre><code>let a = {
-  speak: function() {
-    console.log(this)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">speak</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>)
   }
 }
 
-let b = a.speak
-b()           // 打印出的this 是 window
-a.speak()     // 打印出的this 是 a
-</code></pre><h4 id="heading">最后两行运行的结果怎么不一样了？</h4>
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">speak</span>
+<span style="color:#a6e22e">b</span>()           <span style="color:#75715e">// 打印出的this 是 window
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">speak</span>()     <span style="color:#75715e">// 打印出的this 是 a
+</span></code></pre></div><h4 id="heading">最后两行运行的结果怎么不一样了？</h4>
 <h4 id="heading1">看起来很迷对吧，看完下文，你还会这么想吗？</h4>
 <h2 id="heading2">函数调用</h2>
 <p>弄懂函数调用是学习this的关键</p>
 <p>我们先来看看JS（ES5） 的三种函数调用形式</p>
-<pre><code>fn(p1, p2)
-obj.fn(p1, p2)
-fn.call(p0, p1, p2)
-</code></pre><p>大多数的初学者都习惯使用前两种调用方式，然而这样并不利于我们了解this</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">p1</span>, <span style="color:#a6e22e">p2</span>)
+<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">p1</span>, <span style="color:#a6e22e">p2</span>)
+<span style="color:#a6e22e">fn</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">p0</span>, <span style="color:#a6e22e">p1</span>, <span style="color:#a6e22e">p2</span>)
+</code></pre></div><p>大多数的初学者都习惯使用前两种调用方式，然而这样并不利于我们了解this</p>
 <p>实际上第三种调用方法才是正确的调用方式，也就是</p>
-<pre><code>fn.call(p0, p1, p2)
-</code></pre><p>其他两种调用方式都是语法糖，并且可以等价的改为 call 形式</p>
-<pre><code>fn(p1, p2)  // 等价于
-fn.call(undefined, p1, p2)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">fn</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">p0</span>, <span style="color:#a6e22e">p1</span>, <span style="color:#a6e22e">p2</span>)
+</code></pre></div><p>其他两种调用方式都是语法糖，并且可以等价的改为 call 形式</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">p1</span>, <span style="color:#a6e22e">p2</span>)  <span style="color:#75715e">// 等价于
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">fn</span>.<span style="color:#a6e22e">call</span>(<span style="color:#66d9ef">undefined</span>, <span style="color:#a6e22e">p1</span>, <span style="color:#a6e22e">p2</span>)
 
-obj.fn(p1, p2)  // 等价于
-fn.call(obj, p1, p2)
-</code></pre><h4 id="---">为了方便下文描述，我们把这样的代码为 ' 转换代码 '</h4>
+<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">p1</span>, <span style="color:#a6e22e">p2</span>)  <span style="color:#75715e">// 等价于
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">fn</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">obj</span>, <span style="color:#a6e22e">p1</span>, <span style="color:#a6e22e">p2</span>)
+</code></pre></div><h4 id="---">为了方便下文描述，我们把这样的代码为 ' 转换代码 '</h4>
 <p>这样，this 就很好解释了</p>
 <h4 id="fncallp0-p1-p2p0this">使用fn.call(p0, p1, p2)方式调用，参数p0传入的值就是this。</h4>
 <p>先来看看 fn(p1, p2) 中的this如何确定</p>
-<pre><code>function fn () {
-  console.log(this)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fn</span> () {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>)
 }
-fn()
-// 我们用 ' 转换代码 ', 转化一下
-
-function fn () {
-  console.log(this)
+<span style="color:#a6e22e">fn</span>()
+<span style="color:#75715e">// 我们用 &#39; 转换代码 &#39;, 转化一下
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fn</span> () {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>)
 }
-fn.call(undefined) // 可以简写成 fn.call()
-</code></pre><p>那按理来说打印出的应该就是undefined 了吧，但是浏览器里面有一条规则：</p>
+<span style="color:#a6e22e">fn</span>.<span style="color:#a6e22e">call</span>(<span style="color:#66d9ef">undefined</span>) <span style="color:#75715e">// 可以简写成 fn.call()
+</span></code></pre></div><p>那按理来说打印出的应该就是undefined 了吧，但是浏览器里面有一条规则：</p>
 <p>如果call 传入的p0 是undefined 或者是 null 的话，那么 window 对象就是默认的 p0 （在严格模式下， undefined 是默认的p0）</p>
 <p>如此一来上面的答案显而易见了，就是打印出window</p>
 <p>如果你不希望this是window对象，很简单</p>
 <p>改变p0的传入值</p>
 <p><code>fn.call(obj)  // 好了，现在this就是obj了 </code></p>
 <p>现在，再看看第一条题目</p>
-<pre><code>let a = {
-  speak: function() {
-    console.log(this)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">speak</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>)
   }
 }
 
-let b = a.speak
-b()           
-a.speak()     
-使用转换代码，转化
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">speak</span>
+<span style="color:#a6e22e">b</span>()           
+<span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">speak</span>()     
+<span style="color:#a6e22e">使用转换代码</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">转化</span>
 
-b.call(undefined)   // this 就是 window 
-a.speak.call(a)     // this 就是 a
-</code></pre><h2 id="--">[ ] 语法</h2>
-<pre><code>function fn() { console.log(this) }
-let arr = [fn, fn2]
-arr[0]() // 这里面的this 又是什么？
-</code></pre><h4 id="-arr0--arr0-objchildmethodp1-p2">我们可以吧 arr<a href="">0</a> 想象为 arr.0() ，尽管这样的语法是错的，但是形式与转换代码里的obj.child.method(p1, p2)对应上了，于是我们就可以愉快的转换啦</h4>
+<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">call</span>(<span style="color:#66d9ef">undefined</span>)   <span style="color:#75715e">// this 就是 window 
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">speak</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">a</span>)     <span style="color:#75715e">// this 就是 a
+</span></code></pre></div><h2 id="--">[ ] 语法</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fn</span>() { <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>) }
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> [<span style="color:#a6e22e">fn</span>, <span style="color:#a6e22e">fn2</span>]
+<span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>]() <span style="color:#75715e">// 这里面的this 又是什么？
+</span></code></pre></div><h4 id="-arr0--arr0-objchildmethodp1-p2">我们可以吧 arr<a href="">0</a> 想象为 arr.0() ，尽管这样的语法是错的，但是形式与转换代码里的obj.child.method(p1, p2)对应上了，于是我们就可以愉快的转换啦</h4>
 <p>arr[0]</p>
 <p>假想为 arr.0()</p>
 <p>再转换为 arr.0.call( arr )</p>
 <p>答案出来了 this 就是 arr</p>
 <h2 id="event-handler--this">Event Handler 中的 this</h2>
-<pre><code>btn.addEventListener('click', function handler() {
-  console.log(this)  // 请问这里的this是什么
-})
-</code></pre><p>按照上文所说，只要转换成call 形式，就能知道答案了</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">btn</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>, <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">handler</span>() {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>)  <span style="color:#75715e">// 请问这里的this是什么
+</span><span style="color:#75715e"></span>})
+</code></pre></div><p>按照上文所说，只要转换成call 形式，就能知道答案了</p>
 <p>那只要找到 handler 被调用时的代码就可以了，可是源代码呢？</p>
 <p>由于 addEventListener 是浏览器提供的内置方法，源代码我们也看不了，那我们只能看文档了</p>
 <h4 id="this">通常来说this的值是触发事件的元素的引用，这种特性在多个相似的元素使用同一个通用事件监听器时非常让人满意。</h4>
 <h4 id="-addeventlistener--this--event--currenttarget-">当使用 addEventListener() 为一个元素注册事件的时候，句柄里的 this 值是该元素的引用。其与传递给句柄的 event 参数的 currentTarget 属性的值一样。</h4>
 <p>按照文档的解释，浏览器的源代码，你可以假象为是这样写的</p>
-<pre><code>// 当事件触发时
-handler.call( event.currentTarget, event )
-// 答案不言而喻了
-</code></pre><h2 id="jquery-event-handler--this">jQuery Event Handler 中的 this</h2>
-<pre><code>$ul.on('clikc', 'li', function() {
-  console.log(this)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// 当事件触发时
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">handler</span>.<span style="color:#a6e22e">call</span>( <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">currentTarget</span>, <span style="color:#a6e22e">event</span> )
+<span style="color:#75715e">// 答案不言而喻了
+</span></code></pre></div><h2 id="jquery-event-handler--this">jQuery Event Handler 中的 this</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">$ul</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;clikc&#39;</span>, <span style="color:#e6db74">&#39;li&#39;</span>, <span style="color:#66d9ef">function</span>() {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>)
 })
-</code></pre><p>同样，不需要瞎猜，我们看看jQuery文档，试试能不能找到答案</p>
+</code></pre></div><p>同样，不需要瞎猜，我们看看jQuery文档，试试能不能找到答案</p>
 <h4 id="jquerythisthisthisselectorthiseventtarget-jquery--jquery-this">当jQuery的调用处理程序时，this关键字指向的是当前正在执行事件的元素。对于直接事件而言，this代表绑定事件的元素。对于代理事件而言，this则代表了与selector相匹配的元素。(注意，如果事件是从后代元素冒泡上来的话，那么this就有可能不等于event.target。)若要使用 jQuery 的相关方法，可以根据当前元素创建一个 jQuery 对象，即使用$(this)。</h4>
 <h2 id="heading3">箭头函数</h2>
 <p>箭头函数是es6的新语法，它和es5 的函数最大的区别就是，箭头函数里面没有this 和 arguments ，所以当你在箭头函数里面见到this，你直接把它当作箭头函数外面的this即可。</p>

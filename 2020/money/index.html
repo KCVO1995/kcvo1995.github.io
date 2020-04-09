@@ -10,7 +10,7 @@
   
   
   <link rel="prev" href="https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5bug/" />
-  
+  <link rel="next" href="https://kcvo.top/2020/tomatodo/" />
   <link rel="canonical" href="https://kcvo.top/2020/money/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -189,22 +189,22 @@
 <h1 id="heading4">思路与经验</h1>
 <h2 id="heading5">如何按照不同的时间单位显示金额</h2>
 <p>对于记账项目，记账金额需要按照不同的时间单位显示，例如按月，按周，按日，如果每次都要写一个函数进行显示，显然是繁琐的，于是我想出了一个可以复用的显示金额函数</p>
-<pre><code>const showAmount = (type: string, unit: Unit, according: any, record: boolean) =&gt; {
-  const recordList = clone(store.state.recordList).filter(record =&gt; record.type === type);
-  if (recordList.length === 0) {return 0;}
-  const recordGroup = [];
-  let total = 0;
-  for (let i = 0; i &lt; recordList.length; i++) {
-    const recordCreateAt = dayjs(recordList[i].createAt);
-    if (dayjs(recordCreateAt).isSame(according, unit)) {
-      recordGroup.push(recordList[i]);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">showAmount</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>, <span style="color:#a6e22e">unit</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Unit</span>, <span style="color:#a6e22e">according</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>, <span style="color:#a6e22e">record</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">boolean</span>) =&gt; {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">recordList</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">clone</span>(<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">recordList</span>).<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">record</span> =&gt; <span style="color:#a6e22e">record</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">type</span>);
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">recordList</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) {<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;}
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">recordGroup</span> <span style="color:#f92672">=</span> [];
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">total</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">recordList</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">recordCreateAt</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dayjs</span>(<span style="color:#a6e22e">recordList</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">createAt</span>);
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">dayjs</span>(<span style="color:#a6e22e">recordCreateAt</span>).<span style="color:#a6e22e">isSame</span>(<span style="color:#a6e22e">according</span>, <span style="color:#a6e22e">unit</span>)) {
+      <span style="color:#a6e22e">recordGroup</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">recordList</span>[<span style="color:#a6e22e">i</span>]);
     }
   }
-  if (record) {return recordGroup;}
-  for (let i = 0; i &lt; recordGroup.length; i++) {total += recordGroup[i].amount;}
-  return total;
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">record</span>) {<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">recordGroup</span>;}
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">recordGroup</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {<span style="color:#a6e22e">total</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">recordGroup</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">amount</span>;}
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">total</span>;
 };
-</code></pre><p>showAmount 函数接受多个参数，</p>
+</code></pre></div><p>showAmount 函数接受多个参数，</p>
 <ul>
 <li>type 对应的是 &ldquo;收入&rdquo; 和 &ldquo;支出&rdquo; 两种类型</li>
 <li>unit 对应的是要对比的时间单位</li>
@@ -215,66 +215,66 @@
 <p>然后通过 for 循环遍历<code>recordList</code>,将<code>record.createAt</code>创建时间改为 Day.js 格式，使用 Day.js 的<code>isSame</code>api 按照不同时间单位<code>unit</code>和<code>according</code>进行对比，将配对成功的<code>record</code>通过数组的 push 到<code>recordGroup</code>中</p>
 <p>通过<code>record</code>参数判断，返回的是<code>record</code>对象，还是统计金额</p>
 <p>如果是统计金额，通过 for 循环遍历<code>recordGroup</code>,将每个<code>record</code>的金额进行相加,然后返回总额</p>
-<h2 id="home-">Home 页面</h2>
+<h1 id="home-">Home 页面</h1>
 <h2 id="heading6">首页和记账页面的通信</h2>
 <p>主页中有 &ldquo;+&rdquo; 和 &ldquo;-&rdquo; 两按钮，分别对应的是 &ldquo;收入&rdquo; 和 &ldquo;支出&rdquo;，点击这两个按钮就会跳转到记账页面，因为记账记录是在记账页面中进行提交的，所以我要做的是把选择的类型告诉记账页面组件</p>
 <p>首页对应的是 Home 组件，记账页面对应的是 Money 组件</p>
 <p>两个组件时兄弟组件，所以我选择的通信方式是使用<code>eventBus</code></p>
 <p>首先我在 App.vue 中提供一个<code>eventBus</code></p>
-<pre><code>@Provide('eventBus') eventBus = new Vue();
-</code></pre><p>然后在 Home.vue 中注入<code>eventBus</code>,并在跳转后通过<code>eventBus</code>发布 &ldquo;update:type&rdquo;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">Provide</span>(<span style="color:#e6db74">&#39;eventBus&#39;</span>) <span style="color:#a6e22e">eventBus</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>();
+</code></pre></div><p>然后在 Home.vue 中注入<code>eventBus</code>,并在跳转后通过<code>eventBus</code>发布 &ldquo;update:type&rdquo;</p>
 <p>在<code>this.$nextTick()</code>中发布的原因是，<code>eventBus</code>监听时间是 Money 组件创建后，所以要推迟发布的时间</p>
-<pre><code>@Inject() eventBus: any;
-@Prop(Number) selectedMonth: number | undefined;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">Inject</span>() <span style="color:#a6e22e">eventBus</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>;
+<span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">Prop</span>(Number) <span style="color:#a6e22e">selectedMonth</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>;
 
-toMoney(type: string) {
-  this.$router.push('/money/0');
-  this.$nextTick(() =&gt; {
-  this.eventBus.$emit('update:type', type);
+<span style="color:#a6e22e">toMoney</span>(<span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>) {
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$router</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#39;/money/0&#39;</span>);
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$nextTick</span>(() =&gt; {
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">eventBus</span>.<span style="color:#a6e22e">$emit</span>(<span style="color:#e6db74">&#39;update:type&#39;</span>, <span style="color:#a6e22e">type</span>);
   });
 }
-</code></pre><p>最后在 Money 组件中进行订阅 &ldquo;update:type&rdquo;,并在组件创建完成后，赋值到 Money 组件的<code>type</code>数据中</p>
-<pre><code>created() {
-  this.eventBus.$on('update:type', (type: string) =&gt; {
-  this.reset.type = type;
+</code></pre></div><p>最后在 Money 组件中进行订阅 &ldquo;update:type&rdquo;,并在组件创建完成后，赋值到 Money 组件的<code>type</code>数据中</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">created</span>() {
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">eventBus</span>.<span style="color:#a6e22e">$on</span>(<span style="color:#e6db74">&#39;update:type&#39;</span>, (<span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>) =&gt; {
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">reset</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span>;
   });
 }
-</code></pre><p>上述代码使用的都是 TS 装饰器的写法</p>
-<h2 id="heading7">记账页面</h2>
+</code></pre></div><p>上述代码使用的都是 TS 装饰器的写法</p>
+<h1 id="heading7">记账页面</h1>
 <h2 id="-localstorage">如何将记账记录存入 localStorage</h2>
 <p>记账页面对应的是 Money 组件</p>
 <p>Money 组件中，我先对<code>record</code>进行初始化</p>
-<pre><code>record = {id: 0, selectedTags: [], notes: '', type: '-', amount: 0}
-</code></pre><p>然后再用户点击页面的提交按钮时，记录要 push 进<code>recordList</code> 数组然后存入<code>localStorage</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">record</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">selectedTags</span><span style="color:#f92672">:</span> [], <span style="color:#a6e22e">notes</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>, <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;-&#39;</span>, <span style="color:#a6e22e">amount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>}
+</code></pre></div><p>然后再用户点击页面的提交按钮时，记录要 push 进<code>recordList</code> 数组然后存入<code>localStorage</code></p>
 <p>但是如果直接将<code>record</code>,push 到<code>recordList</code>是不可以的，因为这样存的只是对象的地址，这样就会存在一个问题，点击提交后，页面的数据是要清零的，方便用户再次记账，这样就会影响到上次的<code>record</code></p>
 <p>所以我们需要先对<code>record</code>进行深拷贝，再 push 到<code>recordList</code></p>
 <p>于是我写了一个用于深拷贝的<code>clone</code>函数</p>
-<pre><code>function clone(data) {
-  return JSON.parse(JSON.stringify(data));
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">clone</span>(<span style="color:#a6e22e">data</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">data</span>));
 }
-</code></pre><p>在存记账记录时，我们可以直接调用<code>clone</code>函数</p>
-<pre><code>createRecord(state, record) {
-  record.createAt = new Date().toISOString();
-  const newRecord = clone(record);
-  state.recordList.push(newRecord);
-  store.commit('saveRecords');
+</code></pre></div><p>在存记账记录时，我们可以直接调用<code>clone</code>函数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">createRecord</span>(<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">record</span>) {
+  <span style="color:#a6e22e">record</span>.<span style="color:#a6e22e">createAt</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date().<span style="color:#a6e22e">toISOString</span>();
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newRecord</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">clone</span>(<span style="color:#a6e22e">record</span>);
+  <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">recordList</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">newRecord</span>);
+  <span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">commit</span>(<span style="color:#e6db74">&#39;saveRecords&#39;</span>);
   },
-  saveRecords(state) {
-    localStorage.setItem('recordList', JSON.stringify(state.recordList));
+  <span style="color:#a6e22e">saveRecords</span>(<span style="color:#a6e22e">state</span>) {
+    <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">setItem</span>(<span style="color:#e6db74">&#39;recordList&#39;</span>, <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">recordList</span>));
   }
-</code></pre><h2 id="heading8">标签管理页面</h2>
+</code></pre></div><h1 id="heading8">标签管理页面</h1>
 <h2 id="-id-">如何实现 ID 生成器</h2>
 <p>要实现标签的增删改查，我们需要个每个标签一个独一无二的 ID，于是我写了这样一个 ID 生成器</p>
-<pre><code>let id = parseInt(localStorage.getItem('_idMax') || '0') || 0;
-const createId = () =&gt; {
-  id++;
-  localStorage.setItem('_idMax', JSON.stringify(id));
-  return id;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> parseInt(<span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">getItem</span>(<span style="color:#e6db74">&#39;_idMax&#39;</span>) <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;0&#39;</span>) <span style="color:#f92672">||</span> <span style="color:#ae81ff">0</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">createId</span> <span style="color:#f92672">=</span> () =&gt; {
+  <span style="color:#a6e22e">id</span><span style="color:#f92672">++</span>;
+  <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">setItem</span>(<span style="color:#e6db74">&#39;_idMax&#39;</span>, <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">id</span>));
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">id</span>;
 };
-</code></pre><p>首先从<code>localStorage</code> 中提取 id 最大值<code>_idMax</code>，如果没有则使用 0</p>
+</code></pre></div><p>首先从<code>localStorage</code> 中提取 id 最大值<code>_idMax</code>，如果没有则使用 0</p>
 <p>运行<code>createId</code>，id 加 1，并把目前 id 存为 id 最大值，返回 id</p>
 <p>下一次运行时，得到上一次的<code>_idMax</code>，加 1，再存为 id 最大值，返回新 id</p>
-<h2 id="heading9">统计页面</h2>
+<h1 id="heading9">统计页面</h1>
 <h2 id="heading10">如何实现日期选择器</h2>
 <p>我认为实现日期选择器要分为两部分，第一要按周期规律显示，第二实现可选择</p>
 <h3 id="heading11">按周期规律显示</h3>
@@ -284,104 +284,96 @@ const createId = () =&gt; {
 <p>我的想法时，周一到周日为一周，并将同月的每一周的日期组成一个数组</p>
 <p>由于每月的第一天和最后一天，并非周一和周日，这样第一周的数组和最后一周的数组可能是不完整的，所以需要再加工，对于第一周将上一月的数据进行补全，对于最后一周用下个月的数据进行补全</p>
 <p>这是实现的代码：</p>
-<pre><code>createDay(month: number) {
-  const daysInMonth = this.getDaysInMonth(month);
-  const hashTable = {};
-  let weeks = 1;
-  for (let i = 1; i &lt;= daysInMonth; i++) {
-    const date = dayjs().set('month', month).set('date', i);
-    hashTable[weeks] = hashTable[weeks] || [];
-    hashTable[weeks].push(date);
-    if (date['$W'] === 0) {weeks++;}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">createDay</span>(<span style="color:#a6e22e">month</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>) {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">daysInMonth</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getDaysInMonth</span>(<span style="color:#a6e22e">month</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hashTable</span> <span style="color:#f92672">=</span> {};
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">weeks</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">daysInMonth</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">date</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dayjs</span>().<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;month&#39;</span>, <span style="color:#a6e22e">month</span>).<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;date&#39;</span>, <span style="color:#a6e22e">i</span>);
+    <span style="color:#a6e22e">hashTable</span>[<span style="color:#a6e22e">weeks</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">hashTable</span>[<span style="color:#a6e22e">weeks</span>] <span style="color:#f92672">||</span> [];
+    <span style="color:#a6e22e">hashTable</span>[<span style="color:#a6e22e">weeks</span>].<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">date</span>);
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">date</span>[<span style="color:#e6db74">&#39;$W&#39;</span>] <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) {<span style="color:#a6e22e">weeks</span><span style="color:#f92672">++</span>;}
   }
-  this.complement(hashTable, month);
-  return hashTable;
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">complement</span>(<span style="color:#a6e22e">hashTable</span>, <span style="color:#a6e22e">month</span>);
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">hashTable</span>;
 }
-</code></pre><p>首先拿到当前月的天数</p>
+</code></pre></div><p>首先拿到当前月的天数</p>
 <p>声明一个 hashTable 用于储存数据</p>
 <p>声明 weeks 赋值为 1，作为日期分组的 key</p>
 <p>通过 for 循环，遍历次数是月的天数，将获得的第一天，加入 key 为第一周的数组中</p>
 <p>当日期为周天的时候，weeks 加一，也就是增加一周</p>
-<pre><code>complement(hashTable: dateGroup, month: number) {
-  const daysInLastMonth = this.getDaysInMonth(month - 1);
-  const last = hashTable[Object.keys(hashTable).length];
-  const first = hashTable[1];
-  if (first.length &lt; 7) {
-    const delta = 7 - first.length;
-    for (let i = 0; i &lt; delta; i++) {
-      const date = dayjs().set('month', month - 1).set('date', daysInLastMonth - i) as never;
-      first.unshift(date);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">complement</span>(<span style="color:#a6e22e">hashTable</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">dateGroup</span>, <span style="color:#a6e22e">month</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>) {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">daysInLastMonth</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getDaysInMonth</span>(<span style="color:#a6e22e">month</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">last</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">hashTable</span>[Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">hashTable</span>).<span style="color:#a6e22e">length</span>];
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">first</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">hashTable</span>[<span style="color:#ae81ff">1</span>];
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">first</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">7</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">delta</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">first</span>.<span style="color:#a6e22e">length</span>;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">delta</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">date</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dayjs</span>().<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;month&#39;</span>, <span style="color:#a6e22e">month</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>).<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;date&#39;</span>, <span style="color:#a6e22e">daysInLastMonth</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">i</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">never</span>;
+      <span style="color:#a6e22e">first</span>.<span style="color:#a6e22e">unshift</span>(<span style="color:#a6e22e">date</span>);
     }
   }
-  if (last.length &lt; 7) {
-    const delta = 7 - last.length;
-    for (let i = 0; i &lt; delta; i++) {
-      const date = dayjs().set('month', month + 1).set('date', i + 1) as never;
-      last.push(date);
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">last</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">7</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">delta</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">last</span>.<span style="color:#a6e22e">length</span>;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">delta</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">date</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dayjs</span>().<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;month&#39;</span>, <span style="color:#a6e22e">month</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>).<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;date&#39;</span>, <span style="color:#a6e22e">i</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">never</span>;
+      <span style="color:#a6e22e">last</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">date</span>);
     }
   }
 }
-</code></pre><p>这个函数是对于第一周和最后一周，不完整的数组进行补全</p>
+</code></pre></div><p>这个函数是对于第一周和最后一周，不完整的数组进行补全</p>
 <p>首先获取上一月的天数</p>
 <p>获取第一周，判断长度，如果小于 7 就是没有完整周的日期，需要补全，通过上月的最后几天进行补全</p>
 <p>获取最后一周，判断长度，如果小于 7 就是没有完整周的日期，需要补全，通过下月的前几天进行补全</p>
-<h2 id="heading12">其他问题</h2>
-<ul>
-<li>
-<h3 id="-svg">怎么引入 SVG</h3>
-</li>
-</ul>
+<h1 id="heading12">其他问题</h1>
+<h2 id="-svg">怎么引入 SVG</h2>
 <p>在这个项目中多次使用的了 SVG 图片，SVG 全称是 Scalable Vector Graphics，是指伸缩矢量图片，比起 png，jpg 图片，它有很多优点，它是一种基于 XML 语法的图像格式，在项目中我们可以进行二次修改，可以修改颜色，大小，而且它的体积更小。</p>
 <p>项目中使用的 SVG 图标，我都是从 iconfont 引入的</p>
 <p>按照官方文档填入</p>
 <p>HTML</p>
-<pre><code>&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
-    &lt;use xlink:href=&quot;#icon-label&quot;&gt;&lt;/use&gt;
-&lt;/svg&gt;
-</code></pre><p>CSS</p>
-<pre><code>&lt;style type=&quot;text/css&quot;&gt;
-    .icon {
-       width: 1em; height: 1em;
-       vertical-align: -0.15em;
-       fill: currentColor;
-       overflow: hidden;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">svg</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">aria-hidden</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span>&gt;
+    &lt;<span style="color:#f92672">use</span> <span style="color:#a6e22e">xlink:href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#icon-label&#34;</span>&gt;&lt;/<span style="color:#f92672">use</span>&gt;
+&lt;/<span style="color:#f92672">svg</span>&gt;
+</code></pre></div><p>CSS</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">&lt;</span><span style="color:#f92672">style</span> <span style="color:#f92672">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span><span style="color:#f92672">&gt;</span>
+    .<span style="color:#a6e22e">icon</span> {
+       <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">em</span>; <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">em</span>;
+       <span style="color:#66d9ef">vertical-align</span>: <span style="color:#ae81ff">-0.15</span><span style="color:#66d9ef">em</span>;
+       fill: <span style="color:#66d9ef">currentColor</span>;
+       <span style="color:#66d9ef">overflow</span>: <span style="color:#66d9ef">hidden</span>;
     }
-&lt;/style&gt;
-</code></pre><p>JS</p>
-<pre><code>import '@/assets/icons/label.svg'
-</code></pre><p>发现 SVG，还是没有显示，于是我发现是缺了 svg-sprite-load</p>
+<span style="color:#f92672">&lt;</span><span style="color:#f92672">/</span><span style="color:#f92672">style</span><span style="color:#f92672">&gt;</span>
+</code></pre></div><p>JS</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;@/assets/icons/label.svg&#39;</span>
+</code></pre></div><p>发现 SVG，还是没有显示，于是我发现是缺了 svg-sprite-load</p>
 <p>解决方法是：</p>
 <p>首先安装</p>
-<pre><code>npm i svg-sprite-loader --save
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm i svg-sprite-loader --save
 或者
 yarn add svg-sprite-loader --dev
-</code></pre><p>然后配置 vue.config.js</p>
-<pre><code>config.module
-      .rule('svg-sprite')  // 找到svg-loader
-      .test(/\.svg$/)
-      .include.add(dir).end()
-      .use('svg-sprite-loader').loader('svg-sprite-loader').options({extract:false}).end()
-    config.plugin('svg-sprite').use(require('svg-sprite-loader/plugin'), [{plainSprite: true}])
-    config.module.rule('svg').exclude.add(dir)
-</code></pre><p>安照上面的代码在 webStorm 中运行，发现这个报错 （在 require 语句的地方）</p>
+</code></pre></div><p>然后配置 vue.config.js</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">module</span>
+      .<span style="color:#a6e22e">rule</span>(<span style="color:#e6db74">&#39;svg-sprite&#39;</span>)  <span style="color:#75715e">// 找到svg-loader
+</span><span style="color:#75715e"></span>      .<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">/\.svg$/</span>)
+      .<span style="color:#a6e22e">include</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">dir</span>).<span style="color:#a6e22e">end</span>()
+      .<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#39;svg-sprite-loader&#39;</span>).<span style="color:#a6e22e">loader</span>(<span style="color:#e6db74">&#39;svg-sprite-loader&#39;</span>).<span style="color:#a6e22e">options</span>({<span style="color:#a6e22e">extract</span><span style="color:#f92672">:</span><span style="color:#66d9ef">false</span>}).<span style="color:#a6e22e">end</span>()
+    <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugin</span>(<span style="color:#e6db74">&#39;svg-sprite&#39;</span>).<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;svg-sprite-loader/plugin&#39;</span>), [{<span style="color:#a6e22e">plainSprite</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>}])
+    <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">rule</span>(<span style="color:#e6db74">&#39;svg&#39;</span>).<span style="color:#a6e22e">exclude</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">dir</span>)
+</code></pre></div><p>安照上面的代码在 webStorm 中运行，发现这个报错 （在 require 语句的地方）</p>
 <pre><code>ESLint: Require statement not part of import statement.(@typescript-eslint/no-var-requires)
 </code></pre><p>我发现有两种解决方式</p>
 <ol>
 <li>安装错误提示改为 import 引入</li>
 </ol>
-<pre><code>import svgLoader from 'svg-sprite-loader/plugin';
-// 然后在使用require的地方替换为 svgLoader
-config.plugin('svg-sprite').use(svgLoader, [{plainSprite: true}])
-</code></pre><ol start="2">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">svgLoader</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;svg-sprite-loader/plugin&#39;</span>;
+<span style="color:#75715e">// 然后在使用require的地方替换为 svgLoader
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugin</span>(<span style="color:#e6db74">&#39;svg-sprite&#39;</span>).<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">svgLoader</span>, [{<span style="color:#a6e22e">plainSprite</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>}])
+</code></pre></div><ol start="2">
 <li>告诉 eslint 不检查这行代码（在报错的代码行上一行插入）</li>
 </ol>
-<pre><code>// eslint-disable-next-line @typescript-eslint/no-var-requires
-</code></pre><p>详细的博客记录，请移步：<a href="https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5/">米奇记账项目实记之 SVG 引入 bug</a></p>
-<ul>
-<li>
-<h3 id="svg--bug">SVG 引入遇到的 bug</h3>
-</li>
-</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// eslint-disable-next-line @typescript-eslint/no-var-requires
+</span></code></pre></div><p>详细的博客记录，请移步：<a href="https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5/">米奇记账项目实记之 SVG 引入 bug</a></p>
+<h2 id="svg--bug">SVG 引入遇到的 bug</h2>
 <p>在使用 SVG 图标的过程中，发现有些 SVG 图标，在 SCSS 设置<code>fill</code>颜色后，颜色依然不变。</p>
 <p>于是我首先检查了 SCSS 代码后，发现没问题</p>
 <p>那问题可能就在 <code>SVG</code> 的源文件上了</p>
@@ -395,14 +387,9 @@ config.plugin('svg-sprite').use(svgLoader, [{plainSprite: true}])
 <p>是一个我搜了很久的答案</p>
 </li>
 </ol>
-<pre><code>.use('svgo-loader').loader('svgo-loader')
-      .tap(options =&gt; ({...options, plugins: [{removeAttrs: {attrs: 'fill'}}]})).end()
-</code></pre><p>详细的博客记录，请移步：<a href="https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5bug-copy/">米奇记账项目实记之 SVG 引入 bug</a></p>
-<ul>
-<li>
-<h3 id="heading13"></h3>
-</li>
-</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#39;svgo-loader&#39;</span>).<span style="color:#a6e22e">loader</span>(<span style="color:#e6db74">&#39;svgo-loader&#39;</span>)
+      .<span style="color:#a6e22e">tap</span>(<span style="color:#a6e22e">options</span> =&gt; ({...<span style="color:#a6e22e">options</span>, <span style="color:#a6e22e">plugins</span><span style="color:#f92672">:</span> [{<span style="color:#a6e22e">removeAttrs</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">attrs</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;fill&#39;</span>}}]})).<span style="color:#a6e22e">end</span>()
+</code></pre></div><p>详细的博客记录，请移步：<a href="https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5bug-copy/">米奇记账项目实记之 SVG 引入 bug</a></p>
 
     </div>
 
@@ -440,6 +427,8 @@ config.plugin('svg-sprite').use(svgLoader, [{plainSprite: true}])
         
         <a href="https://kcvo.top/2020/%E7%B1%B3%E5%A5%87%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0%E4%B9%8B-svg%E5%BC%95%E5%85%A5bug/" class="prev" rel="prev" title="米奇记账项目实记之 SVG引入bug"><i class="iconfont icon-left"></i>&nbsp;米奇记账项目实记之 SVG引入bug</a>
          
+        
+        <a href="https://kcvo.top/2020/tomatodo/" class="next" rel="next" title="番茄土豆项目总结">番茄土豆项目总结&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
